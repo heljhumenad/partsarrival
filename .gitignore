@@ -1,0 +1,16 @@
+*.pyc
+*.pyo
+*.db
+./__pycache__/
+.vscode/*
+.idea/*
+.vimrc*
+db.sqlite3
+TODO.ini
+.coverage
+.coveragerc
+notes.txtq
+.pytest_cache/
+.tox/
+htmlcov/
+
