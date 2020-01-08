@@ -11,9 +11,10 @@ django = "==2.1"
 psycopg2 = "*"
 django-bootstrap3 = "*"
 django-extensions = "*"
+werkzeug = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
 
 [pipenv]
 allow_prereleases = true
