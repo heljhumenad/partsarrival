@@ -1,0 +1,35 @@
+{% extends "common/base.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block login_account %}
+<div class="col-md-5 col-xs-12 my-col">
+ <div class="card card-default login-forms">
+    <div class="card-body">
+    <h3 class="admin-login">{% trans "Admin Account" %}</h3>
+    <form method="post" role="form">
+        {% csrf_token %}
+        {% bootstrap_form_errors form  %}
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user-circle-o fa-fw"></i></span>
+            </div>
+        <input class="form-control" name="username" type="text" placeholder="{% trans "Username" %}">
+        </div>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
+                </div>
+        <input class="form-control" name="password" type="Password" placeholder="{% trans "Password" %}">
+        </div>
+            <input type="checkbox" name="remember_me"><!--Add remember me functionality-->
+        <label for="{% trans "Remember me" %}">{% trans "Remember me" %}</label>
+
+       {% buttons %}
+                <button type="submit" class="btn btn-primary btn-block login-button">{% trans "LOGIN" %}</button>
+        {% endbuttons %}            
+    </form>
+</div>
+ </div>
+    </div>
+{% endblock login_account %}

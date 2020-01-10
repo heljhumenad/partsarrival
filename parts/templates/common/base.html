@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap4 %}
+{% load i18n %}
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{% block title %} {% endblock title%}</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" type="text/css" media="screen" title="no title" charset="utf-8">
+	</head>
+	<body>
+		<div class="sidebar">{% block sidebar %} {% endblock sidebar %}</div>
+		<div class="top-bar"> {% block top_bar %} {% endblock top_bar %}
+		</div>
+		<div class="main-prev">
+			{% comment %} main block{% endcomment %}
+			{% block main %} 
+			{% endblock main %}
+		</div>
+		<div class="login-account">
+			{% block login_account %}
+			{% endblock login_account %}
+</div>
+		
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script charset="utf-8" src="{% static 'js/main.js'}"></script>	
+	</body>
+</html>
