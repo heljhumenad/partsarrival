@@ -1,0 +1,15 @@
+from django.urls import path
+from parts.app.views import accounts
+
+app_name = 'accounts'
+
+urlpatterns = [
+        path('dashboard/', 
+            accounts.AccountTemplateView.as_view(),
+            name='account_view'),
+
+        path('login/', 
+            accounts.AccountLoginView.as_view(),
+            name='login'),
+
+ ]
