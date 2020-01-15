@@ -6,7 +6,7 @@
 <div class="col-md-5 col-xs-12 my-col">
  <div class="card card-default login-forms">
     <div class="card-body">
-    <h3 class="admin-login">{% trans "Admin Account" %}</h3>
+    <h3 class="admin-login">{% trans "Login Account" %}</h3>
     <form method="post" role="form">
         {% csrf_token %}
         {% bootstrap_form_errors form  %}
@@ -22,9 +22,6 @@
                 </div>
         <input class="form-control" name="password" type="Password" placeholder="{% trans "Password" %}">
         </div>
-            <input type="checkbox" name="remember_me"><!--Add remember me functionality-->
-        <label for="{% trans "Remember me" %}">{% trans "Remember me" %}</label>
-
        {% buttons %}
                 <button type="submit" class="btn btn-primary btn-block login-button">{% trans "LOGIN" %}</button>
         {% endbuttons %}            

@@ -2,7 +2,9 @@ from django.views import generic
 from django.contrib.auth import views
 from django.urls import reverse_lazy
 
-class AccountTemplateView(generic.TemplateView):
+from parts.app.mixins.useraccount_mixins import UserAccountMixins
+
+class AccountTemplateView(UserAccountMixins, generic.TemplateView):
     template_name = 'accounts/index.html'
 
 class AccountLoginView(views.LoginView):

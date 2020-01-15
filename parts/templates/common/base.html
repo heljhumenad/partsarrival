@@ -4,28 +4,42 @@
 {% load i18n %}
 <html>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>{% block title %} {% endblock title%}</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" type="text/css" media="screen" title="no title" charset="utf-8">
-	</head>
-	<body>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <link href="{% static 'img/nissan_ico.ico' %}" rel="icon" type="image/x-icon" />
+</head>
+ 	<body>
 		<div class="sidebar">{% block sidebar %} {% endblock sidebar %}</div>
 		<div class="top-bar"> {% block top_bar %} {% endblock top_bar %}
 		</div>
-		<div class="main-prev">
+		<div class="main-prev row justify-content-center">
 			{% comment %} main block{% endcomment %}
 			{% block main %} 
 			{% endblock main %}
 		</div>
-		<div class="login-account">
+		<div class="login-account row justify-content-center my-row">
 			{% block login_account %}
 			{% endblock login_account %}
 </div>
-		
+	
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script> <!--- CDN for jquery for callback when filebased was failed--> 
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+<!-- You can alternatively load the minified version -->
+<script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+{% block jsscript %}
+<script src="{% static 'js/jquery.js' %}"></script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script charset="utf-8" src="{% static 'js/main.js'}"></script>	
+{% endblock jsscript %}
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/calendar/moment.js' %}"></script>
+<script src="{% static 'js/calendar/daterangepicker.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script> {# this all jquery and javascript file in-house #}
+
+
 	</body>
 </html>

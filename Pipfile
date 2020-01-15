@@ -9,9 +9,13 @@ black = "*"
 [packages]
 django = "==2.1"
 psycopg2 = "*"
-django-bootstrap3 = "*"
 django-extensions = "*"
 werkzeug = "*"
+django-debug-toolbar = "*"
+django-bootstrap4 = "*"
+pynvim = "*"
+autopep8 = "*"
+django-bootstrap-modal-forms = "*"
 
 [requires]
 python_version = "3.6"

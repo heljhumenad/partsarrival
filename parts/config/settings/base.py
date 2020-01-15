@@ -47,7 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'parts.app.accounts',
+    'parts.app.partsnumber',
     'parts.app.views',
+    'parts.app.mixins',
+    'parts.app.forms',
+    'parts.app.models',
 
     # Testing app module
     'parts.app.tests',
