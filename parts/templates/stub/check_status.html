@@ -1,0 +1,17 @@
+{% load i18n %}
+{% if user.is_staff %} 
+        <li><a href="#employeeaccounts" aria-expanded="false" data-toggle="collapse"><i class="fa fa-wrench"></i>{% trans "Inventory" %}</a>
+                <ul id="employeeaccounts" class="collapse list-unstyled">
+			<li><a href="{% url 'partsnumber:parts_number_create_view'%}" target="_blank">Item Number</a></li>
+                	<li><a href="{% url 'partsnumber:parts_um_create_view' %}" target="_blank">UM (Unit of Measure)</a></li>
+		</ul>
+		</li>
+    {% else %}
+        <li><a href="#employeeaccounts" aria-expanded="false" data-toggle="collapse"><i class="fa fa-user"></i> {% trans "Employee" %}</a>
+        <ul id="employeeaccounts" class="collapse list-unstyled">
+                <!-- TODO: Add badges when there's a user that has been added to the db -->
+                {% comment %} <div class="badge badge-warning">6 New</div> {% endcomment %}
+            </li>
+        </ul>
+        </li>
+{% endif %}

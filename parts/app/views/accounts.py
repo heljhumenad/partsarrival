@@ -11,6 +11,9 @@ class AccountLoginView(views.LoginView):
     template = 'accounts/login.html'
 
 class AccountLogoutView(views.LogoutView):
-    template_name = 'registration/logout.html'
+    template_name = 'registration/redirect_logout.html'
     next_page = reverse_lazy('accounts:login')
     redirect_field_name = 'next'
+
+class AccountRedirectView(generic.RedirectView):
+    pass

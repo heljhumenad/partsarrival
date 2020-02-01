@@ -14,8 +14,11 @@ class PartsNumber(TimeStampModel):
                                      on_delete=models.CASCADE,)
 
     description = models.CharField(max_length=200,
-                                   verbose_name=_("Part Number Description"),
+                                   verbose_name=_("Description"),
                                   )
+
+    def __str__(self):
+        return self.partnumber
     
 
 class UnitMeasure(TimeStampModel):
@@ -23,3 +26,6 @@ class UnitMeasure(TimeStampModel):
      um = models.CharField(max_length=20,
                            verbose_name=_("Unit of Measure")
                           )
+
+     def __str__(self):
+         return self.um

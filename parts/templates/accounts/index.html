@@ -2,8 +2,16 @@
 {% load i18n %}
 {% load bootstrap4 %}
 
+{% block top_bar %}
+{% include "common/navbar.html" %}{% endblock top_bar %}
+{% block sidebar %}
+
+	{% include "common/sidebar.html" %}	
+{% endblock sidebar %}
+	
+
+
 {% block main %}
-	<h1>Main index in login account </p>
-		<a href="{% url 'partsnumber:parts_number_create_view'%}" target="_blank">Add Parts Number</a>
+{% include "stub/search.html" %}
 {% endblock main %}
 

@@ -1,0 +1,26 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-md">
+	{% if user.is_authenticated %}
+	<button class="navbar-toggler type="button" data-toggle="collapse"
+		       data-target="#navbar-togglers" aria-expand="false">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbar-togglers">
+	<ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a href="" class="nav-link" >
+	        <i class="fa fa-cog"></i> Settings</a>
+	      </li>
+              <li class="nav-item">
+		  <a href="{% url 'logout' %}" class="nav-link">{% trans "Logout" %}</a>
+	      </li>
+         	
+         </ul> 
+	</div>
+        {% else %}
+          <div class="brand-text d-none d-md-inline-block"><span>{% trans "Nissan Parts Arrival System " %}<strong class="text-primary"> {% trans "Parts Arrival" %}</strong> </div></a></div>
+               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+              <li class="nav-item dropdown" class="do"><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
+              </ul>
+          {% endif %} 
+          <!-- Log out-->
+  </nav>

@@ -4,6 +4,7 @@
 {% load i18n %}
 <html>
 	<head>
+		<title>Parts Arrival |{% block title %} {% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
@@ -15,14 +16,17 @@
 		<div class="sidebar">{% block sidebar %} {% endblock sidebar %}</div>
 		<div class="top-bar"> {% block top_bar %} {% endblock top_bar %}
 		</div>
-		<div class="main-prev row justify-content-center">
+		<div class="container">
+		<div class="main-prev row justify-content-center my-row:">
 			{% comment %} main block{% endcomment %}
 			{% block main %} 
 			{% endblock main %}
+		{% block searchbar %} {% endblock searchbar %}
 		</div>
 		<div class="login-account row justify-content-center my-row">
 			{% block login_account %}
 			{% endblock login_account %}
+</div>
 </div>
 	
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
