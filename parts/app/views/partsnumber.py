@@ -7,7 +7,7 @@ from parts.app.forms import partsnumber_form
 
 class PartNumberTemplateView(generic.ListView):
     template_name = 'partsnumber/index.html'
-    model = PartNumber
+    model = PartsNumber
     paginate_by = 2
 
 class PartNumberCreateView(generic.CreateView):

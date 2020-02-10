@@ -16,6 +16,10 @@ django-bootstrap4 = "*"
 pynvim = "*"
 autopep8 = "*"
 django-bootstrap-modal-forms = "*"
+pytest = "*"
+faker = "*"
+factory-boy = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.6"
