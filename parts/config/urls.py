@@ -11,14 +11,13 @@ urlpatterns = [
          ),
 
     path('accounts/',
-        include('django.contrib.auth.urls')
-        ),
+         include('django.contrib.auth.urls')
+         ),
 
-    path('partsnumber',
-        include('parts.app.partsnumber.urls')
-        ),
+    path('partsnumber/',
+         include('parts.app.partsnumber.urls')
+         ),
 
     path('__debug__', include(debug_toolbar.urls))
 
 ]
-
