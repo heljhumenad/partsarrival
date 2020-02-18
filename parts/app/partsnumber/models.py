@@ -61,7 +61,7 @@ class PartNumberClass(TimeStampModel):
                                  )
 
     class Meta:
-        db_table = _('class')
+        db_table = _('partnumber_class')
         verbose_name = _("Part Number Class")
         verbose_name_plural = _("Part Number Classes")
         ordering = ['id']
