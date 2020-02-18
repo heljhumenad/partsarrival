@@ -24,6 +24,12 @@ urlpatterns = [
     path('dashboard/show/partnumberclass/',
          item_class.PartnumberClassTemplateView.as_view(),
          name='parts_show_class'
-         )
+         ),
+
+    path('dashboard/add/class/',
+         item_class.PartnumberClassCreateView.as_view(),
+         name='part_class_create_view'
+         ),
+
 
 ]
