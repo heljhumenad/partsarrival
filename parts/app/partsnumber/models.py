@@ -42,3 +42,26 @@ class UnitMeasure(TimeStampModel):
 
     def __str__(self):
         return self.um
+
+
+class PartNumberClass(TimeStampModel):
+
+    class_name = models.CharField(max_length=20,
+                                  verbose_name=_("Class name")
+                                  )
+
+    # Add charge type using class name insert
+    charge_type = models.CharField(max_length=20,
+                                   verbose_name=_("Charge Type")
+                                   )
+
+    code_name = models.CharField(max_length=7,
+                                 unique=True,
+                                 verbose_name=_("Code Name/Code Number")
+                                 )
+
+    class Meta:
+        db_table = _('class')
+        verbose_name = _("Part Number Class")
+        verbose_name_plural = _("Part Number Classes")
+        ordering = ['id']
