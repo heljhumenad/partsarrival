@@ -1,0 +1,30 @@
+{% extends "common/base.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block title %} Add Parts Number {% endblock title %}
+
+{% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
+{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
+
+{% block main %}
+<div class="col-md-10 offset-md-2 card-col">
+    <div class="card card-default">
+        <div class="card-body">
+           <form action="" method="POST">
+                {% csrf_token %}
+                {% bootstrap_form form  %}
+                <div class="col">
+                    <label for=""></label>
+                    <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Save" %}</button>
+                </div>
+                 <div class="col">
+                    <label for=""></label>
+                    <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+{% endblock main %}

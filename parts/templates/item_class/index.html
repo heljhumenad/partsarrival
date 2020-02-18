@@ -1,0 +1,80 @@
+{% extends "common/base.html" %}
+{% block title %} Item Class {% endblock title %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block sidebar %} {% include "common/sidebar.html" %}{% endblock sidebar %}
+{% block top_bar %} {% include "common/navbar.html" %}{% endblock top_bar %}
+{% block messages %} {% include "common/message.html" %} {% endblock messages %}
+
+<div class="col-md-10 col-lg-10 offset-md-2 card-col">       
+            <div class="card card-default">
+                <div class="card-body">
+                    <label class="list-item_class">{% trans "List of item_class" %}</label>
+                    {% if user.is_staff %}
+                    <a class="btn btn-danger btn-sm pull-right plus-item_class" 
+                        href="{% url 'item_class:item_class_add'%}" data-toggle="modal">
+                    <i class="fa fa-plus"  aria-hidden="true"></i>
+                    {% trans "item_class" %}
+                    </a>
+                    {% endif %}
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                {% comment %} <th>item_class ID</th> {% endcomment %}
+                                <th>{% trans "Class Name" %}</th>
+                                <th>{% trans "Charge Type" %}</th>
+                                <th>{% trans "Account Code ID" %}</th>>
+                                <th>{% trans "Added by" %}</th>
+                                <th>{% trans "Actions" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                                {% for item_class in page_obj.object_list  %}
+                            <tr></tr>
+                                {% comment %} <td>{{ item_classs.item_class_id }} </td> {% endcomment %}
+                                <td>
+                                {% comment %} <b><a href="{% url 'item_class:item_class_update' pk=item_classs.item_class_id %}"> {% endcomment %}
+                                {{ item_classs.class_name }}</a></b></td>
+                                <td>{{ item_classs.charge_type }}</td>
+                               <td>{{ item_classs.code_name}}</td>
+                              <td>{{ item_classs.user_change_by}}</td><td>
+                        {% if user.is_staff %}
+                    <a href="{% url 'item_class:item_class_update' pk=item_classs.item_class_id %}" 
+                            class="btn btn-primary btn-xs edit-users">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+
+                    <button type="button" class="btn btn-success btn-xs read-item_class" 
+                        data-id = "{% url 'item_class:item_class_read' pk=item_classs.item_class_id %}"
+                    data-toggle="modal" data-target="#modal">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" data-id="{% url 'item_class:item_class_delete' pk=item_classs.item_class_id %}" 
+                    class="btn btn-warning btn-xs delete-item_class" data-toggle="modal" data-target="#modal">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                            </td>
+                            {% else %}          
+                            <button type="button" class="btn btn-success btn-xs read-item_class" 
+                                data-id = "{% url 'item_class:item_class_read' pk=item_classs.item_class_id %}"
+                            data-toggle="modal" data-target="#modal">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs read-item_class" 
+                            data-id = "{% url 'item_class:item_class_read' pk=item_classs.item_class_id %}"
+                            data-toggle="modal" data-target="#modal">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </button>
+                        {% endif %}
+                            </tr>
+                            {% empty %}
+                                  <p class="font-weight-bold">{% trans "No item_classs has been added try adding" %} 
+                                  <a href="{% url 'item_class:item_class_add'%}">{% trans "here" %}</a></p>
+                                  <p class="mb-0"></p>
+                                {% endfor %}
+
+                        </tbody>
+                    </table>             
+{% endblock main %}

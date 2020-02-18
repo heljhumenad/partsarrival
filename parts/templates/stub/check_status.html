@@ -4,7 +4,9 @@
                 <ul id="employeeaccounts" class="collapse list-unstyled">
 			<li><a href="{% url 'partsnumber:parts_number_create_view'%}" target="_blank">Item Number</a></li>
                 	<li><a href="{% url 'partsnumber:parts_um_create_view' %}" target="_blank">UM (Unit of Measure)</a></li>
-		</ul>
+                        <li><a href="{% url 'partsnumber:part_class_create_view' %}" target="_blank">Item Class</a></li>
+
+                </ul>
 		</li>
     {% else %}
         <li><a href="#employeeaccounts" aria-expanded="false" data-toggle="collapse"><i class="fa fa-user"></i> {% trans "Employee" %}</a>
