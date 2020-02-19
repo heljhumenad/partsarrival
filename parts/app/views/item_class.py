@@ -19,4 +19,12 @@ class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
-    pass
+    template_name = 'item_class/update_class_partnumber.html'
+    form_class = item_class_form.PartNumberClassForm
+    success_url = reverse_lazy('partsnumber:parts_number_index_view')
+
+    def get_object(self, query_pk_and_slug):
+        item_class = PartNumberClass.object.filter(
+            id = self.kwargs['pk']).first()
+        return item_class
+    
