@@ -10,4 +10,4 @@ class PartNumberClassForm(forms.ModelForm):
         verbose_name = _("Part Number Class")
         verbose_name_plural = _("Part Number Classes")
         model = PartNumberClass
-        fields = ['class_name', 'charge_type', 'code_name']
+        fields = ['code_name', 'charge_type', 'class_name']
