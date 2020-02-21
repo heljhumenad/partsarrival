@@ -11,3 +11,10 @@ class PartNumberClassForm(forms.ModelForm):
         verbose_name_plural = _("Part Number Classes")
         model = PartNumberClass
         fields = ['code_name', 'charge_type', 'class_name']
+
+     def __init__(self, *args, **kwargs):
+        # * All modelform has a self.instances attributes
+        super(PartNumberClassForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, 'instance', None)
+        if instance and instance.id:
+            self.fields['code_name'].widget.attrs['disabled'] = 'disabled'
