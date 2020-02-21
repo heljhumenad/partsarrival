@@ -8,18 +8,26 @@
 
 {% block main %}
 <div class="col-md-10 offset-md-2 card-col">
+{% comment %} {% block  message %}{% include "common/message.html" %}{% endblock message  %} {% endcomment %}
     <div class="card card-default">
         <div class="card-body">
            <form action="" method="POST">
                 {% csrf_token %}
                 {% bootstrap_form form  %}
-                <div class="col">
-                    <label for=""></label>
-                    <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Save" %}</button>
-                </div>
+                    {% if partnumber_class %}
+                        <div class="col">
+                            <label for=""></label>
+                            <button type="submit" class="btn btn-primary btn-block" id="submit-button">{% trans "Save" %}</button>
+                        </div>
+                    {% else %}
+                            <div class="col">
+                            <label for=""></label>
+                            <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Update" %}</button>
+                        </div>
+                    {% endif %}
                  <div class="col">
                     <label for=""></label>
-                    <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
+                    <a href="{% url 'partsnumber:parts_show_class' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
                 </div>
         </div>
         </form>
