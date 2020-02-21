@@ -1,20 +1,11 @@
-
-{% comment %} {% block jsscript %}
-       <script>
-         var seconds = 2 * 1000
-            $(document).ready(function(){
-                $('.alert-success').fadeout(seconds); // message fadeout            
-        });
-     </script>
-    {% endblock jsscript %} {% endcomment %}
- {% if messages %}
-{% for message in messages %}
-<div class="alert alert-{{ message.tags }}">
-    <i class="fa fa-exclamation-circle fa-lg"></i>
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    {{ message }}
-</div>
-{% endfor %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+        <i class="fa fa-exclamation-circle fa-lg"></i>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
 {% endif %}
 
 
