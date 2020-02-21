@@ -20,6 +20,10 @@ class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = item_class_form.PartNumberClassForm
     success_url = reverse_lazy('partsnumber:parts_show_class')
 
+    def get_context_data(self, **kwargs):
+        context = super(PartnumberClassCreateView, self).get_context_data(**kwargs)
+        context['partnumber_class'] = PartNumberClass.objects.all()
+        return context
 
 class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'item_class/add_class_partnumber.html'
