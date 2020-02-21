@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
+django-bootstrap-modal-forms = "*"
 
 [packages]
 django = "==2.1"
