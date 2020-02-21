@@ -15,9 +15,9 @@
                         <thead class="thead-dark">
                             <tr>
                                 {% comment %} <th>item_class ID</th> {% endcomment %}
+                                <th>{% trans "Account Code ID" %}</th>
                                 <th>{% trans "Class Name" %}</th>
                                 <th>{% trans "Charge Type" %}</th>
-                                <th>{% trans "Account Code ID" %}</th>
                                 <th>{% trans "Created At" %}</th>
                                 <th>{% trans "Updated At"%} </th>
                                 <th>{% trans "Actions" %}</th>
@@ -25,16 +25,12 @@
                         </thead>
                         <tbody>
 
-                                {% for partnumber_class in page_obj.object_list  %}
-                            <tr></tr>
-                                {% comment %} <td>{{ partnumber_class.item_class_id }} </td> {% endcomment %}
-                                <td>
-                                {% comment %} <b><a href="{% url 'item_class:item_class_update' pk=partnumber_class.item_class_id %}"> {% endcomment %}
-                                {{ partnumber_class.class_name }}</a></b></td>
-                                <td>{{ partnumber_class.charge_type }}</td>
-                               <td>{{ partnumber_class.code_name}}</td>
-                              <td>{{ partnumber_class.created_at}}</td>
-                              <td>{{ partnumber_class.updated_at}}</td>
+                            {% for partnumber_class in page_obj.object_list  %}
+                            <td>{{ partnumber_class.code_name}}</td>
+                            <td>{{ partnumber_class.class_name }}</td>
+                            <td>{{ partnumber_class.charge_type }}</td>
+                            <td>{{ partnumber_class.created_at}}</td>
+                            <td>{{ partnumber_class.updated_at}}</td>
                     <td>
                         {% if user.is_staff %}
                     <a href="{% url 'partsnumber:part_class_update_view' pk=partnumber_class.id %}" 
