@@ -6,6 +6,10 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path(r'$^', 
+         include('parts.app.home.urls')
+        ),
+
     path('accounts/',
          include('parts.app.accounts.urls')
          ),
