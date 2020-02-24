@@ -1,8 +1,8 @@
 {% extends "common/base.html" %}
 {% load bootstrap4 %}
 {% load i18n %}
-{% block title %} Unit of Measure{% endblock title %}
 
+{% block title %} Unit of Measure{% endblock title %}
 {% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
 {% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
 
@@ -21,10 +21,8 @@
                     <label for=""></label>
                     <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
                 </div>
+            </form>
         </div>
-        </form>
     </div>
-</div>
-</div>
 </div>
 {% endblock main %}

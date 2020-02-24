@@ -1,26 +1,26 @@
 {% load static %}
 {% load i18n %}
-	<!-- Side Navbar -->
-		<nav class="side-navbar">
-			<div class="side-navbar-wrapper">
-				<!-- Sidebar Header    -->
-				<div class="sidenav-header d-flex align-items-center justify-content-center">
-					<!-- User Info-->
-					{% comment %} Escape the url while rendering the image to avoid XSS {% endcomment %}
-					<div class="sidenav-header-inner text-center"><img src="{% static 'img/13.png' %}" alt="person" class="img-fluid rounded-circle">
-						{% if user.is_authenticated %}
-						<h2 class="h5">{{ user.get_user_account_name }}</h2><span>{{ user.get_user_email }}</span>
-						{% endif %}
-					</div>
-					<!-- Small Brand information, appears on minimized sidebar-->
-					<div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
-				</div>
-				<!-- Sidebar Navigation Menus-->
-				<div class="main-menu">
-					<h5 class="sidenav-heading">{% trans 'Dashboard' %}</h5>
-					<ul id="side-main-menu" class="side-menu list-unstyled">   
-					{% include "stub/check_status.html" %}
-					</ul>
-				</div>
-			</div>
-		</nav>
+    <!-- Side Navbar -->
+<nav class="side-navbar">
+    <div class="side-navbar-wrapper">
+        <!-- Sidebar Header    -->
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+            <!-- User Info-->
+            {% comment %} Escape the url while rendering the image to avoid XSS {% endcomment %}
+            <div class="sidenav-header-inner text-center"><img src="{% static 'img/13.png' %}" alt="person" class="img-fluid rounded-circle">
+                {% if user.is_authenticated %}
+                <h2 class="h5">{{ user.get_user_account_name }}</h2><span>{{ user.get_user_email }}</span>
+                {% endif %}
+            </div>
+            <!-- Small Brand information, appears on minimized sidebar-->
+            <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+        </div>
+        <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
+            <h5 class="sidenav-heading">{% trans 'Dashboard' %}</h5>
+            <ul id="side-main-menu" class="side-menu list-unstyled">   
+            {% include "stub/check_status.html" %}
+            </ul>
+        </div>
+    </div>
+</nav>

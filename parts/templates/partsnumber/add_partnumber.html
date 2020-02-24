@@ -17,14 +17,13 @@
                     <label for=""></label>
                     <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Save" %}</button>
                 </div>
-                 <div class="col">
+                <div class="col">
                     <label for=""></label>
-                    <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
+                    <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">
+                    {% trans "Cancel" %}</a>
                 </div>
-        </div>
-        </form>
+            </div>
+         </form>
     </div>
-</div>
-</div>
 </div>
 {% endblock main %}

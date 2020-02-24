@@ -1,9 +1,9 @@
 {% if messages %}
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
-        <i class="fa fa-exclamation-circle fa-lg"></i>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            {{ message }}
+            <i class="fa fa-exclamation-circle fa-lg"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
         </div>
     {% endfor %}
 {% endif %}
