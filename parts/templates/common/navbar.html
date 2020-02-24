@@ -1,23 +1,37 @@
 {% load i18n %}
-<nav class="navbar navbar-expand-md">
-  <div class="brand-text d-none d-md-inline-block">
-      <span>{% trans "Nissan Parts Arrival System " %}</span>
-  </div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">{% trans "Parts Arrival System" %}</a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
 {% if user.is_authenticated %}
-    <button class="navbar-toggler type="button" data-toggle="collapse"
-       data-target="#navbar-togglers" aria-expand="false">
-       <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-togglers">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="" class="nav-link" >
-            <i class="fa fa-cog"></i> Settings</a></li>
-            <li class="nav-item">
-              <a href="{% url 'logout' %}" class="nav-link">{% trans "Logout" %}</a>
-            </li>
-        </ul>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" 
+          href="#">{% trans "Settings" %} <span class="sr-only">(current)</span>
+          <div class="dropdown-menu" aria-labelledby="dropdownId">
+          <a class="dropdown-item" href="#">Update Profile</a>
+          <a class="dropdown-item" href="#">Notifications</a>
+        </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="{% trans "Search partnumber" %}">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">{% trans "Search" %}</button>
+    </form>
 {% else %}
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">{% trans "Login" %}</a></li>
-              </ul>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item active"><a href="" class="nav-link">{% trans "Home" %}</a></li>
+      <li class="nav-item active"><a href="" class="nav-link">{% trans "About" %}</a></li>
+      <li class="nav-item active"><a href="" class="nav-link">{% trans "History" %}</a></li>
+      <li class="nav-item active"><a href="{% url 'login' %}" class="nav-link">{% trans "Login" %}</a></li>
+    </ul>
 {% endif %}
+  </div>
+</nav>
