@@ -20,7 +20,12 @@ urlpatterns = [
           partsnumber.PartNumberUpdateView.as_view(),
           name='parts_number_update_view'
         ),
-
+    
+    path('dashboard/search',
+         partsnumber.SearchView.as_view(),
+         name='search_query'
+        ),
+        
     path('dashboard/add/um',
          partsnumber.UnitofMeasureCreateView.as_view(),
          name='parts_um_create_view'

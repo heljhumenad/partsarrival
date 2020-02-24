@@ -1,0 +1,19 @@
+{% extends 'common/base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block title %} Search Results {% endblock title %} 
+{% block top_bar %} {% include 'common/navbar.html' %}{% endblock top_bar %}
+{% block sidebar %} {% include 'common/sidebar.html' %}{% endblock sidebar %}
+
+{% block main %}
+<div class="col-md-10 col-lg-10 offset-md-2 card-col">       
+    <div class="card card-default">
+        <div class="card-body">
+            {% for partnumbers in object_list %}
+            {{ partnumbers.partnumber }} {{ partnumbers.description}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock main %}

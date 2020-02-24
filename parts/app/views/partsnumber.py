@@ -2,6 +2,7 @@ from django.views import generic
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form 
@@ -33,6 +34,18 @@ class PartNumberUpdateView(LoginRequiredMixin, generic.UpdateView):
             id=self.kwargs['pk']
             ).first()
         return partsnumber
+
+class SearchView(LoginRequiredMixin, generic.ListView):
+    template_name = 'partsnumber/search_results.html'
+    model = PartsNumber
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = PartsNumber.objects.filter(
+            Q(partnumber__icontains=query) |
+            Q(description__icontains=query)
+            )
+        return object_list
 
 class UnitofMeasureCreateView(generic.CreateView):
      template_name = 'partsnumber/unit_of_measure.html'
