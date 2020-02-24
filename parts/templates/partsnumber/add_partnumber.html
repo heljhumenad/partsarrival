@@ -13,10 +13,17 @@
            <form action="" method="POST">
                 {% csrf_token %}
                 {% bootstrap_form form  %}
-                <div class="col">
-                    <label for=""></label>
-                    <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Save" %}</button>
-                </div>
+                {% if partsnumber_id is not None %}
+                    <div class="col">
+                        <label for=""></label>
+                        <button type="submit" class="btn btn-primary btn-block" id="submit-button">{% trans "Save" %}</button>
+                    </div>
+                {% else %}
+                    <div class="col">
+                        <label for=""></label>
+                        <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Save" %}</button>
+                    </div>
+                {% endif %}
                 <div class="col">
                     <label for=""></label>
                     <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">
