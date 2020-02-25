@@ -13,6 +13,12 @@
             <table class="table table-bordered">
                 <thead class="thead-dark">
                     <tr>
+                    <a href="{% url 'partsnumber:parts_number_create_view' %}">
+                    <button class="btn btn-primary btn-md" style="margin-top:-35px;">
+                        {% trans "Add Part Number" %}
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                    </a>
                         {% comment %} <th>Employee ID</th> {% endcomment %}
                         <th>{% trans "Part Number" %}</th>
                         <th>{% trans "Unit of Measure" %}</th>
