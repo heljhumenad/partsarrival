@@ -7,11 +7,15 @@
 {% block sidebar %} {% include 'common/sidebar.html' %}{% endblock sidebar %}
 
 {% block main %}
-<div class="col-md-10 col-lg-10 offset-md-2 card-col">       
+<div class="col-md-10 col-lg-10 offset-md-2 card-col">
     <div class="card card-default">
         <div class="card-body">
+            <h3>Search Results</h3>
             {% for partnumbers in object_list %}
-            {{ partnumbers.partnumber }} {{ partnumbers.description}}</p>
+            <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}">
+            {{partnumbers.partnumber}}
+            {{ partnumbers.description}}
+            </a>
             {% endfor %}
         </div>
     </div>
