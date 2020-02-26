@@ -1,13 +1,21 @@
 {% load i18n %}
 {% if user.is_staff %} 
-        <li><a href="#employeeaccounts" aria-expanded="false" data-toggle="collapse"><i class="fa fa-wrench"></i>{% trans "Inventory" %}</a>
-                <ul id="employeeaccounts" class="collapse list-unstyled">
+        <li><a href="#inventory" aria-expanded="false" data-toggle="collapse"><i class="fa fa-wrench"></i>{% trans "Inventory" %}</a>
+                <ul id="inventory" class="collapse list-unstyled">
 			<li><a href="{% url 'partsnumber:parts_number_index_view'%}" target="_blank">Item Number</a></li>
                 	<li><a href="{% url 'partsnumber:parts_um_create_view' %}" target="_blank">UM (Unit of Measure)</a></li>
                         <li><a href="{% url 'partsnumber:parts_show_class' %}" target="_blank">Item Class</a></li>
 
                 </ul>
 		</li>
+        
+        <li><a href="#arrival" aria-expanded="false" data-toggle="collapse">
+                <i class="fa fa-car"></i>{% trans "Arrival" %}</a>
+                <ul id="arrival" class="collapse list-unstyled">
+                <li><a href="#">{% trans "Parts Arrival" %}</a></li>
+                </ul>
+                
+                </li>
     {% else %}
         <li><a href="#employeeaccounts" aria-expanded="false" data-toggle="collapse"><i class="fa fa-user"></i> {% trans "Employee" %}</a>
         <ul id="employeeaccounts" class="collapse list-unstyled">
