@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     'parts.app.accounts',
     'parts.app.partsnumber',
+    'parts.app.advisor',
     'parts.app.views',
     'parts.app.mixins',
     'parts.app.forms',

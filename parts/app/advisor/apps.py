@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class SupervisorConfig(AppConfig):
-    name = 'supervisor'
+class AdvisorConfig(AppConfig):
+    name = 'advisor'
