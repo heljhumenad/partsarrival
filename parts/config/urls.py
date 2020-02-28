@@ -22,6 +22,10 @@ urlpatterns = [
          include('parts.app.partsnumber.urls')
          ),
 
+    path('advisor/',
+         include('parts.app.advisor.urls')
+        ),
+        
     path('__debug__', include(debug_toolbar.urls))
 
 ]

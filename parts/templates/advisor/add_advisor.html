@@ -2,7 +2,7 @@
 {% load bootstrap4 %}
 {% load i18n %}
 
-{% block title %} Add Parts Number {% endblock title %}
+{% block title %} Add Service Advisor {% endblock title %}
 {% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
 {% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
 
@@ -14,7 +14,7 @@
            <form action="" method="POST">
                 {% csrf_token %}
                 {% bootstrap_form form  %}
-                    {% if partnumber_class is not None %}
+                    {% if advisor is not None %}
                         <div class="col">
                             <label for=""></label>
                             <button type="submit" class="btn btn-primary btn-block" id="submit-button">{% trans "Save" %}</button>
