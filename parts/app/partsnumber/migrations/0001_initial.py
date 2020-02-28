@@ -8,38 +8,73 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='PartsNumber',
+            name="PartsNumber",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now=True, verbose_name='Created At')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated At')),
-                ('partnumber', models.CharField(max_length=200, verbose_name='Parts Number')),
-                ('description', models.CharField(max_length=200, verbose_name='Part Number Description')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Created At"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Updated At"),
+                ),
+                (
+                    "partnumber",
+                    models.CharField(max_length=200, verbose_name="Parts Number"),
+                ),
+                (
+                    "description",
+                    models.CharField(
+                        max_length=200, verbose_name="Part Number Description"
+                    ),
+                ),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
         migrations.CreateModel(
-            name='UnitMeasure',
+            name="UnitMeasure",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now=True, verbose_name='Created At')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated At')),
-                ('um', models.CharField(max_length=20, verbose_name='Unit of Measure')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Created At"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Updated At"),
+                ),
+                ("um", models.CharField(max_length=20, verbose_name="Unit of Measure")),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
         migrations.AddField(
-            model_name='partsnumber',
-            name='unit_measure',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='partsnumber.UnitMeasure', verbose_name='Unit of Measure'),
+            model_name="partsnumber",
+            name="unit_measure",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="partsnumber.UnitMeasure",
+                verbose_name="Unit of Measure",
+            ),
         ),
     ]

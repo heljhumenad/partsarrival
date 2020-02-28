@@ -9,28 +9,28 @@ from parts.app.forms import item_class_form
 
 
 class PartnumberClassTemplateView(generic.ListView):
-    template_name = 'item_class/index.html'
+    template_name = "item_class/index.html"
     model = PartNumberClass
     paginate_by = 2
     queryset = PartNumberClass.objects.all()
 
 
 class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
-    template_name = 'item_class/add_class_partnumber.html'
+    template_name = "item_class/add_class_partnumber.html"
     form_class = item_class_form.PartNumberClassForm
-    success_url = reverse_lazy('partsnumber:parts_show_class')
+    success_url = reverse_lazy("partsnumber:parts_show_class")
 
     def get_context_data(self, **kwargs):
         context = super(PartnumberClassCreateView, self).get_context_data(**kwargs)
-        context['partnumber_class'] = PartNumberClass.objects.all()
+        context["partnumber_class"] = PartNumberClass.objects.all()
         return context
 
+
 class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
-    template_name = 'item_class/add_class_partnumber.html'
+    template_name = "item_class/add_class_partnumber.html"
     form_class = item_class_form.PartNumberClassForm
-    success_url = reverse_lazy('partsnumber:parts_show_class')
+    success_url = reverse_lazy("partsnumber:parts_show_class")
 
     def get_object(self, query_pk_and_slug=None):
-        item_class = PartNumberClass.objects.filter(
-            id=self.kwargs['pk']).first()
+        item_class = PartNumberClass.objects.filter(id=self.kwargs["pk"]).first()
         return item_class

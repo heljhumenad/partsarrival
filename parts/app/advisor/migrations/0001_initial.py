@@ -7,25 +7,54 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ServiceAdvisor',
+            name="ServiceAdvisor",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now=True, verbose_name='Created At')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated At')),
-                ('first_name', models.CharField(max_length=200, verbose_name='First Name')),
-                ('last_name', models.CharField(max_length=200, verbose_name='Last Name')),
-                ('designation', models.CharField(choices=[('SVC', 'Service Advisor'), ('BRPSVC', 'Service Advisor BRP')], max_length=200, verbose_name='Designation')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Created At"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Updated At"),
+                ),
+                (
+                    "first_name",
+                    models.CharField(max_length=200, verbose_name="First Name"),
+                ),
+                (
+                    "last_name",
+                    models.CharField(max_length=200, verbose_name="Last Name"),
+                ),
+                (
+                    "designation",
+                    models.CharField(
+                        choices=[
+                            ("SVC", "Service Advisor"),
+                            ("BRPSVC", "Service Advisor BRP"),
+                        ],
+                        max_length=200,
+                        verbose_name="Designation",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Service Advisor',
-                'verbose_name_plural': 'Services Advisors',
-                'db_table': 'service_advisor',
-                'ordering': ['id'],
+                "verbose_name": "Service Advisor",
+                "verbose_name_plural": "Services Advisors",
+                "db_table": "service_advisor",
+                "ordering": ["id"],
             },
         ),
     ]

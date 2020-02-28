@@ -6,29 +6,31 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('partsnumber', '0001_initial'),
+        ("partsnumber", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='partsnumber',
-            options={'ordering': ['id'], 'verbose_name': 'Part Number', 'verbose_name_plural': 'Parts Number'},
+            name="partsnumber",
+            options={
+                "ordering": ["id"],
+                "verbose_name": "Part Number",
+                "verbose_name_plural": "Parts Number",
+            },
         ),
         migrations.AlterModelOptions(
-            name='unitmeasure',
-            options={'ordering': ['id'], 'verbose_name': 'Unit of Measure', 'verbose_name_plural': 'Unit of Measures'},
+            name="unitmeasure",
+            options={
+                "ordering": ["id"],
+                "verbose_name": "Unit of Measure",
+                "verbose_name_plural": "Unit of Measures",
+            },
         ),
         migrations.AlterField(
-            model_name='partsnumber',
-            name='description',
-            field=models.CharField(max_length=200, verbose_name='Description'),
+            model_name="partsnumber",
+            name="description",
+            field=models.CharField(max_length=200, verbose_name="Description"),
         ),
-        migrations.AlterModelTable(
-            name='partsnumber',
-            table='partnumbers',
-        ),
-        migrations.AlterModelTable(
-            name='unitmeasure',
-            table='um',
-        ),
+        migrations.AlterModelTable(name="partsnumber", table="partnumbers",),
+        migrations.AlterModelTable(name="unitmeasure", table="um",),
     ]
