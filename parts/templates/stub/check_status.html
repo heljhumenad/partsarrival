@@ -16,6 +16,15 @@
                 </ul>
                 
                 </li>
+                
+        <li><a href="#advisor" aria-expanded="false" data-toggle="collapse">
+                <i class="fa fa-user"></i>{% trans "Service Advisor" %}</a>
+                <ul id="advisor" class="collapse list-unstyled">
+                <li><a href="{% url 'advisor:advisor_index' %}">{% trans "Show Advisor" %}</a></li>
+                <li><a href="{% url 'advisor:advisor_create' %}">{% trans "Advisor" %}</a></li>
+                </ul>
+                
+                </li>
     {% else %}
         <li><a href="#employeeaccounts" aria-expanded="false" data-toggle="collapse"><i class="fa fa-user"></i> {% trans "Employee" %}</a>
         <ul id="employeeaccounts" class="collapse list-unstyled">
