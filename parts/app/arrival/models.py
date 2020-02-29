@@ -32,7 +32,7 @@ class PartsArrival(TimeStampModel):
     class Meta:
         db_table = _("arrival")
         verbose_name = _("Parts Arrival")
-        versbose_name_plural = _("Parts Arrivals")
+        verbose_name_plural = _("Parts Arrivals")
         ordering = ["id"]
 
     customer_name = models.CharField(
@@ -46,19 +46,19 @@ class PartsArrival(TimeStampModel):
     )
 
     item_class = models.ForeignKey(
-        "PartNumberClass", 
+        PartNumberClass,
         on_delete=models.CASCADE,
         verbose_name=_("Item Class")
     )
 
     advisor = models.ForeignKey(
-        "ServiceAdvisor",
+        ServiceAdvisor,
         on_delete=models.CASCADE,
         verbose_name=_("Service Advisor"),
     )
 
     partnumber = models.ForeignKey(
-        "PartNumber",
+        PartsNumber,
         on_delete=models.CASCADE,
         verbose_name=_("Part Number"),
     )
@@ -69,7 +69,6 @@ class PartsArrival(TimeStampModel):
     )
 
     qty = models.IntegerField(
-        max_length=200,
         verbose_name=_("Quantity"),
     )
 

@@ -10,5 +10,6 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("partsnumber/", include("parts.app.partsnumber.urls")),
     path("advisor/", include("parts.app.advisor.urls")),
+    path("arrival/", include("parts.app.arrival.urls")),
     path("__debug__", include(debug_toolbar.urls)),
 ]

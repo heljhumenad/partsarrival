@@ -7,18 +7,18 @@ from parts.app.models.timestamp import TimeStampModel
 class PartsNumber(TimeStampModel):
 
     partnumber = models.CharField(
-        max_length=200, 
+        max_length=200,
         verbose_name=_("Parts Number"),
     )
 
     unit_measure = models.ForeignKey(
-        "UnitMeasure", 
-        verbose_name=_("Unit of Measure"), 
+        "UnitMeasure",
+        verbose_name=_("Unit of Measure"),
         on_delete=models.CASCADE,
     )
 
     description = models.CharField(
-        max_length=200, 
+        max_length=200,
         verbose_name=_("Description"),
     )
 
@@ -29,7 +29,7 @@ class PartsNumber(TimeStampModel):
         ordering = ["id"]
 
     def __str__(self):
-        return "{0} {1}" % (self.partnumber, self.unit_measure)
+        return self.partnumber
 
 
 class UnitMeasure(TimeStampModel):
@@ -73,3 +73,6 @@ class PartNumberClass(TimeStampModel):
         verbose_name = _("Part Number Class")
         verbose_name_plural = _("Part Number Classes")
         ordering = ["id"]
+
+    def __str__(self):
+        return self.class_name

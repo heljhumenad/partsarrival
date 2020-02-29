@@ -5,7 +5,8 @@ from parts.app.models.timestamp import TimeStampModel
 
 class ServiceAdvisor(TimeStampModel):
 
-    DESIGNATION = [("SVC", "Service Advisor"), ("BRPSVC", "Service Advisor BRP")]
+    DESIGNATION = [("SVC", "Service Advisor"),
+                   ("BRPSVC", "Service Advisor BRP")]
 
     first_name = models.CharField(
         max_length=200, verbose_name=_("First Name"), blank=False
@@ -26,4 +27,4 @@ class ServiceAdvisor(TimeStampModel):
         ordering = ["id"]
 
     def __str__(self):
-        return "{0}, {1}" % (self.firstname, self.last_name)
+        return self.last_name
