@@ -63,11 +63,6 @@ class PartsArrival(TimeStampModel):
         verbose_name=_("Part Number"),
     )
 
-    description = models.CharField(
-        max_length=200,
-        verbose_name=_("Description"),
-    )
-
     qty = models.IntegerField(
         verbose_name=_("Quantity"),
     )

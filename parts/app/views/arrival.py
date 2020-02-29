@@ -7,8 +7,10 @@ from parts.app.arrival.models import PartsArrival
 from parts.app.forms.arrival_form import PartsArrivalForm
 
 
-class PartsArrivalTemplateView(LoginRequiredMixin, generic.TemplateView):
-    pass
+class PartsArrivalTemplateView(LoginRequiredMixin, generic.ListView):
+    template_name = 'arrival/index.html'
+    model = PartsArrival
+    paginate_by = 2
 
 
 class PartsArrivalCreateView(LoginRequiredMixin, generic.CreateView):
@@ -16,8 +18,13 @@ class PartsArrivalCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = PartsArrivalForm
     success_url = reverse_lazy('arrival:arrival_index')
 
-    # def get_context_data(self,  **kwargs):
-    #     context = super(PartsArrivalCreateView,
-    #                     self).get_context_data(**kwargs)
-    #     context['arrival'] = PartsArrival.objects.all()
-    #     return context
+    def get_context_data(self,  **kwargs):
+        context = super(PartsArrivalCreateView,
+                        self).get_context_data(**kwargs)
+        context['arrival'] = PartsArrival.objects.all()
+        return context
+
+
+class PartsArrivalUpdateView(LoginRequiredMixin, generic.UpdateView):
+    # template_name = 'arrival/add_arrival.html'
+    pass

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    {% comment %} CDN {% endcomment %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link href="{% static 'img/nissan_ico.ico' %}" rel="icon" type="image/x-icon" />
 </head>
      <body>
@@ -44,12 +46,12 @@ crossorigin="anonymous"></script> <!--- CDN for jquery for callback when filebas
 <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
 {% block jsscript %}
 <script src="{% static 'js/jquery.js' %}"></script>
-
+<script src="{% static 'js/app.js' %}"></script> {# this all jquery and javascript file in-house #}
 {% endblock jsscript %}
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/calendar/moment.js' %}"></script>
 <script src="{% static 'js/calendar/daterangepicker.js' %}"></script>
-<script src="{% static 'js/app.js' %}"></script> {# this all jquery and javascript file in-house #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 
     </body>

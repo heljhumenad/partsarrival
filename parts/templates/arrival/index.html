@@ -1,0 +1,93 @@
+{% extends "common/base.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
+{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
+{% block message %} {% include "common/message.html" %} {% endblock message %}
+
+{% block main %}
+<div class="col-md-10 col-lg-10 offset-md-2 card-col">       
+    <div class="card card-default">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                    <a href="{% url 'partsnumber:parts_number_create_view' %}">
+                    <button class="btn btn-primary btn-md" style="margin-top:-35px;">
+                        {% trans "Add Part Number" %}
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                    </a>
+                        {% comment %} <th>Employee ID</th> {% endcomment %}
+                        <th>{% trans "Customer Name" %}</th>
+                        <th>{% trans "RO & RE Number" %}</th>
+                        <th>{% trans "Item Class" %}</th>
+                        <th>{% trans "Advisor" %}</th>
+                        <th>{% trans "Part Number" %}</th>
+                        <th>{% trans "Description" %}</th>
+                        <th>{% trans "Quantity" %}</th>
+                        <th>{% trans "Remarks" %}</th>
+                        <th>{% trans "Date Arrival" %}</th>
+                        <th>{% trans "Created At" %}</th>
+                        <th>{% trans "Updated At" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                        {% for arrival in page_obj.object_list  %}
+                    <tr>
+                        <td>{{ arrival.customer_name }}</a></b></td>
+                        <td>RO{{ arrival.ro_number }}</td>
+                        <td>{{ arrival.item_class.class_name }}</td>
+                        <td>{{ arrival.advisor.first_name }} {{ arrival.advisor.last_name}}</td>
+                        <td>{{ arrival.partnumber }}</td>
+                        <td>{{ arrival.partnumber.description}}</td>
+                        <td>{{ arrival.qty}}</td>
+                        <td>{{ arrival.remarks}}</td>
+                        <td>{{ arrival.date_arrival}}</td>
+                        <td>{{ arrival.created_at}}</td>
+                        <td>{{ arrival.updated_at }}</td>
+              {% if user.is_staff %}
+            {% comment %} <td><a href="{% url 'arrival:arrival_index' pk=arrival.id %}" 
+                    class="btn btn-primary btn-xs edit-users">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a></td> {% endcomment %}
+            {% comment %} 
+            <button type="button" class="btn btn-success btn-xs read-employee" 
+                data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
+            data-toggle="modal" data-target="#modal">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-id="{% url 'employee:employee_delete' pk=partnumbers.employee_id %}" 
+            class="btn btn-warning btn-xs delete-employee" data-toggle="modal" data-target="#modal">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                    </td>
+                    {% else %}          
+                    <button type="button" class="btn btn-success btn-xs read-employee" 
+                        data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
+                    data-toggle="modal" data-target="#modal">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="btn btn-warning btn-xs read-employee" 
+                    data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
+                    data-toggle="modal" data-target="#modal">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    </button>
+                {% endif %} {% endcomment %}
+                    {% endif %}
+                    </tr>
+                    {% empty %}
+                            <p class="font-weight-bold">{% trans "No partnumbers has been added try adding" %} 
+                            <a href="{% url 'partsnumber:parts_number_create_view'%}">{% trans "here" %}</a></p>
+                            <p class="mb-0"></p>
+                        {% endfor %}
+
+                </tbody>
+            </table>
+        <div>
+    </div>
+</div>
+{% endblock main %}

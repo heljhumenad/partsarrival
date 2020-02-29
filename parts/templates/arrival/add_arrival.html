@@ -13,7 +13,7 @@
            <form action="" method="POST">
                 {% csrf_token %}
                 {% bootstrap_form form  %}
-                {% if service_arrival is not None %}
+                {% if arrival is not None %}
                     <div class="col">
                         <label for=""></label>
                         <button type="submit" class="btn btn-primary btn-block" id="submit-button">{% trans "Save" %}</button>
@@ -34,3 +34,10 @@
     </div>
 </div>
 {% endblock main %}
+
+{% block jsscript %}
+    <script>
+        $("#id_partnumber").addClass("select2");
+        $(".select2").select2();
+    </script>
+{% endblock jsscript %}

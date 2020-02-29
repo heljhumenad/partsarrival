@@ -30,6 +30,6 @@ class PartsArrivalForm(forms.ModelForm):
         fields = [
             'customer_name', 'ro_number',
             'item_class', 'advisor',
-            'partnumber', 'description',
-            'qty', 'remarks', 'date_arrival',
+            'partnumber', 'qty',
+            'remarks', 'date_arrival',
         ]
