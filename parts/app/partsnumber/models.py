@@ -21,7 +21,7 @@ class PartsNumber(TimeStampModel):
         ordering = ["id"]
 
     def __str__(self):
-        return self.partnumber
+        return "{0} {1}" % (self.partnumber, self.unit_measure)
 
 
 class UnitMeasure(TimeStampModel):
