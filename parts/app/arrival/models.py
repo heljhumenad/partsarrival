@@ -35,28 +35,50 @@ class PartsArrival(TimeStampModel):
         versbose_name_plural = _("Parts Arrivals")
         ordering = ["id"]
 
-    customer_name = models.CharField(verbose_name=_("Customer Name"), max_length=200,)
+    customer_name = models.CharField(
+        verbose_name=_("Customer Name"),
+        max_length=200,
+    )
 
-    ro_number = models.CharField(verbose_name=_("Ro Number"), max_length=50)
+    ro_number = models.CharField(
+        verbose_name=_("Ro Number"),
+        max_length=50
+    )
 
     item_class = models.ForeignKey(
-        "PartNumberClass", on_delete=models.CASCADE, verbose_name=_("Item Class")
+        "PartNumberClass", 
+        on_delete=models.CASCADE,
+        verbose_name=_("Item Class")
     )
 
     advisor = models.ForeignKey(
-        "ServiceAdvisor", on_delete=models.CASCADE, verbose_name=_("Service Advisor")
+        "ServiceAdvisor",
+        on_delete=models.CASCADE,
+        verbose_name=_("Service Advisor"),
     )
 
     partnumber = models.ForeignKey(
-        "PartNumber", on_delete=models.CASCADE, verbose_name=_("Part Number")
+        "PartNumber",
+        on_delete=models.CASCADE,
+        verbose_name=_("Part Number"),
     )
 
-    description = models.CharField(max_length=200, verbose_name=_("Description"),)
+    description = models.CharField(
+        max_length=200,
+        verbose_name=_("Description"),
+    )
 
-    qty = models.IntegerField(max_length=200, verbose_name=_("Quantity"))
+    qty = models.IntegerField(
+        max_length=200,
+        verbose_name=_("Quantity"),
+    )
 
     remarks = models.CharField(
-        max_length=200, choices=REMARKS, verbose_name=_("Remarks")
+        max_length=200,
+        choices=REMARKS,
+        verbose_name=_("Remarks"),
     )
 
-    date_arrival = models.DateTimeField(verbose_name=_("Date Arrival"),)
+    date_arrival = models.DateTimeField(
+        verbose_name=_("Date Arrival"),
+    )

@@ -6,6 +6,12 @@ class TimeStampModel(models.Model):
     class Meta:
         abstract = True
 
-    created_at = models.DateTimeField(auto_now=True, verbose_name=_("Created At"))
+    created_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name=_("Created At"),
+    )
 
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated At"))
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name=_("Updated At"),
+    )

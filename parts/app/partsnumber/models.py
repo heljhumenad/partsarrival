@@ -6,13 +6,21 @@ from parts.app.models.timestamp import TimeStampModel
 
 class PartsNumber(TimeStampModel):
 
-    partnumber = models.CharField(max_length=200, verbose_name=_("Parts Number"),)
-
-    unit_measure = models.ForeignKey(
-        "UnitMeasure", verbose_name=_("Unit of Measure"), on_delete=models.CASCADE,
+    partnumber = models.CharField(
+        max_length=200, 
+        verbose_name=_("Parts Number"),
     )
 
-    description = models.CharField(max_length=200, verbose_name=_("Description"),)
+    unit_measure = models.ForeignKey(
+        "UnitMeasure", 
+        verbose_name=_("Unit of Measure"), 
+        on_delete=models.CASCADE,
+    )
+
+    description = models.CharField(
+        max_length=200, 
+        verbose_name=_("Description"),
+    )
 
     class Meta:
         db_table = _("partnumbers")
@@ -26,7 +34,10 @@ class PartsNumber(TimeStampModel):
 
 class UnitMeasure(TimeStampModel):
 
-    um = models.CharField(max_length=20, verbose_name=_("Unit of Measure"))
+    um = models.CharField(
+        max_length=20,
+        verbose_name=_("Unit of Measure"),
+    )
 
     class Meta:
         db_table = _("um")
@@ -40,13 +51,21 @@ class UnitMeasure(TimeStampModel):
 
 class PartNumberClass(TimeStampModel):
 
-    class_name = models.CharField(max_length=20, verbose_name=_("Class name"))
+    class_name = models.CharField(
+        max_length=20,
+        verbose_name=_("Class name")
+    )
 
     # Add charge type using class name insert
-    charge_type = models.CharField(max_length=20, verbose_name=_("Charge Type"))
+    charge_type = models.CharField(
+        max_length=20,
+        verbose_name=_("Charge Type"),
+    )
 
     code_name = models.CharField(
-        max_length=7, unique=True, verbose_name=_("Code Name/Code Number")
+        max_length=7,
+        unique=True,
+        verbose_name=_("Code Name/Code Number"),
     )
 
     class Meta:
