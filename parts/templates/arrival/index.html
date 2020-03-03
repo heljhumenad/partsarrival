@@ -1,4 +1,5 @@
 {% extends "common/base.html" %}
+{% load humanize %}
 {% load i18n %}
 {% load bootstrap4 %}
 
@@ -7,7 +8,7 @@
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 
 {% block main %}
-<div class="col-md-10 col-lg-10 offset-md-2 card-col">       
+<div class="col-md-11 col-lg-11 offset-md-2 card-col">       
     <div class="card card-default">
         <div class="card-body">
             <table class="table table-bordered">
@@ -46,14 +47,14 @@
                         <td>{{ arrival.partnumber.description}}</td>
                         <td>{{ arrival.qty}}</td>
                         <td>{{ arrival.remarks}}</td>
-                        <td>{{ arrival.date_arrival}}</td>
+                        <td>{{ arrival.date_arrival | date }}</td>
                         <td>{{ arrival.created_at}}</td>
                         <td>{{ arrival.updated_at }}</td>
               {% if user.is_staff %}
-            {% comment %} <td><a href="{% url 'arrival:arrival_index' pk=arrival.id %}" 
+          <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
                     class="btn btn-primary btn-xs edit-users">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
-            </a></td> {% endcomment %}
+            </a></td> 
             {% comment %} 
             <button type="button" class="btn btn-success btn-xs read-employee" 
                 data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"

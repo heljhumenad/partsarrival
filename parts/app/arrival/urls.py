@@ -16,5 +16,10 @@ urlpatterns = [
         arrival.PartsArrivalCreateView.as_view(),
         name="arrival_create"
     ),
+    path(
+        "update-view/<int:pk>/",
+        arrival.PartsArrivalUpdateView.as_view(),
+        name="arrival_edit"
+    ),
 
 ]

@@ -33,3 +33,12 @@ class PartsArrivalForm(forms.ModelForm):
             'partnumber', 'qty',
             'remarks', 'date_arrival',
         ]
+
+    def __init__(self, *args, **kwargs):
+        # * All modelform has a self.instances attributes
+        super(PartsArrivalForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, "instance", None)
+        if instance and instance.id:
+            self.fields["ro_number"].widget.attrs["disabled"] = "disabled"
+            self.fields["customer_name"].widget.attrs["disabled"] = "disabled"
+            self.fields["qty"].widget.attrs["disabled"] = "disabled"

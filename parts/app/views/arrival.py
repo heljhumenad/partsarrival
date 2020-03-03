@@ -26,5 +26,12 @@ class PartsArrivalCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class PartsArrivalUpdateView(LoginRequiredMixin, generic.UpdateView):
-    # template_name = 'arrival/add_arrival.html'
-    pass
+    template_name = 'arrival/add_arrival.html'
+    form_class = PartsArrivalForm
+    success_url = reverse_lazy('arrival:arrival_index')
+
+    def get_object(self, query_pk_and_slug=None):
+        query = PartsArrival.objects.filter(
+            id=self.kwargs['pk']
+        ).first()
+        return query
