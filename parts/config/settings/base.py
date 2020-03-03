@@ -129,3 +129,7 @@ STATIC_URL = "/static/"
 
 
 STATICFILES_DIRS = [os.path.join(STATIC_FILES_PATH, "static")]
+
+
+# Do not store cookies when browser close
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
