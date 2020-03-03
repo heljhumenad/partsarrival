@@ -7,7 +7,7 @@ from parts.app.arrival.models import PartsArrival
 from parts.app.forms.arrival_form import PartsArrivalForm
 
 
-class PartsArrivalTemplateView(LoginRequiredMixin, generic.ListView):
+class PartsArrivalListView(LoginRequiredMixin, generic.ListView):
     template_name = 'arrival/index.html'
     model = PartsArrival
     paginate_by = 2

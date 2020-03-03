@@ -8,7 +8,7 @@ app_name = 'arrival'
 urlpatterns = [
     path(
         "index/",
-        arrival.PartsArrivalTemplateView.as_view(),
+        arrival.PartsArrivalListView.as_view(),
         name="arrival_index",
     ),
     path(
