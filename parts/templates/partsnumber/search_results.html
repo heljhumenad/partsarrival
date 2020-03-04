@@ -11,12 +11,12 @@
     <div class="card card-default">
         <div class="card-body">
             <h3>Search Results</h3>
-            {% for partnumbers in object_list %}
-            <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}">
-            {{partnumbers.partnumber}}
-            {{ partnumbers.description}}
-            </a>
-            {% endfor %}
+                {% for partnumbers in object_list %}
+                <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}">
+                {{partnumbers.partnumber}}
+                {{ partnumbers.description}}
+                </a>
+                {% endfor %}
         </div>
     </div>
 </div>
