@@ -34,7 +34,7 @@
                         {% for partnumbers in page_obj.object_list  %}
                     <tr>
                         <td>{{ partnumbers.partnumber }}</a></b></td>
-                        <td>{{ partnumbers.um.unit_measure }}</td>
+                        <td>{{ partnumbers.unit_measure.um }}</td>
                         <td>{{ partnumbers.description }}</td>
                         <td>{{ partnumbers.created_at}}</td>
                         <td>{{ partnumbers.updated_at }}</td>
