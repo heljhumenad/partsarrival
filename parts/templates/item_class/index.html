@@ -14,6 +14,12 @@
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
+                        <a href="{% url 'partsnumber:part_class_create_view' %}">
+                        <button class="btn btn-primary btn-md" style="margin-top:-35px;">
+                            {% trans "Add Item Class" %}
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                        </a>
                             {% comment %} <th>item_class ID</th> {% endcomment %}
                             <th>{% trans "Account Code ID" %}</th>
                             <th>{% trans "Class Name" %}</th>
