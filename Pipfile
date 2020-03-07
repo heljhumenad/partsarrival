@@ -5,22 +5,21 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
-django-bootstrap-modal-forms = "*"
+faker = "*"
+factory-boy = "*"
+pytest = "*"
+coverage = "*"
+selenium = "*"
+autopep8 = "*"
+django-debug-toolbar = "*"
+django-extensions = "*"
+pynvim = "*"
 
 [packages]
 django = "==2.1"
 psycopg2 = "*"
-django-extensions = "*"
 werkzeug = "*"
-django-debug-toolbar = "*"
 django-bootstrap4 = "*"
-pynvim = "*"
-autopep8 = "*"
-django-bootstrap-modal-forms = "*"
-pytest = "*"
-faker = "*"
-factory-boy = "*"
-coverage = "*"
 
 [requires]
 python_version = "3.6"
