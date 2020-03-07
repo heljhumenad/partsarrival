@@ -23,6 +23,11 @@ class PartsArrivalForm(forms.ModelForm):
         empty_label=_("Choose your Partnumber")
     )
 
+    # date_arrival = forms.DateTimeField(
+    #     input_formats='%m/%d/%Y %H:%M',
+    #     localize=True
+    # )
+
     class Meta:
         verbose_name = _("Parts Arrival Form")
         verbose_name_plural = _("Parts Arrival Forms")
@@ -36,6 +41,8 @@ class PartsArrivalForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         # * All modelform has a self.instances attributes
+        # TODO
+        # BUG [When update all disabled input will be nulled after]
         super(PartsArrivalForm, self).__init__(*args, **kwargs)
         instance = getattr(self, "instance", None)
         if instance and instance.id:
