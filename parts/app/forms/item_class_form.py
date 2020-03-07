@@ -16,4 +16,4 @@ class PartNumberClassForm(forms.ModelForm):
         super(PartNumberClassForm, self).__init__(*args, **kwargs)
         instance = getattr(self, "instance", None)
         if instance and instance.id:
-            self.fields["code_name"].widget.attrs["disabled"] = "disabled"
+            self.fields["code_name"].widget.attrs["readonly"] = True

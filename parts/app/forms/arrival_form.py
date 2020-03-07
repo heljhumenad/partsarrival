@@ -46,6 +46,6 @@ class PartsArrivalForm(forms.ModelForm):
         super(PartsArrivalForm, self).__init__(*args, **kwargs)
         instance = getattr(self, "instance", None)
         if instance and instance.id:
-            self.fields["ro_number"].widget.attrs["disabled"] = "disabled"
-            self.fields["customer_name"].widget.attrs["disabled"] = "disabled"
-            self.fields["qty"].widget.attrs["disabled"] = "disabled"
+            self.fields["ro_number"].widget.attrs["readonly"] = True
+            self.fields["customer_name"].widget.attrs["readonly"] = True
+            self.fields["qty"].widget.attrs["readonly"] = True
