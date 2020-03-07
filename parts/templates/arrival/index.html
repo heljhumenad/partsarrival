@@ -46,7 +46,26 @@
                         <td>{{ arrival.partnumber }}</td>
                         <td>{{ arrival.partnumber.description}}</td>
                         <td>{{ arrival.qty}}</td>
-                        <td>{{ arrival.remarks}}</td>
+                         {% if arrival.remarks == 'NOT COMPLETED' %}
+                             <td>
+                            <a href="" class="btn btn-danger btn-xs">
+                            <b>{{ arrival.remarks}}</b>
+                            </a>
+                             </td>
+                         {% elif arrival.remarks == 'COMPLETED' %}
+                            <td>
+                            <a href="" class="btn btn-success btn-xs">
+                            <b>{{ arrival.remarks}}</b>
+                            </a>
+                             </td>
+                        {% elif  arrival.remarks == 'LACKING'%}
+                            <td>
+                            <a href="" class="btn btn-warning btn-xs">
+                            <b>{{ arrival.remarks}}</b>
+                            </a>
+                             </td>
+
+                         {% endif %}
                         <td>{{ arrival.date_arrival}}</td>
                         <td>{{ arrival.created_at}}</td>
                         <td>{{ arrival.updated_at }}</td>
