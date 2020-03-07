@@ -14,6 +14,8 @@ autopep8 = "*"
 django-debug-toolbar = "*"
 django-extensions = "*"
 pynvim = "*"
+pytest-cov = "*"
+pytest-django = "*"
 
 [packages]
 django = "==2.1"
