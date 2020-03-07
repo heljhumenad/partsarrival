@@ -21,7 +21,8 @@ class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("partsnumber:parts_show_class")
 
     def get_context_data(self, **kwargs):
-        context = super(PartnumberClassCreateView, self).get_context_data(**kwargs)
+        context = super(PartnumberClassCreateView,
+                        self).get_context_data(**kwargs)
         context["partnumber_class"] = PartNumberClass.objects.all()
         return context
 
@@ -32,5 +33,6 @@ class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("partsnumber:parts_show_class")
 
     def get_object(self, query_pk_and_slug=None):
-        item_class = PartNumberClass.objects.filter(id=self.kwargs["pk"]).first()
+        item_class = PartNumberClass.objects.filter(
+            id=self.kwargs["pk"]).first()
         return item_class
