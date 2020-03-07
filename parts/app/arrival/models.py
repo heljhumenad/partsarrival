@@ -25,7 +25,7 @@ class PartsArrival(TimeStampModel):
 
     REMARKS = [
         ("COMPLETED", "COMPLETED"),
-        ("NOT COMPLETE", "NOT COMPLETE"),
+        ("NOT COMPLETED", "NOT COMPLETED"),
         ("LACKING", "LACKING"),
     ]
 
