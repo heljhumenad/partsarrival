@@ -36,8 +36,17 @@
 {% endblock main %}
 
 {% block jsscript %}
-    <script>
-        $("#id_partnumber").addClass("select2");
-        $(".select2").select2();
-    </script>
+{% comment %} id_date_arrival {% endcomment %}
+<script>
+$(function() {
+  $('input[name="date_arrival"]').daterangepicker({
+    singleDatePicker: true,
+    timePicker: true,
+    locale: {
+      format: 'M/D/YYYY hh:mm A',
+      cancelLabel:'Clear'
+    }
+    });
+});
+</script>
 {% endblock jsscript %}
