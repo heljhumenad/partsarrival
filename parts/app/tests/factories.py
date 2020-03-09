@@ -17,7 +17,7 @@ from parts.app.partsnumber.models import (
 from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
 
-faker = Faker.create()
+faker = Factory.create()
 
 
 # PartNumBer App
