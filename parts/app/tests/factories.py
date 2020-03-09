@@ -43,7 +43,7 @@ class PartNumberFactory(DjangoModelFactory):
         max_value=50
     )
 
-    um = SubFactory(UnitofMeasureFactory)
+    unit_measure = SubFactory(UnitofMeasureFactory)
 
     description = faker.sentence(
         nb_words=6,
