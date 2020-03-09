@@ -87,7 +87,7 @@ class ServiceAdvisorFactory(DjangoModelFactory):
 
     last_name = faker.last_name()
 
-    designation = faker.(
+    designation = faker.random_element(
         elements=(
             'BRP',
             'GR',
