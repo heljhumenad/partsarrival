@@ -39,7 +39,7 @@ class PartNumberFactory(DjangoModelFactory):
         model = PartsNumber
 
     partnumber = faker.pyint(
-        min_values=10,
+        min_value=10,
         max_value=50
     )
 
