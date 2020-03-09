@@ -53,11 +53,7 @@ class PartNumberFactory(DjangoModelFactory):
 
 
 class PartNumberClassFactory(DjangoModelFactory):
-    charge_element = (
-        'INT',
-        'CUST',
-        'WTY'
-    )
+    #charge_element =
 
     class Meta:
         model = PartNumberClass
@@ -71,11 +67,19 @@ class PartNumberClassFactory(DjangoModelFactory):
     )
 
     charge_type = faker.random_element(
-        elements=charge_element
+        elements=(
+            'INT',
+            'CUST',
+            'WTY'
+        )
     )
 
     code_name = faker.random_element(
-        elements=charge_element
+        elements=(
+            'INT',
+            'CUST',
+            'WTY'
+        )
     )
 
 # Advisor
