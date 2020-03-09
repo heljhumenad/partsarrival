@@ -130,5 +130,5 @@ class PartsArrivalFactory(DjangoModelFactory):
 
     date_arrival = faker.date(
         pattern='%m/%d/%Y',
-        end_date_time=None,
+        end_datetime=None,
     )
