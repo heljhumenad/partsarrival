@@ -53,7 +53,7 @@ class PartNumberFactory(DjangoModelFactory):
 
 
 class PartNumberClassFactory(DjangoModelFactory):
-    #charge_element =
+    # charge_element =
 
     class Meta:
         model = PartNumberClass
@@ -86,6 +86,8 @@ class PartNumberClassFactory(DjangoModelFactory):
 
 
 class ServiceAdvisorFactory(DjangoModelFactory):
+    class Meta:
+        model = ServiceAdvisor
 
     first_name = faker.first_name()
 
