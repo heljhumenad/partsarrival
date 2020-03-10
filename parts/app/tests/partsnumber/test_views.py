@@ -1,5 +1,5 @@
-from parts.app.tests.base import BaseTestCase
+from parts.app.tests.base import TestCase
 
 
-class TestViewsPartNumber(BaseTestCase):
+class TestViewsPartNumber(TestCase):
     pass

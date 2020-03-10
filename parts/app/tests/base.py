@@ -1,7 +1,7 @@
 import pytest
 
 from django.test import (
-    TestCase,
+    TestCase as BaseTestCase,
     RequestFactory,
     Client,
 )
@@ -15,11 +15,11 @@ from parts.app.tests.factories import (
     PartNumberClassFactory,
     UnitofMeasureFactory,
     PartsArrivalFactory,
-    ServiceAdvisorFactory
+    ServiceAdvisorFactory,
 )
 
 
-class BaseTestCase(TestCase):
+class TestCase(BaseTestCase):
 
     def setUp(self):
         super().setUp()

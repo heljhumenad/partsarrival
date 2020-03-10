@@ -1,7 +1,7 @@
-from parts.app.tests.base import BaseTestCase
+from parts.app.tests.base import TestCase
 
 
-class TestsAdvisor(BaseTestCase):
+class TestsAdvisor(TestCase):
 
     def setUp(self):
         super().setUp()

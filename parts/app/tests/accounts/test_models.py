@@ -1,8 +1,12 @@
-from parts.app.tests.base import BaseTestCase
+from parts.app.tests.base import TestCase
 from parts.app.accounts.models import CustomUser
+from parts.utils.util import (
+    max_length_field,
+    null_value_field
+)
 
 
-class TestsAccounts(BaseTestCase):
+class TestsAccounts(TestCase):
 
     @classmethod
     def setUpTestData(cls):
