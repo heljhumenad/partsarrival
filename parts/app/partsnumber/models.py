@@ -64,7 +64,6 @@ class PartNumberClass(TimeStampModel):
 
     code_name = models.CharField(
         max_length=7,
-        unique=True,
         verbose_name=_("Code Name/Code Number"),
     )
 
