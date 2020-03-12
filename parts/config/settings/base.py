@@ -128,7 +128,11 @@ STATIC_ROOT = os.path.join(STATIC_FILES_PATH, "staticfiles")
 STATIC_URL = "/static/"
 
 
-STATICFILES_DIRS = [os.path.join(STATIC_FILES_PATH, "static")]
+STATICFILES_DIRS = [
+    os.path.join(STATIC_FILES_PATH, "static"),
+    # include other static files for development
+    ("dev_js", os.path.join(STATIC_FILES_PATH, "static")),
+]
 
 
 # Do not store cookies when browser close
