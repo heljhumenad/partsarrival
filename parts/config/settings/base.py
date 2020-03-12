@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     # Testing app module
     "parts.app.tests",
     # Third party
+    "bootstrap_modal_forms",
 ]
 
 MIDDLEWARE = [

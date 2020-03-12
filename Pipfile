@@ -22,6 +22,7 @@ django = "==2.1"
 psycopg2 = "*"
 werkzeug = "*"
 django-bootstrap4 = "*"
+django-bootstrap-modal-forms = "*"
 
 [requires]
 python_version = "3.6"
