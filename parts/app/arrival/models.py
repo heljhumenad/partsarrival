@@ -41,7 +41,7 @@ class PartsArrival(TimeStampModel):
     )
 
     ro_number = models.CharField(
-        verbose_name=_("Ro Number"),
+        verbose_name=_("RO/RE Number"),
         max_length=50
     )
 
