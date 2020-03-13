@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "parts.app.mixins",
     "parts.app.forms",
     "parts.app.models",
+    "parts.app.dashboard",
     # Testing app module
     "parts.app.tests",
     # Third party
