@@ -1,0 +1,33 @@
+{% extends 'common/base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block title %}Dashboard{% endblock title %}
+{% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
+{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
+{% block message %} {% include "common/message.html" %} {% endblock message %}
+
+
+{% block main %}
+    <div class="col-md-3 card-col _dashboard">
+        <div class="card card-default">
+            <div class="card-body bg-primary">
+            <p><b>Parts Number</b></p>
+            </div>
+        </div>
+    </div>
+        <div class="col-md-3 card-col _dashboard">
+        <div class="card card-default">
+            <div class="card-body bg-info">
+            <p><b>Arrival of Parts</b></p>
+            </div>
+        </div>
+    </div>
+        <div class="col-md-3 card-col _dashboard">
+        <div class="card card-default">
+            <div class="card-body bg-warning">
+            <p><b>Purchase Parts</b></p>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
