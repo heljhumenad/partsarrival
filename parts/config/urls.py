@@ -8,7 +8,7 @@ urlpatterns = [
 
     path("", include("parts.app.home.urls")),
 
-    # path("dashboard/", include("parts.app.dashboard.urls")),
+    path("dashboard/", include("parts.app.dashboard.urls")),
 
     path("accounts/", include("parts.app.accounts.urls")),
 
