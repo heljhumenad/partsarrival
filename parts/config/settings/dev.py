@@ -9,7 +9,7 @@ INSTALLED_APPS += [
 ]
 
 # Customize login accounts
-LOGIN_REDIRECT_URL = "accounts:account_view"
+LOGIN_REDIRECT_URL = "dashboard:dashboard_view_index"
 LOGOUT_REDIRECT_URL = "accounts:login"
 AUTH_USER_MODEL = "accounts.CustomUser"
 
@@ -39,3 +39,5 @@ DATABASE = {
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": True,
 }
+
+ALLOWED_HOSTS = ['192.168.1.104', 'localhost', '127.0.0.1']
