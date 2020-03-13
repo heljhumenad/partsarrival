@@ -8,3 +8,7 @@ $(document).ready(function() {
     }
   });
 });
+
+$(document).ready(function() {
+  $("._dashboard p").addClass("text-white");
+});
