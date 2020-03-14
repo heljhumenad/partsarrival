@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div class="modal-header">
+    <h3 class="modal-title">{% trans "Parts Number Details" %}</h3>
+    <button type="button" data-dismiss="modal" class="close" aria-label="Close">
+        <span aria-hidden="close">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <ul class="list-group">
+        <li class="list-group-item disabled">Parts Number</li>
+        <li class="list-group-item">{% trans "Parts Number" %} <b>{{partsnumber.partnumber}}</b></li>
+        <li class="list-group-item">{% trans "Unit of Measure" %} <b>{{partsnumber.unit_measure.um }}</b></li>
+        <li class="list-group-item">{% trans "Description" %} <b>{{partsnumber.description}}</b></li>
+        <li class="list-group-item">{% trans "Created At" %} <b>{{partsnumber.created_at}}</b></li>
+        <li class="list-group-item">{% trans "Updated At" %} <b>{{partsnumber.updated_at}}</b></li>
+    </ul>
+</div>
+
+<div class="modal-footer">
+
+</div>

@@ -7,8 +7,11 @@ $(document).ready(function() {
       cancelLabel: "Cancel"
     }
   });
-});
-
-$(document).ready(function() {
   $("._dashboard p").addClass("text-white");
+  // modal values
+  $(".read-partsnumber").each(function() {
+    $(this).modalForm({
+      formURL: $(this).data("id")
+    });
+  });
 });

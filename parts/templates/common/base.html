@@ -38,18 +38,13 @@
         {% endblock footer %}
 </div>
     
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script> <!--- CDN for jquery for callback when filebased was failed--> 
-<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
-<!-- You can alternatively load the minified version -->
-<script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
-{% comment %} {% block jsscript %} {% endcomment %}
 <script src="{% static 'dev_js/js/jquery.js' %}"></script>
+<script src="{% static 'dev_js/js/jquery.bootstrap.modal.forms.js' %}"></script>
+<!-- You can alternatively load the minified version -->
+<script src="{% static 'dev_js/js/jquery.bootstrap.modal.forms.min.js' %}"></script>
 <script src="{% static 'dev_js/js/app.js' %}"></script>
 <script src="{% static 'dev_js/js/calendar/daterangepicker.js' %}"></script>{# this all jquery and javascript file in-house #}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-{% comment %} {% endblock jsscript %} {% endcomment %}
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/calendar/moment.js' %}"></script>
 <script src="{% static 'js/calendar/daterangepicker.js' %}"></script>

@@ -8,6 +8,7 @@
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 
 {% block main %}
+    {% include 'common/_modal.html' %}
 <div class="col-md-11 col-lg-11 offset-md-2 card-col">       
     <div class="card card-default">
         <div class="card-body">
@@ -39,34 +40,18 @@
                         <td>{{ partnumbers.created_at}}</td>
                         <td>{{ partnumbers.updated_at }}</td>
               {% if user.is_staff %}
-          <td><a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
-                    class="btn btn-primary btn-xs edit-users">
+          <td>
+          <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
+                    class="btn btn-primary btn-xs edit">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
-            </a></td> 
-            {% comment %} 
-            <button type="button" class="btn btn-success btn-xs read-employee" 
-                data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
-            data-toggle="modal" data-target="#modal">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-            </button>
-            <button type="button" data-id="{% url 'employee:employee_delete' pk=partnumbers.employee_id %}" 
-            class="btn btn-warning btn-xs delete-employee" data-toggle="modal" data-target="#modal">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-                    </td>
-                    {% else %}          
-                    <button type="button" class="btn btn-success btn-xs read-employee" 
-                        data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
-                    data-toggle="modal" data-target="#modal">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="btn btn-warning btn-xs read-employee" 
-                    data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
-                    data-toggle="modal" data-target="#modal">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    </button>
-                {% endif %} {% endcomment %}
-                    {% endif %}
+            </a>
+        <button type="button" class="btn btn-success btn-xs read-partsnumber" 
+            data-id = "{% url 'partsnumber:parts_number_read_view' pk=partnumbers.id %}"
+        data-toggle="modal" data-target="#modal">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+        </button>
+        </td> 
+            {% endif %}
                     </tr>
                     {% empty %}
                             <p class="font-weight-bold">{% trans "No partnumbers has been added try adding" %} 
