@@ -1,0 +1,35 @@
+{% load i18n %}
+
+<div class="modal-header">
+    <h3 class="modal-title">{% trans "Parts Arrival Details" %}</h3>
+    <button type="button" data-dismiss="modal" class="close" aria-label="Close">
+        <span aria-hidden="close">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <ul class="list-group">
+        <li class="list-group-item">{% trans "Customer Name" %}: <b>{{arrival.customer_name}}</b></li>
+        <li class="list-group-item">{% trans "RO Number" %}: <b>{{arrival.ro_number }}</b></li>
+        <li class="list-group-item">{% trans "Item Class" %}: <b>{{arrival.item_class}}</b></li>
+        <li class="list-group-item">{% trans "Advisor" %}: <b>{{arrival.advisor}}</b></li>
+        <li class="list-group-item">{% trans "Parts Number" %}: <b>{{arrival.partnumber}}</b></li>
+        <li class="list-group-item">{% trans "Quantity" %}: <b>{{arrival.qty}}</b></li>
+        <li class="list-group-item">{% trans "Remarks" %}: 
+        {% if arrival.remarks == 'LACKING' %}
+        <button class='btn btn-warning btn-xs'>{{ arrival.remarks }}</button>
+        {% elif arrival.remarks == 'COMPLETED'%}
+        <button class='btn btn-success btn-xs'>{{ arrival.remarks }} </button>
+        {% elif arrival.remarks == 'NOT COMPLETED'%}
+        <button class="btn btn-danger btn-xs">{{ arrival.remarks}}</button>
+        {% endif %}
+        </li>
+        <li class="list-group-item">{% trans "Date Arrival" %}: <b>{{arrival.date_arrival}}</b></li>
+        <li class="list-group-item">{% trans "Date Created" %}: <b>{{arrival.created_at}}</b></li>
+        <li class="list-group-item">{% trans "Date Updated" %}: <b>{{arrival.updated_at}}</b></li>
+
+    </ul>
+</div>
+
+<div class="modal-footer">
+
+</div>

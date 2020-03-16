@@ -22,4 +22,10 @@ urlpatterns = [
         name="arrival_edit"
     ),
 
+    path(
+        "read/<int:pk>/",
+        arrival.PartsArrivalDetailView.as_view(),
+        name="arrival-read"
+    )
+
 ]

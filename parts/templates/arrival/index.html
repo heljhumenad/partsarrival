@@ -8,6 +8,7 @@
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 
 {% block main %}
+    {% include 'common/_modal.html' %}
 <div class="col-md-11 col-lg-11 offset-md-2 card-col">       
     <div class="card card-default">
         <div class="card-body">
@@ -23,15 +24,11 @@
                         {% comment %} <th>Employee ID</th> {% endcomment %}
                         <th>{% trans "Customer Name" %}</th>
                         <th>{% trans "RO & RE Number" %}</th>
-                        <th>{% trans "Item Class" %}</th>
                         <th>{% trans "Advisor" %}</th>
                         <th>{% trans "Part Number" %}</th>
                         <th>{% trans "Description" %}</th>
-                        <th>{% trans "Quantity" %}</th>
                         <th>{% trans "Remarks" %}</th>
                         <th>{% trans "Date Arrival" %}</th>
-                        <th>{% trans "Created At" %}</th>
-                        <th>{% trans "Updated At" %}</th>
                         <th>{% trans "Actions" %}</th>
                     </tr>
                 </thead>
@@ -41,11 +38,9 @@
                     <tr>
                         <td>{{ arrival.customer_name }}</a></b></td>
                         <td>RO{{ arrival.ro_number }}</td>
-                        <td>{{ arrival.item_class.class_name }}</td>
                         <td>{{ arrival.advisor.first_name }} {{ arrival.advisor.last_name}}</td>
                         <td>{{ arrival.partnumber }}</td>
                         <td>{{ arrival.partnumber.description}}</td>
-                        <td>{{ arrival.qty}}</td>
                          {% if arrival.remarks == 'NOT COMPLETED' %}
                              <td>
                             <a href="" class="btn btn-danger btn-xs">
@@ -67,36 +62,17 @@
 
                          {% endif %}
                         <td>{{ arrival.date_arrival}}</td>
-                        <td>{{ arrival.created_at}}</td>
-                        <td>{{ arrival.updated_at }}</td>
               {% if user.is_staff %}
           <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
                     class="btn btn-primary btn-xs edit-users">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
-            </a></td> 
-            {% comment %} 
-            <button type="button" class="btn btn-success btn-xs read-employee" 
-                data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
+            </a>
+            <button type="button" class="btn btn-success btn-xs read-arrival" 
+                data-id = "{% url 'arrival:arrival-read' pk=arrival.id %}"
             data-toggle="modal" data-target="#modal">
                 <i class="fa fa-eye" aria-hidden="true"></i>
             </button>
-            <button type="button" data-id="{% url 'employee:employee_delete' pk=partnumbers.employee_id %}" 
-            class="btn btn-warning btn-xs delete-employee" data-toggle="modal" data-target="#modal">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-                    </td>
-                    {% else %}          
-                    <button type="button" class="btn btn-success btn-xs read-employee" 
-                        data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
-                    data-toggle="modal" data-target="#modal">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="btn btn-warning btn-xs read-employee" 
-                    data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
-                    data-toggle="modal" data-target="#modal">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    </button>
-                {% endif %} {% endcomment %}
+            </td> 
                     {% endif %}
                     </tr>
                     {% empty %}
@@ -110,4 +86,5 @@
         <div>
     </div>
 </div>
+{% include 'common/paginator.html' %}
 {% endblock main %}
