@@ -35,3 +35,15 @@ class PartsArrivalUpdateView(LoginRequiredMixin, generic.UpdateView):
             id=self.kwargs['pk']
         ).first()
         return query
+
+
+class PartsArrivalDetailView(LoginRequiredMixin, generic.DetailView):
+    template_name = 'arrival/read_view.html'
+    model = PartsArrival
+    context_object_name = 'arrival'
+
+    def get_object(self, query_pk_and_slug=None):
+        query = PartsArrival.objects.filter(
+            id=self.kwargs['pk']
+        ).first()
+        return query
