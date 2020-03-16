@@ -8,6 +8,8 @@ from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form
 
 # PartNumber
+
+
 class PartNumberTemplateView(generic.ListView):
     template_name = "partsnumber/index.html"
     model = PartsNumber
@@ -24,6 +26,17 @@ class PartNumberCreateView(LoginRequiredMixin, generic.CreateView):
         context = super(PartNumberCreateView, self).get_context_data(**kwargs)
         context["partsnumber_id"] = PartsNumber.objects.all()
         return context
+
+
+class PartsNumberDetailView(LoginRequiredMixin, generic.DetailView):
+    template_name = "partsnumber/read_partnumber.html"
+    model = PartsNumber
+    context_object_name = 'partsnumber'
+
+    # create a manager then add this functionality to the model manager
+    def get_object(self, query_pk_and_slug=None):
+        partsnumber = PartsNumber.objects.filter(id=self.kwargs["pk"]).first()
+        return partsnumber
 
 
 class PartNumberUpdateView(LoginRequiredMixin, generic.UpdateView):
