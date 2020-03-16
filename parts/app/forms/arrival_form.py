@@ -49,3 +49,15 @@ class PartsArrivalForm(forms.ModelForm):
             self.fields["ro_number"].widget.attrs["readonly"] = True
             self.fields["customer_name"].widget.attrs["readonly"] = True
             self.fields["qty"].widget.attrs["readonly"] = True
+
+    def clean_qty(self):
+        # check input qty if zero
+        cleaned_data = super().clean()
+        qty = cleaned_data.get("qty")
+
+        if qty <= 0 or qty is None:
+            raise forms.ValidationError(
+                _("Error %(qty)s quantity"),
+                params={'qty': qty},
+            )
+        return qty
