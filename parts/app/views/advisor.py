@@ -29,5 +29,18 @@ class AdvisorUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("advisor:advisor_index")
 
     def get_object(self, query_pk_and_slug=None):
-        advisor = ServiceAdvisor.objects.all().filter(id=self.kwargs["pk"],).first()
+        advisor = ServiceAdvisor.objects.all().filter(
+            id=self.kwargs["pk"],).first()
+        return advisor
+
+
+class AdvisorDetailView(LoginRequiredMixin, generic.DetailView):
+    template_name = "advisor/read_advisor.html"
+    model = ServiceAdvisor
+    context_object_name = 'advisor'
+
+    def get_object(self, query_pk_and_slug=None):
+        advisor = ServiceAdvisor.objects.all().filter(
+            id=self.kwargs['pk']
+        ).first()
         return advisor

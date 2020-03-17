@@ -7,6 +7,7 @@
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 
 {% block main %}
+    {% include "common/_modal.html" %}
 <div class="col-md-10 col-lg-10 offset-md-2 card-col">       
     <div class="card card-default">
         <div class="card-body">
@@ -23,8 +24,6 @@
                         <th>{% trans "First Name" %}</th>
                         <th>{% trans "Last Name" %}</th>
                         <th>{% trans "Designation" %}</th>
-                        <th>{% trans "Created At" %}</th>
-                        <th>{% trans "Updated At" %}</th>
                         <th>{% trans "Actions" %}</th>
                     </tr>
                 </thead>
@@ -35,39 +34,20 @@
                         <td>{{ service_advisor.first_name }}</a></b></td>
                         <td>{{ service_advisor.last_name }}</td>
                         <td>{{ service_advisor.designation }}</td>
-                        <td>{{ service_advisor.created_at }}</td>
-                        <td>{{ service_advisor.updated_at }}</td>
               {% if user.is_staff %}
             <td><a href="{% url 'advisor:advisor_update_view' pk=service_advisor.id %}" 
                     class="btn btn-primary btn-xs edit-users">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
-            </a></td>
-            {% comment %} 
-            <button type="button" class="btn btn-success btn-xs read-employee" 
-                data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
+            </a>
+            <button type="button" class="btn btn-success btn-xs read-advisor" 
+                data-id = "{% url 'advisor:advisor_read_view' pk=service_advisor.id %}"
             data-toggle="modal" data-target="#modal">
                 <i class="fa fa-eye" aria-hidden="true"></i>
             </button>
-            <button type="button" data-id="{% url 'employee:employee_delete' pk=partnumbers.employee_id %}" 
-            class="btn btn-warning btn-xs delete-employee" data-toggle="modal" data-target="#modal">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-                    </td>
-                    {% else %}          
-                    <button type="button" class="btn btn-success btn-xs read-employee" 
-                        data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
-                    data-toggle="modal" data-target="#modal">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="btn btn-warning btn-xs read-employee" 
-                    data-id = "{% url 'employee:employee_read' pk=partnumbers.employee_id %}"
-                    data-toggle="modal" data-target="#modal">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                    </button>
-                {% endif %} {% endcomment %}
-                    {% endif %}
-                    </tr>
-                    {% empty %}
+            </td>
+                {% endif %}
+                </tr>
+                {% empty %}
                             <p class="font-weight-bold">{% trans "No partnumbers has been added try adding" %} 
                             <a href="{% url 'partsnumber:parts_number_create_view'%}">{% trans "here" %}</a></p>
                             <p class="mb-0"></p>
@@ -78,4 +58,5 @@
         <div>
     </div>
 </div>
+    {% include "common/paginator.html" %}
 {% endblock main %}

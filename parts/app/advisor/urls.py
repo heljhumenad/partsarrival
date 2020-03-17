@@ -21,4 +21,11 @@ urlpatterns = [
         advisor.AdvisorUpdateView.as_view(),
         name="advisor_update_view",
     ),
+
+    path(
+        "read/advisor/<int:pk>/",
+        advisor.AdvisorDetailView.as_view(),
+        name="advisor_read_view"
+    ),
+
 ]

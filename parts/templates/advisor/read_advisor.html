@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div class="modal-header">
+    <h3 class="modal-title">{% trans "Parts Advisor Details" %}</h3>
+    <button type="button" data-dismiss="modal" class="close" aria-label="Close">
+        <span aria-hidden="close">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <ul class="list-group">
+        <li class="list-group-item">{% trans "First Name" %}: <b>{{advisor.first_name}}</b></li>
+        <li class="list-group-item">{% trans "Last Name" %}: <b>{{advisor.last_name }}</b></li>
+        <li class="list-group-item">{% trans "Designation" %}: <b>{{advisor.designation}}</b></li>
+        <li class="list-group-item">{% trans "Date Created" %}: <b>{{advisor.created_at}}</b></li>
+        <li class="list-group-item">{% trans "Date Updated" %}: <b>{{advisor.updated_at}}</b></li>
+
+    </ul>
+</div>
+
+<div class="modal-footer">
+
+</div>
