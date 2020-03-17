@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<div class="modal-header">
+    <h3 class="modal-title">{% trans "Parts Number Details" %}</h3>
+    <button type="button" data-dismiss="modal" class="close" aria-label="Close">
+        <span aria-hidden="close">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <ul class="list-group">
+        <li class="list-group-item">{% trans "Account Code" %}: <b>{{item_class.code_name}}</b></li>
+        <li class="list-group-item">{% trans "Charge Type" %}: <b>{{item_class.class_name}}</b></li>
+        <li class="list-group-item">{% trans "A Class Name" %}: <b>{{item_class.charge_type}}</b></li>
+        <li class="list-group-item">{% trans "Created At" %}: <b>{{item_class.created_at}}</b></li>
+        <li class="list-group-item">{% trans "Updated At" %}: <b>{{item_class.updated_at}}</b></li>
+    </ul>
+</div>
+
+<div class="modal-footer">
+
+</div>

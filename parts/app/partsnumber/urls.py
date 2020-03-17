@@ -50,4 +50,10 @@ urlpatterns = [
         item_class.PartnumberClassUpdateView.as_view(),
         name="part_class_update_view",
     ),
+
+    path(
+        "read/<int:pk>/class/",
+        item_class.PartsNumberClassDetailView.as_view(),
+        name="item_class_read",
+    )
 ]

@@ -8,7 +8,8 @@
 {% block messages %} {% include "common/message.html" %} {% endblock messages %}
 
 {% block main %}
-<div class="col-md-10 col-lg-10 offset-md-2 card-col">       
+<div class="col-md-10 col-lg-10 offset-md-2 card-col">
+    {% include "common/_modal.html" %}
     <div class="card card-default">
         <div class="card-body">
                 <table class="table table-bordered">
@@ -24,8 +25,6 @@
                             <th>{% trans "Account Code ID" %}</th>
                             <th>{% trans "Class Name" %}</th>
                             <th>{% trans "Charge Type" %}</th>
-                            <th>{% trans "Created At" %}</th>
-                            <th>{% trans "Updated At"%} </th>
                             <th>{% trans "Actions" %}</th>
                         </tr>
                     </thead>
@@ -34,36 +33,18 @@
                         <td>{{ partnumber_class.code_name}}</td>
                         <td>{{ partnumber_class.class_name }}</td>
                         <td>{{ partnumber_class.charge_type }}</td>
-                        <td>{{ partnumber_class.created_at}}</td>
-                        <td>{{ partnumber_class.updated_at}}</td>
                 <td>
                     {% if user.is_staff %}
                 <a href="{% url 'partsnumber:part_class_update_view' pk=partnumber_class.id %}" 
                         class="btn btn-primary btn-xs edit-users">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a></td>
-            {% comment %} 
-                <button type="button" class="btn btn-success btn-xs read-item_class" 
-                    data-id = "{% url 'item_class:item_class_read' pk=partnumber_class.item_class_id %}"
+                </a>
+                <button type="button" class="btn btn-success btn-xs read-item-class" 
+                    data-id = "{% url 'partsnumber:item_class_read' pk=partnumber_class.id %}"
                 data-toggle="modal" data-target="#modal">
                     <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
-                <button type="button" data-id="{% url 'item_class:item_class_delete' pk=partnumber_class.item_class_id %}" 
-                class="btn btn-warning btn-xs delete-item_class" data-toggle="modal" data-target="#modal">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                    </button>
-                        </td>
-                        {% else %}          
-                        <button type="button" class="btn btn-success btn-xs read-item_class" 
-                            data-id = "{% url 'item_class:item_class_read' pk=partnumber_class.item_class_id %}"
-                        data-toggle="modal" data-target="#modal">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-warning btn-xs read-item_class" 
-                        data-id = "{% url 'item_class:item_class_read' pk=partnumber_class.item_class_id %}"
-                        data-toggle="modal" data-target="#modal">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                        </button> {% endcomment %}
+                </td>
                         {% endif %}
                             </tr>
                             {% empty %}
@@ -77,4 +58,6 @@
         </div>
     </div>
 </div>
+{% include "common/paginator.html" %}
 {% endblock main %}
+]

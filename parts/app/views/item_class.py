@@ -36,3 +36,14 @@ class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
         item_class = PartNumberClass.objects.filter(
             id=self.kwargs["pk"]).first()
         return item_class
+
+
+class PartsNumberClassDetailView(LoginRequiredMixin, generic.DetailView):
+    template_name = "item_class/read_item_class.html"
+    model = PartNumberClass
+    context_object_name = 'item_class'
+
+    def get_object(self, query_pk_and_slug=None):
+        item_class = PartNumberClass.objects.filter(
+            id=self.kwargs["pk"]).first()
+        return item_class
