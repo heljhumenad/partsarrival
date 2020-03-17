@@ -14,4 +14,22 @@ $(document).ready(function() {
       formURL: $(this).data("id")
     });
   });
+
+  $(".read-arrival").each(function() {
+    $(this).modalForm({
+      formURL: $(this).data("id")
+    });
+  });
+
+  $(".read-advisor").each(function() {
+    $(this).modalForm({
+      formURL: $(this).data("id")
+    });
+  });
+
+  $(".read-item-class").each(function() {
+    $(this).modalForm({
+      formURL: $(this).data("id")
+    });
+  });
 });
