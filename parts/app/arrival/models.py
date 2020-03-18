@@ -59,7 +59,7 @@ class PartsArrival(TimeStampModel):
 
     partnumber = models.ForeignKey(
         PartsNumber,
-    on_delete=models.CASCADE,
+        on_delete=models.CASCADE,
         verbose_name=_("Part Number"),
     )
 
