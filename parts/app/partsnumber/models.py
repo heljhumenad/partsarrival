@@ -74,4 +74,4 @@ class PartNumberClass(TimeStampModel):
         ordering = ["id"]
 
     def __str__(self):
-        return self.class_name
+        return self.class_name.upper()
