@@ -4,6 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.db.models import Q
 
+
+from parts.app.mixins.useraccount_mixins import UserSuccessMessageMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form
 
@@ -16,7 +18,7 @@ class PartNumberTemplateView(generic.ListView):
     paginate_by = 2
 
 
-class PartNumberCreateView(LoginRequiredMixin, generic.CreateView):
+class PartNumberCreateView(UserSuccessMessageMixin, generic.CreateView):
     template_name = "partsnumber/add_partnumber.html"
     model = PartsNumber
     form_class = partsnumber_form.PartsNumberForm
@@ -39,10 +41,11 @@ class PartsNumberDetailView(LoginRequiredMixin, generic.DetailView):
         return partsnumber
 
 
-class PartNumberUpdateView(LoginRequiredMixin, generic.UpdateView):
+class PartNumberUpdateView(UserSuccessMessageMixin, generic.UpdateView):
     template_name = "partsnumber/add_partnumber.html"
     form_class = partsnumber_form.PartsNumberForm
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
+    messages = 'update'
 
     def get_object(self, query_pk_and_slug=None):
         partsnumber = PartsNumber.objects.filter(id=self.kwargs["pk"]).first()
