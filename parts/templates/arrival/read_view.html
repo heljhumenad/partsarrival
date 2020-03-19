@@ -9,9 +9,9 @@
 <div class="modal-body">
     <ul class="list-group">
         <li class="list-group-item">{% trans "Customer Name" %}: <b>{{arrival.customer_name}}</b></li>
+        <li class="list-group-item">{% trans "Advisor" %}: <b>{{arrival.advisor}}</b></li>
         <li class="list-group-item">{% trans "RO Number" %}: <b>{{arrival.ro_number }}</b></li>
         <li class="list-group-item">{% trans "Item Class" %}: <b>{{arrival.item_class}}</b></li>
-        <li class="list-group-item">{% trans "Advisor" %}: <b>{{arrival.advisor}}</b></li>
         <li class="list-group-item">{% trans "Parts Number" %}: <b>{{arrival.partnumber}}</b></li>
         <li class="list-group-item">{% trans "Quantity" %}: <b>{{arrival.qty}}</b></li>
         <li class="list-group-item">{% trans "Remarks" %}: 
@@ -24,8 +24,8 @@
         {% endif %}
         </li>
         <li class="list-group-item">{% trans "Date Arrival" %}: <b>{{arrival.date_arrival}}</b></li>
-        <li class="list-group-item">{% trans "Date Created" %}: <b>{{arrival.created_at}}</b></li>
-        <li class="list-group-item">{% trans "Date Updated" %}: <b>{{arrival.updated_at}}</b></li>
+        <small> <li class="list-group-item">{% trans "Date Created" %}: <b>{{arrival.created_at}}</b></li></small>
+        <small><li class="list-group-item">{% trans "Date Updated" %}: <b>{{arrival.updated_at}}</b></li></small>
 
     </ul>
 </div>
