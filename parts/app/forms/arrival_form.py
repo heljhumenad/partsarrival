@@ -40,9 +40,6 @@ class PartsArrivalForm(forms.ModelForm):
         ]
 
     def __init__(self, *args, **kwargs):
-        # * All modelform has a self.instances attributes
-        # TODO
-        # BUG [When update all disabled input will be nulled after]
         super(PartsArrivalForm, self).__init__(*args, **kwargs)
         instance = getattr(self, "instance", None)
         if instance and instance.id:
@@ -61,3 +58,14 @@ class PartsArrivalForm(forms.ModelForm):
                 params={'qty': qty},
             )
         return qty
+
+    def clean_ro_number(self):
+        cleaned_data = super().clean()
+        ro_number = cleaned_data.get("ro_number")
+
+        if "RO" not in ro_number:
+            raise forms.ValidationError(
+                _("Error %(ro_number)s not a valid format"),
+                params={'ro_number': ro_number},
+            )
+        return ro_number

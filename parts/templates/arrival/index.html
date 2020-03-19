@@ -37,7 +37,7 @@
                         {% for arrival in page_obj.object_list  %}
                     <tr>
                         <td>{{ arrival.customer_name }}</a></b></td>
-                        <td>RO{{ arrival.ro_number }}</td>
+                        <td>{{ arrival.ro_number }}</td>
                         <td>{{ arrival.advisor.first_name }} {{ arrival.advisor.last_name}}</td>
                         <td>{{ arrival.partnumber }}</td>
                         <td>{{ arrival.partnumber.description}}</td>
