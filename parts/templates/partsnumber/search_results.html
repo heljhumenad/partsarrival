@@ -15,7 +15,9 @@
                 <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}">
                 {{partnumbers.partnumber}}
                 {{ partnumbers.description}}
-                </a>
+                </a>        
+                {% empty %}    
+                <h1>No search found</h1>
                 {% endfor %}
         </div>
     </div>
