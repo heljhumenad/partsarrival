@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "parts.app.dashboard",
     # Testing app module
     "parts.app.tests",
+    # Local app module
+    "parts.templatetag",
     # Third party
     "bootstrap_modal_forms",
 ]
