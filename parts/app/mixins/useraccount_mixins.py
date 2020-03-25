@@ -9,13 +9,13 @@ class UserAccountMixins(LoginRequiredMixin):
     redirect_field_name = "next_link"
 
 
-class MessageMixins:
+class MessageMixins(LoginRequiredMixin, SuccessMessageMixin):
     @property
     def messages(self):
         return NotImplemented
 
 
-class UserSuccessMessageMixin(LoginRequiredMixin, SuccessMessageMixin, MessageMixins):
+class UserSuccessMessageMixin(MessageMixins):
     success_message = _(
         "%(customer_name)s is successfuly %(messages)s")
 
@@ -23,5 +23,18 @@ class UserSuccessMessageMixin(LoginRequiredMixin, SuccessMessageMixin, MessageMi
         return self.success_message % dict(
             cleaned_data,
             customer_name=self.object.customer_name,
+            messages=self.messages
+        )
+
+
+class PartsNumberMixin(MessageMixins):
+    success_message = _(
+        "%(partnumber)s is successfuly %(messages)s"
+    )
+
+    def get_success_message(self, cleaned_data, **kwargs):
+        return self.success_message % dict(
+            cleaned_data,
+            partnumber=self.object.partnumber,
             messages=self.messages
         )
