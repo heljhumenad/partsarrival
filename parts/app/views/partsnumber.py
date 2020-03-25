@@ -5,9 +5,11 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 
 
-from parts.app.mixins.useraccount_mixins import UserSuccessMessageMixin
+from parts.app.mixins.useraccount_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form
+
+from bootstrap_modal_forms.generic import BSModalCreateView
 
 # PartNumber
 
@@ -18,10 +20,11 @@ class PartNumberTemplateView(generic.ListView):
     paginate_by = 2
 
 
-class PartNumberCreateView(UserSuccessMessageMixin, generic.CreateView):
+class PartNumberCreateView(PartsNumberMixin, generic.CreateView):
     template_name = "partsnumber/add_partnumber.html"
     model = PartsNumber
     form_class = partsnumber_form.PartsNumberForm
+    messages = 'added'
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
 
     def get_context_data(self, **kwargs):
@@ -41,11 +44,11 @@ class PartsNumberDetailView(LoginRequiredMixin, generic.DetailView):
         return partsnumber
 
 
-class PartNumberUpdateView(UserSuccessMessageMixin, generic.UpdateView):
+class PartNumberUpdateView(PartsNumberMixin, generic.UpdateView):
     template_name = "partsnumber/add_partnumber.html"
     form_class = partsnumber_form.PartsNumberForm
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
-    messages = 'update'
+    messages = 'updated'
 
     def get_object(self, query_pk_and_slug=None):
         partsnumber = PartsNumber.objects.filter(id=self.kwargs["pk"]).first()
