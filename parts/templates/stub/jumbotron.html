@@ -6,8 +6,13 @@
             <p class="lead">{% trans "Systematize Parts Arrival System" %}</p>
             <hr class="my-2">
             <p class="lead">
+            {% if user.is_staff %}
+            <a href="{% url 'dashboard:dashboard_view_index'%}" class="btn btn-primary btn-lg"> {% trans "Go to Dashboard" %}</a>
+            {% else %}
             <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">{% trans "Get Started" %}</a>
+            {% endif %}
             </p>
+            
         </div>
     </div>
 </div>
