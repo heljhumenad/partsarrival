@@ -7,19 +7,24 @@
 {% block sidebar %} {% include 'common/sidebar.html' %}{% endblock sidebar %}
 
 {% block main %}
-<div class="col-md-10 col-lg-10 offset-md-2 card-col">
-    <div class="card card-default">
-        <div class="card-body">
-            <h3>Search Results</h3>
-                {% for partnumbers in object_list %}
-                <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}">
-                {{partnumbers.partnumber}}
-                {{ partnumbers.description}}
-                </a>        
-                {% empty %}    
-                <h1>No search found</h1>
-                {% endfor %}
-        </div>
+    <div class="row" style="margin-top:20px;">
+    <div class="col-md-11">
+        <h1>Search Results</h1>
     </div>
+     <div class="col-md-11" style="margin-top:10px;">
+     <ul class="list-group list-group-flush">
+    {% for partnumbers in object_list  %}
+    <li class="list-group-item">
+        <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}">
+        <h3>{{ partnumbers.partnumber}}</h4>
+        </a>
+        <p>{{ partnumbers.description}}</p>
+        <small><i class="fa fa-calendar"></i> {{ partnumbers.created_at }}</small>
+    </li>
+    {% empty %}
+    <h1>No Search Found</h1>
+{% endfor %}
+</ul>
 </div>
 {% endblock main %}
+
