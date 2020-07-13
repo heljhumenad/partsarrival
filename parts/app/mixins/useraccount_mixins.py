@@ -1,7 +1,19 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, AccessMixin
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+
+
+class CheckUserAuthorizationMixin(AccessMixin):
+    # check proper authorizations for users
+    # throw 404, 303, 500
+    raise_exception = True
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.request.user.is_staff:
+            self.handle_no_permission()
+            return reverse_lazy('dashboard:dashboard_view_index')
+        return super(CheckUserAuthorizationMixin, self).dispatch(request, *args, **kwargs)
 
 
 class UserAccountMixins(LoginRequiredMixin):

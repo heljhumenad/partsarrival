@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load check_users %}
 
 <div class="modal-header">
     <h3 class="modal-title">{% trans "Parts Arrival Details" %}</h3>
@@ -15,13 +16,14 @@
         <li class="list-group-item">{% trans "Parts Number" %}: <b>{{arrival.partnumber}}</b></li>
         <li class="list-group-item">{% trans "Quantity" %}: <b>{{arrival.qty}}</b></li>
         <li class="list-group-item">{% trans "Remarks" %}: 
-        {% if arrival.remarks == 'LACKING' %}
+        {% comment %} {% if arrival.remarks == 'LACKING' %}
         <button class='btn btn-warning btn-xs'>{{ arrival.remarks }}</button>
         {% elif arrival.remarks == 'COMPLETED'%}
         <button class='btn btn-success btn-xs'>{{ arrival.remarks }} </button>
         {% elif arrival.remarks == 'NOT COMPLETED'%}
         <button class="btn btn-danger btn-xs">{{ arrival.remarks}}</button>
-        {% endif %}
+        {% endif %} {% endcomment %}
+        {{ remark_status}}
         </li>
         <li class="list-group-item">{% trans "Date Arrival" %}: <b>{{arrival.date_arrival}}</b></li>
         <small> <li class="list-group-item">{% trans "Date Created" %}: <b>{{arrival.created_at}}</b></li></small>

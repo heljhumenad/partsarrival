@@ -32,4 +32,9 @@ $(document).ready(function() {
       formURL: $(this).data("id")
     });
   });
+  // Add modal
+  // $(".create-parts").modalForm({
+  //   formURL: "{% url 'partsnumber:parts_number_create_view' %}"
+  // });
+  // Edit partsnumber modal
 });
