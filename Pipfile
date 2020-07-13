@@ -4,7 +4,6 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
 faker = "*"
 factory-boy = "*"
 pytest = "*"
@@ -18,14 +17,14 @@ pytest-cov = "*"
 pytest-django = "*"
 
 [packages]
-django = "==2.1"
 psycopg2 = "*"
 werkzeug = "*"
 django-bootstrap4 = "*"
 django-bootstrap-modal-forms = "*"
+django = "==2.2"
 
 [requires]
 python_version = "3.6"
 
 [pipenv]
-allow_prereleases = true
+allow_prereleases = false
