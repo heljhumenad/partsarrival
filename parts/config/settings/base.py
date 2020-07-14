@@ -140,3 +140,9 @@ STATICFILES_DIRS = [
 
 # Do not store cookies when browser close
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+# Config settings for Look and feel
+ADMIN_SITE_HEADER = 'PAS System'
+ADMIN_INDEX_TITLE = 'PARTS ARRIVAL SYSTEM'
+ADMIN_SITE_TITLE = 'PAS ARRIVAL SYSTEM'

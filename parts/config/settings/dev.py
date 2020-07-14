@@ -10,7 +10,6 @@ INSTALLED_APPS += [
 
 # Customize login accounts
 LOGIN_REDIRECT_URL = "dashboard:dashboard_view_index"
-LOGOUT_REDIRECT_URL = "accounts:login"
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 #  Handle debug toolbars internal ip address that link to localhost or 127.0.0.0.1
