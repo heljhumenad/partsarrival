@@ -1,0 +1,14 @@
+Release Note Version (1.0)
+
+* July 15, 2020
+* Add partnumber | Update/Delete Partnumber
+* Add service advisor | Update/Delete Service Advisor
+* Basic Authentication for selected user
+* Landing page
+* Url routing
+* Create Dashboard, Sidebar, Main screen
+* Add Search item and result sets
+* Add Unit of Measure
+* Add Item class | Update/Delete Item class
+* Add Parts Arrival | Update/Delete Parts Arrival
+* View partsnumber | arrival | unit of measure | item class
