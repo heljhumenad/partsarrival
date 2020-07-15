@@ -23,4 +23,3 @@ class CustomUserAdmin(UserAdmin):
                     'email', 'username',
                    ]
 
-# admin.site.register(CustomUser, CustomUserAdmin)
