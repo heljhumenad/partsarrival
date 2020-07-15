@@ -18,6 +18,9 @@ class CustomUserAdmin(UserAdmin):
     model = get_user_model
     add_form = auth_forms.CustomUserCreationForm
     form = auth_forms.CustomUserChangeForm
-    list_display = ['email', 'username']
+    list_display = [
+                    'first_name', 'last_name',
+                    'email', 'username',
+                   ]
 
 # admin.site.register(CustomUser, CustomUserAdmin)
