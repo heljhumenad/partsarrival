@@ -12,12 +12,10 @@ class AccountTemplateView(UserAccountMixins, generic.TemplateView):
 class AccountLoginView(views.LoginView):
     template = "accounts/login.html"
 
-
+# TODO 
+# Fix Logout that can use to redirect logout without authentication
 class AccountLogoutView(views.LogoutView):
-    template_name = "registration/redirect_logout.html"
-    next_page = reverse_lazy("accounts:login")
+    template_name = "registration/logout.html"
+   # next_page = reverse_lazy("accounts:login")
     redirect_field_name = "next"
 
-
-class AccountRedirectView(generic.RedirectView):
-    pass

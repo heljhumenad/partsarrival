@@ -2,6 +2,15 @@
 {% load i18n %}
 
 
-{% block logout %}
-	
-{% endblock logout %}
+{% block logout_account %}
+		<div class="row" style="margin-top:100px">
+				<div class="col-md-12">
+						<h3 class="text-muted">{% trans 'Logged Out' %}
+								<i class="fa fa-exclamation-circle fa-lg text-success"></i></h3>
+			<p class="lead text-success">
+			{% trans "Thank you for spending some time in the site you can comeback just follow the link" %}
+		</p>
+		<a href="{% url 'accounts:login'%}" class="btn btn-danger">{% trans "Login" %}</a>
+	</div>
+	</div>
+{% endblock logout_account %}
