@@ -14,6 +14,7 @@ class CustomUserChangeForm(forms.UserChangeForm):
         model = CustomUser
         # fields = UserChangeForm.Meta.fields
         fields = ['username', 'first_name', 'last_name', 'email']
+        exclude = ['password']
 
 
 class AccountPasswordResetForm(forms.PasswordResetForm):

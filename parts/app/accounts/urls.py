@@ -19,4 +19,9 @@ urlpatterns = [
         accounts.AccountLogoutView.as_view(),
         name="logout_view"
     ),
+    path(
+        "edit-user/<int:pk>",
+        accounts.AccountEditView.as_view(),
+        name="edit_user"
+    ),
 ]

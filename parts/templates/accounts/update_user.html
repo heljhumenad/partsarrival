@@ -1,0 +1,32 @@
+{% extends "common/base.html" %}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block title %} {% trans "Update Information" %} {% endblock title %}
+{% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
+{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
+{% block message %} {% include "common/message.html" %} {% endblock message %}
+{% block main %}
+		<div class="col-md-10 offset-md-2 card-col">
+				<div class="card card-default">
+						<div class="card-body">
+		<form action="" method="POST">
+                {% csrf_token %}
+                {% bootstrap_field form.username %}
+                {% bootstrap_field form.email %}
+				{% bootstrap_field form.last_name%}
+				{% bootstrap_field form.first_name%}
+                <div class="col">
+                    <label for=""></label>
+                    <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Update" %}</button>
+                </div>
+                 <div class="col">
+                    <label for=""></label>
+                    <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
+                </div>
+            </form>
+  	
+						</div>
+				</div>
+		</div>
+{% endblock main %}

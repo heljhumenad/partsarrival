@@ -13,7 +13,7 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" 
           href="#">{% trans "Settings" %} <span class="sr-only">(current)</span>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
-          <a class="dropdown-item" href="#">Update Profile</a>
+				  <a class="dropdown-item" href="{% url 'accounts:edit_user' pk=user.id %}">Update Profile</a>
           <a class="dropdown-item" href="#">Notifications</a>
         </div>
         </a>
