@@ -22,6 +22,7 @@ werkzeug = "*"
 django-bootstrap4 = "*"
 django-bootstrap-modal-forms = "*"
 django = "==2.2"
+tox = "*"
 
 [requires]
 python_version = "3.6"
