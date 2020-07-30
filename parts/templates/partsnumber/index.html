@@ -25,9 +25,7 @@
                         <th>{% trans "Part Number" %}</th>
                         <th>{% trans "Unit of Measure" %}</th>
                         <th>{% trans "Description" %}</th>
-                        <th>{% trans "Created At" %}</th>
-                        <th>{% trans "Updated At" %}</th>
-                        <th>{% trans "Actions" %}</th>
+                       <th>{% trans "Actions" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,9 +35,7 @@
                         <td>{{ partnumbers.partnumber }}</a></b></td>
                         <td>{{ partnumbers.unit_measure.um }}</td>
                         <td>{{ partnumbers.description }}</td>
-                        <td>{{ partnumbers.created_at}}</td>
-                        <td>{{ partnumbers.updated_at }}</td>
-              {% if user.is_staff %}
+             {% if user.is_staff %}
           <td>
           <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
                     class="btn btn-primary btn-xs edit">
