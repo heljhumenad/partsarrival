@@ -1,12 +1,69 @@
-/*
-* Use sass for variable declations
+body { background-color: #f3f3f3; }
+
+/**
+* Header Tags
 *
 */
+h1, h2, h3, h4, h5 { color: #F42E4C; font-weight: 700; }
 
-ul li {
-  text-decoration: none;
-}
+a { cursor: pointer; color: #f1c6c6; }
+a:hover { text-decoration: none; color: inherit; }
 
-ul li a:hover {
-  text-decoration: none;
-}
+p { margin-top: 10px; }
+
+label { margin-bottom: 10px; }
+
+p, label { font-size: 12px; color: #F42E4C; }
+
+small { color: #F42E4C; }
+
+ul li { list-style: none; color: #F42E4C; }
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+input[type="number"] { -moz-apperance: textfield; -webkit-appearance: textfield; }
+
+th { color: #c9302c; font-weight: bold; font-size: 12px; }
+th td { font-weight: 400; font-size: 15px; }
+
+span { margin-left: 10px; }
+
+strong { margin-left: 10px; }
+
+.plus-employee { margin-bottom: 10px; }
+
+.settings-link { margin-right: 50px; }
+
+.users-link { color: #F42E4C; }
+
+.attendance-link { color: #ffcc00; }
+
+.ratings-link { color: #ff3300; }
+
+.login-button { height: 62px; background-color: #F42E4C; border: none; border-radius: 0em; }
+.login-button:hover { background-color: #F42E4C; }
+
+.admin-login { margin-bottom: 20px; }
+
+.forgot-password { margin-left: 50px; }
+
+.alert { margin-top: 20px; }
+.alert .alert-link { font-weight: 400; }
+
+.login-forms { margin-top: 120px; }
+
+.card-col { margin-top: 50px; }
+
+.edit-users-profile { font-size: 15px; }
+
+.list-employee { font-weight: 400; font-size: 15px; margin-left: 4px; margin-bottom: 0; color: #F42E4C; }
+
+.nav-item a { padding-right: 20px; }
+
+.nissan-evaluation-brand { margin-left: 210px; }
+
+.user-login-account-name { color: #BFBFBF; }
+
+.alert .alert-link { font-weight: 0; }
+
+/*# sourceMappingURL=app.css.map */
