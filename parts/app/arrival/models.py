@@ -73,6 +73,11 @@ class PartsArrival(TimeStampModel):
         verbose_name=_("Remarks"),
     )
 
+    reason = models.CharField(
+        max_length=200,
+        verbose_name=_("Reasons")
+    )
+
     date_arrival = models.CharField(
         verbose_name=_("Date Arrival"),
         max_length=20,
