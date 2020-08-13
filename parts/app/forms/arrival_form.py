@@ -36,7 +36,7 @@ class PartsArrivalForm(forms.ModelForm):
             'customer_name', 'ro_number',
             'item_class', 'advisor',
             'partnumber', 'qty',
-            'remarks', 'date_arrival',
+            'remarks', 'reason', 'date_arrival',
         ]
 
     def __init__(self, *args, **kwargs):

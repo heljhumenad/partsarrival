@@ -5,21 +5,6 @@ from parts.app.models.timestamp import TimeStampModel
 from parts.app.partsnumber.models import PartNumberClass, PartsNumber
 from parts.app.advisor.models import ServiceAdvisor
 
-"""
-# Model field
-
-customer name - CharField 
-ro number - Charfield
-class - foreign key item_class
-advisor - foreign key service advisor
-partnumber - foreign key partnumber
-description - description partnumber
-qty - Charfield qty
-remarks = [completed, not complete, lacking,] - choices
-date arrival - date and time
-date inputed - auto now
-"""
-
 
 class PartsArrival(TimeStampModel):
 
