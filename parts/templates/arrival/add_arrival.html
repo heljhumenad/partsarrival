@@ -3,11 +3,11 @@
 {% load i18n %}
 {% block title %} Add Parts Number {% endblock title %}
 
-{% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
-{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
+{% block navbar %} {% include  'common/navbar.html'%}{% endblock navbar %}
+{% block sidebar%} {% include  'common/sidebar.html'%}{% endblock sidebar %}
 
 {% block main %}
-<div class="col-md-10 offset-md-2 card-col">
+<div class="col-md-10 card-col">
     <div class="card card-default">
         <div class="card-body">
            <form action="" method="POST">

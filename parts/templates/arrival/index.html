@@ -3,13 +3,13 @@
 {% load i18n %}
 {% load bootstrap4 %}
 
-{% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
-{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
+{% block navbar %} {% include  'common/navbar.html'%}{% endblock navbar %}
+{% block sidebar%} {% include  'common/sidebar.html'%}{% endblock sidebar %}
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 
 {% block main %}
     {% include 'common/_modal.html' %}
-<div class="col-md-11 col-lg-11 offset-md-2 card-col">       
+<div class="col-md-11 col-lg-11 card-col">       
     <div class="card card-default">
         <div class="card-body">
             <table class="table table-bordered xs-data-table">
