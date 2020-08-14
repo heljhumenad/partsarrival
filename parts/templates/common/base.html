@@ -3,52 +3,74 @@
 {% load bootstrap4 %}
 {% load i18n %}
 <html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <head>
         <title>Parts Arrival |{% block title %} {% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"
-    {% comment %} <link rel="stylesheet" href="{% static 'css/app.css' %}"> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
-    {% comment %} <link rel="stylesheet" href="{% static 'css/form.css' %}"> {% endcomment %}
-    {% comment %} <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}"> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/customize/login-form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fontawesome5-overrides.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css'%}">
-    {% comment %} CDN {% endcomment %}
-    {% comment %} <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" /> {% endcomment %}
+        <!--plugin:css-->
+    <link rel="stylesheet" href="{% static 'vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/iconfonts/ionicons/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/iconfonts/typicons/src/font/typicons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/iconfonts/flag-icon-css/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+    <!--endplugin:css-->
+    <!--inject:css for layout-->
+    <link rel="stylesheet" href="{% static 'css/shared/style.css'%}">
+    <!--endinject:css-->
+    <!--Layout styles-->
+    <link rel="stylesheet" href="{% static 'css/demo_1/style.css'%}">
+
     <link href="{% static 'img/nissan_ico.ico' %}" rel="icon" type="image/x-icon" />
 </head>
-     <body id="page-top">
-    <div id="wrapper">
-        {% block sidebar %} {% endblock sidebar %}
-        {% block top_bar %} {% endblock top_bar %}
-        
-        {% block jumbotrons-header %}
-        {% endblock jumbotrons-header %}
-            {% block message %}{% endblock message %}
-            {% comment %} main block{% endcomment %}
-            {% block main %} 
-            {% endblock main %}
-        {% block searchbar %} {% endblock searchbar %}
+     <body>
+        {% block login %}
+        {% endblock login %}
+     <div class="container-scroller">
+     {% block navbar %}
+            {% comment %} {% include 'common/navbar.html' %} {% endcomment %}
+      {% endblock navbar %}
 
-        <div class="login-account row justify-content-center my-row">
-            {% block login_account %}
-            {% endblock login_account %}
+      <!---sidebar-->
+      <div class="container-fluid page-body-wrapper">
+        {% block sidebar %}
+            {% comment %} {% include 'common/sidebar.html' %} {% endcomment %}
+        {% endblock sidebar %}
 
-		{% block logout_account %}
-			{% endblock logout_account %}
-</div>
-<div class="footer-small">
-    {% block footer %}
-        {% endblock footer %}
-</div>
-</div> <!--id wrapper-->
-    
+             <div class="main-panel">
+             
+          <div class="content-wrapper">
+            {% block main %}
+            {% endblock main%}
+           </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          {% block footer %}
+          <footer class="footer">
+            <div class="container-fluid clearfix">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i>
+              </span>
+            </div>
+          </footer>
+          {% endblock footer %}
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+
+
+
 <script src="{% static 'dev_js/js/jquery.js' %}"></script>
 <script src="{% static 'dev_js/js/jquery.bootstrap.modal.forms.js' %}"></script>
 <!-- You can alternatively load the minified version -->
 <script src="{% static 'dev_js/js/jquery.bootstrap.modal.forms.min.js' %}"></script>
 <script src="{% static 'dev_js/js/app.js' %}"></script>
+
 <script src="{% static 'dev_js/js/calendar/daterangepicker.js' %}"></script>{# this all jquery and javascript file in-house #}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>

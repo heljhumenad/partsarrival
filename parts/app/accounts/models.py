@@ -11,7 +11,7 @@ class CustomUser(AbstractUser):
 
     @property
     def get_user_account_name(self):
-        return "%s %s" % (self.last_name, self.first_name)
+        return "%s %s" % (self.first_name, self.last_name)
 
     @property
     def get_user_email(self):

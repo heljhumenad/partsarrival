@@ -3,11 +3,9 @@
 {% load bootstrap4 %}
 
 {% block title %}Dashboard{% endblock title %}
+{% block navbar %} {% include  'common/navbar.html'%}{% endblock navbar %}
+{% block sidebar%} {% include  'common/sidebar.html'%}{% endblock sidebar %}
 
-{% block top_bar %} {% include "common/navbar.html" %} {% endblock top_bar %}
-{% comment %} {% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %} {% endcomment %}
-{% block message %} {% include "common/message.html" %} {% endblock message %}
-
-
-{% block main %}
-{% endblock main %}
+{% block main %} 
+    <h1> Content is here </h1>
+{%endblock %}
