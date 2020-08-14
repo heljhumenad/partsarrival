@@ -1,26 +1,19 @@
 {% load static %}
 {% load i18n %}
-    <!-- Side Navbar -->
-<nav class="side-navbar">
-    <div class="side-navbar-wrapper">
-        <!-- Sidebar Header    -->
-        <div class="sidenav-header d-flex align-items-center justify-content-center">
-            <!-- User Info-->
-            {% comment %} Escape the url while rendering the image to avoid XSS {% endcomment %}
-            <div class="sidenav-header-inner text-center"><img src="{% static 'img/13.png' %}" alt="person" class="img-fluid rounded-circle">
-                {% if user.is_authenticated %}
-                <h2 class="h5">{{ user.get_user_account_name }}</h2><span>{{ user.get_user_email }}</span>
-                {% endif %}
+     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fa fa-location-arrow"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Nissan Cebu</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active"><i class="fa fa-wrench"></i><span>Inventory</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active"><i class="fa fa-car"></i><span>Arrival</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active"><i class="far fa-user-circle"></i><span>Service Advisor</span></a></li>
+                    <li class="nav-item" role="presentation"></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
-            <!-- Small Brand information, appears on minimized sidebar-->
-            <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
-        </div>
-        <!-- Sidebar Navigation Menus-->
-        <div class="main-menu">
-            <h5 class="sidenav-heading">{% trans 'Dashboard' %}</h5>
-            <ul id="side-main-menu" class="side-menu list-unstyled">   
-            {% include "stub/check_status.html" %}
-            </ul>
-        </div>
-    </div>
-</nav>
+        </nav>

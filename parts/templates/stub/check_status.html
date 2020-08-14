@@ -1,6 +1,6 @@
 {% load i18n %}
 {% if user.is_staff %} 
-        <li><a href="#inventory" aria-expanded="false" data-toggle="collapse"><i class="fa fa-wrench"></i>{% trans "Inventory" %}</a>
+        {% comment %} <li><a href="#inventory" aria-expanded="false" data-toggle="collapse"><i class="fa fa-wrench"></i>{% trans "Inventory" %}</a>
                 <ul id="inventory" class="collapse list-unstyled">
 			<li><a href="{% url 'partsnumber:parts_number_index_view'%}" >Item Number</a></li>
                 	<li><a href="{% url 'partsnumber:parts_um_create_view' %}" >UM (Unit of Measure)</a></li>
@@ -27,9 +27,8 @@
     {% else %}
         <li><a href="#employeeaccounts" aria-expanded="false" data-toggle="collapse"><i class="fa fa-user"></i> {% trans "Employee" %}</a>
         <ul id="employeeaccounts" class="collapse list-unstyled">
-                <!-- TODO: Add badges when there's a user that has been added to the db -->
-                {% comment %} <div class="badge badge-warning">6 New</div> {% endcomment %}
             </li>
         </ul>
-        </li>
+        </li> {% endcomment %}
+
 {% endif %}

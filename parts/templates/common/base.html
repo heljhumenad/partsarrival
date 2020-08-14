@@ -5,37 +5,36 @@
 <html>
     <head>
         <title>Parts Arrival |{% block title %} {% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"
+    {% comment %} <link rel="stylesheet" href="{% static 'css/app.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
     {% comment %} <link rel="stylesheet" href="{% static 'css/form.css' %}"> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/customize/login-form.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome5-overrides.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css'%}">
     {% comment %} CDN {% endcomment %}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    {% comment %} <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" /> {% endcomment %}
     <link href="{% static 'img/nissan_ico.ico' %}" rel="icon" type="image/x-icon" />
 </head>
-     <body>
-        <div class="sidebar">{% block sidebar %} {% endblock sidebar %}</div>
-        <div class="top-bar"> {% block top_bar %} {% endblock top_bar %}
-        </div>
+     <body id="page-top">
+    <div id="wrapper">
+        {% block sidebar %} {% endblock sidebar %}
+        {% block top_bar %} {% endblock top_bar %}
+        
         {% block jumbotrons-header %}
         {% endblock jumbotrons-header %}
-        <div class="container">
-        <div class="main-prev row justify-content-center my-row">
             {% block message %}{% endblock message %}
             {% comment %} main block{% endcomment %}
             {% block main %} 
             {% endblock main %}
         {% block searchbar %} {% endblock searchbar %}
-        </div>
+
         <div class="login-account row justify-content-center my-row">
             {% block login_account %}
             {% endblock login_account %}
 
-			
-</div>
 		{% block logout_account %}
 			{% endblock logout_account %}
 </div>
@@ -43,6 +42,7 @@
     {% block footer %}
         {% endblock footer %}
 </div>
+</div> <!--id wrapper-->
     
 <script src="{% static 'dev_js/js/jquery.js' %}"></script>
 <script src="{% static 'dev_js/js/jquery.bootstrap.modal.forms.js' %}"></script>
