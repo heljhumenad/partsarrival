@@ -11,10 +11,20 @@ class PartsNumberForm(forms.ModelForm):
         model = PartsNumber
         fields = [
             "partnumber",
-            "description",
+            "description", 
             "unit_measure",
         ]
         ordering = ["-id"]
+
+        def get_meta_fields_label(self):
+            '''
+            # Get all meta fields and verbose name in a object model
+            # iterate through the fields the render in response template
+            # each iteration will be used in table header
+            # and each value of the iterated value will be the
+            # output of the table
+            '''
+            pass
 
 
 class UnitofMeasureForm(forms.ModelForm):

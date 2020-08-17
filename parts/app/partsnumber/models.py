@@ -32,6 +32,7 @@ class PartsNumber(TimeStampModel):
         return self.partnumber
 
 
+
 class UnitMeasure(TimeStampModel):
 
     um = models.CharField(

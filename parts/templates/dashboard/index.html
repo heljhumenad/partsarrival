@@ -7,5 +7,6 @@
 {% block sidebar%} {% include  'common/sidebar.html'%}{% endblock sidebar %}
 
 {% block main %} 
-    <h1> Content is here </h1>
+    {% include 'common/dashboard/_tabbed_nav.html' %}
+    {% include 'common/dashboard/metrics.html' %}
 {%endblock %}

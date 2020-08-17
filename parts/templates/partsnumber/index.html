@@ -10,19 +10,21 @@
 
 {% block main %}
     {% include 'common/_modal.html' %}
+    <div class="row">
 <div class="col-md-11 col-lg-11 card-col">       
     <div class="card card-default">
         <div class="card-body">
             <table class="table table-bordered xs-data-table">
-                <thead class="thead-dark">
+                <thead class="thead">
                     <tr>
                     <a href="{% url 'partsnumber:parts_number_create_view' %}">
-                    <button class="btn btn-primary btn-md add-button-cls" >
+                    <button class="btn btn-danger btn-md add-button-cls" >
                         {% trans "Add Part Numbers" %}
-                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <i class="typcn typcn-plus" aria-hidden="true"></i>
                     </button>
                     </a>
                         {% comment %} <th>Employee ID</th> {% endcomment %}
+                        <!-- change this approach that field name will iterate in this section-->
                         <th>{% trans "Part Number" %}</th>
                         <th>{% trans "Unit of Measure" %}</th>
                         <th>{% trans "Description" %}</th>
@@ -39,13 +41,14 @@
              {% if user.is_staff %}
           <td>
           <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
-                    class="btn btn-primary btn-xs edit">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
+                    class="btn btn-primary btn-icons btn-rounded edit">
+                <i class="typcn typcn-pencil" aria-hidden="true"></i>
             </a>
-        <button type="button" class="btn btn-success btn-xs read-partsnumber" 
+        <button type="button" class="btn btn-icons btn-rounded btn-danger read-partsnumber" 
             data-id = "{% url 'partsnumber:parts_number_read_view' pk=partnumbers.id %}"
         data-toggle="modal" data-target="#modal">
-            <i class="fa fa-eye" aria-hidden="true"></i>
+            <i class="typcn typcn-eye" aria-hidden="true"></i>
+           
         </button>
         </td> 
             {% endif %}
@@ -60,6 +63,7 @@
             </table>
         <div>
     </div>
+</div>
 </div>
 {% include 'common/paginator.html' %}
 {% endblock main %}
