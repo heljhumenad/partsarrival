@@ -36,11 +36,7 @@
               </div>
             </li>
           </ul>
-          <form action="{% url 'partsnumber:search_query' %}" class="ml-auto search-form d-none d-md-block" method="GET ">
-            <div class="form-group">
-              <input type="search" name="q" class="form-control" placeholder="{% trans "Search partsnumber here..." %}">
-            </div>
-          </form>
+          {% include 'stub/search.html' %}
           <ul class="navbar-nav ml-auto">
           <!--this part will show notifications of what you do in the-->
             <li class="nav-item dropdown">
