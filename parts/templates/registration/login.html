@@ -30,6 +30,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auto-form-wrapper">
                 <form method="post" role="form">
+                {% bootstrap_form_errors form %}
                 {% csrf_token %}
                   <div class="form-group">
                     <label class="label">{% trans 'Username' %}</label>
