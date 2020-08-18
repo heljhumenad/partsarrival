@@ -18,6 +18,7 @@ class PartNumberTemplateView(generic.ListView):
     template_name = "partsnumber/index.html"
     model = PartsNumber
     paginate_by = 2
+    context_object_name = 'partsnumber'
 
 
 class PartNumberCreateView(PartsNumberMixin, generic.CreateView):
