@@ -10,7 +10,7 @@
 
 {% block main %}
     {% include 'common/_modal.html' %}
-    <div class="row">
+<div class="row">
 <div class="col-md-11 col-lg-11 card-col">       
     <div class="card card-default">
         <div class="card-body">
@@ -33,16 +33,16 @@
                 </thead>
                 <tbody>
 
-                        {% for partnumbers in page_obj.object_list  %}
+                        {% for partnumbers in partsnumber  %}
                     <tr>
                         <td>{{ partnumbers.partnumber }}</a></b></td>
                         <td>{{ partnumbers.unit_measure.um }}</td>
                         <td>{{ partnumbers.description }}</td>
-             {% if user.is_staff %}
-          <td>
-          <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
+            {% if user.is_staff %}
+            <td>
+            <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
                     class="btn btn-primary btn-icons btn-rounded edit">
-                <i class="typcn typcn-pencil" aria-hidden="true"></i>
+                    <i class="typcn typcn-pencil" aria-hidden="true"></i>
             </a>
         <button type="button" class="btn btn-icons btn-rounded btn-danger read-partsnumber" 
             data-id = "{% url 'partsnumber:parts_number_read_view' pk=partnumbers.id %}"
@@ -63,7 +63,11 @@
             </table>
         <div>
     </div>
+
 </div>
+    <div class="col-md-2 offset-1"> <!--TODO: Fix the proper alignment of this area-->
+    {% include 'common/paginator.html' %}
+    </div>
 </div>
-{% include 'common/paginator.html' %}
+
 {% endblock main %}
