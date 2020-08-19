@@ -11,7 +11,7 @@ class PartsNumberForm(forms.ModelForm):
         model = PartsNumber
         fields = [
             "partnumber",
-            "description", 
+            "description",
             "unit_measure",
         ]
         ordering = ["-id"]
@@ -23,6 +23,12 @@ class PartsNumberForm(forms.ModelForm):
             # each iteration will be used in table header
             # and each value of the iterated value will be the
             # output of the table
+            '''
+            pass
+
+        def check_partnumber_unique(self, *args, **kwargs):
+            '''
+            Check the partnumber if its unique in value
             '''
             pass
 
