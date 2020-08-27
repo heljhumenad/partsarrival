@@ -26,12 +26,11 @@ class AdvisorCreateView(LoginRequiredMixin, generic.CreateView):
 class AdvisorUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "advisor/add_advisor.html"
     form_class = AdvisorForm
+    model = ServiceAdvisor
     success_url = reverse_lazy("advisor:advisor_index")
 
-    def get_object(self, query_pk_and_slug=None):
-        advisor = ServiceAdvisor.objects.all().filter(
-            id=self.kwargs["pk"],).first()
-        return advisor
+    def get_object(self):
+        return super(AdvisorUpdateView, self).get_object()
 
 
 class AdvisorDetailView(LoginRequiredMixin, generic.DetailView):

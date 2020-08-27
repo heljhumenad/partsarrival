@@ -1,9 +1,11 @@
 from django.db import models
+
 from django.utils.translation import ugettext_lazy as _
 from parts.app.models.timestamp import TimeStampModel
+from parts.app.models.managers.update_view import AbstractUpdateViewManager
 
 
-class ServiceAdvisor(TimeStampModel):
+class ServiceAdvisor(AbstractUpdateViewManager, TimeStampModel):
 
     DESIGNATION = [("SVC", "Service Advisor"),
                    ("BRPSVC", "Service Advisor BRP")]

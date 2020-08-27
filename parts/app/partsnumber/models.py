@@ -2,9 +2,10 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from parts.app.models.timestamp import TimeStampModel
+from parts.app.models.managers.update_view import AbstractUpdateViewManager
 
 
-class PartsNumber(TimeStampModel):
+class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
     partnumber = models.CharField(
         max_length=200,
@@ -32,8 +33,7 @@ class PartsNumber(TimeStampModel):
         return self.partnumber
 
 
-
-class UnitMeasure(TimeStampModel):
+class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 
     um = models.CharField(
         max_length=20,
@@ -50,7 +50,7 @@ class UnitMeasure(TimeStampModel):
         return self.um
 
 
-class PartNumberClass(TimeStampModel):
+class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
 
     class_name = models.CharField(
         max_length=20,

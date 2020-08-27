@@ -39,11 +39,6 @@ class PartsNumberDetailView(LoginRequiredMixin, generic.DetailView):
     model = PartsNumber
     context_object_name = 'partsnumber'
 
-    # # create a manager then add this functionality to the model manager
-    # def get_object(self, query_pk_and_slug=None):
-    #     partsnumber = PartsNumber.objects.filter(id=self.kwargs["pk"]).first()
-    #     return partsnumber
-
     def get_object(self):
         return super(PartsNumberDetailView, self).get_object()
 
@@ -54,10 +49,6 @@ class PartNumberUpdateView(PartsNumberMixin, generic.UpdateView):
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
     model = PartsNumber
     messages = 'updated'
-
-    # def get_object(self, query_pk_and_slug=None):
-    #     partsnumber = PartsNumber.objects.filter(id=self.kwargs["pk"]).first()
-    #     return partsnumber
 
     def get_object(self):
         return super(PartNumberUpdateView, self).get_object()
