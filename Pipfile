@@ -23,6 +23,8 @@ django-bootstrap4 = "*"
 django-bootstrap-modal-forms = "*"
 django = "==2.2"
 tox = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.6"
