@@ -1,0 +1,20 @@
+# This is a sample build configuration for Python.
+# Check our guides at https://confluence.atlassian.com/x/x4UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: python:3.7.3
+
+pipelines:
+  default:
+    - step:
+        name: Deploy for Production
+        deployment: Production
+        caches:
+          - pip
+        script: 
+        # Modify the commands below to build your repository
+          - pip install django==2.1
+          - pip install pipenv
+          - pipenv shell
+          - pipenv install 
