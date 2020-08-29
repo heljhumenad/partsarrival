@@ -39,9 +39,16 @@ INSTALLED_APPS = [
     "parts.app.tests",
     # Third party
     "bootstrap_modal_forms",
+    'corsheader',
+    'restframework',
+    
 ]
 
 MIDDLEWARE = [
+    # Third party middleware
+    "corsheaders.middleware.CorsMiddleware",
+    
+    # In built middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
