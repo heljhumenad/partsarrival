@@ -16,14 +16,14 @@ def remark_status(remarks):
     buttons = None
 
     if remarks == NOT_COMPLETED:
-        buttons = '<a href="" class="btn btn-danger btn-{}"><b>{}<b></a>'.format(
+        buttons = '<button class="btn btn-danger btn-{}"><b>{}<b></button>'.format(
             xs, remarks)
         return mark_safe(buttons)
     elif remarks == COMPLETED:
-        buttons = '<a href="" class="btn btn-success btn-{}"><b>{}<b></a>'.format(
+        buttons = '<button class="btn btn-success btn-{}"><b>{}<b></button>'.format(
             xs, remarks)
         return mark_safe(buttons)
     elif remarks == LACKING:
-        buttons = '<a href="" class="btn btn-warning btn-{}"><b>{}<b></a>'.format(
+        buttons = '<button class="btn btn-warning btn-{}"><b>{}<b></button>'.format(
             xs, remarks)
         return mark_safe(buttons)
