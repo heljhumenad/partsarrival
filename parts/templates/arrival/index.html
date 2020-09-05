@@ -1,14 +1,13 @@
 {% extends "common/base.html" %}
-{% load humanize %}
-{% load i18n %}
-{% load bootstrap4 %}
+{% load humanize i18n bootstrap4 %}
+{% load arrival_tags %}
 
 {% block navbar %} {% include  'common/navbar.html'%}{% endblock navbar %}
 {% block sidebar%} {% include  'common/sidebar.html'%}{% endblock sidebar %}
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 
 {% block main %}
-    {% include 'common/_modal.html' %}
+    {% include 'common/modal/_modal.html' %}
 <div class="col-md-11 col-lg-11 card-col">       
     <div class="card card-default">
         <div class="card-body">
@@ -40,39 +39,24 @@
                         <td>{{ arrival.advisor.first_name }} {{ arrival.advisor.last_name}}</td>
                         <td>{{ arrival.partnumber }}</td>
                         <td>{{ arrival.partnumber.description}}</td>
-                         {% if arrival.remarks == 'NOT COMPLETED' %}
-                             <td>
-                            <a href="" class="btn btn-danger btn-xs">
-                            <b>{{ arrival.remarks}}</b>
-                            </a>
-                             </td>
-                         {% elif arrival.remarks == 'COMPLETED' %}
-                            <td>
-                            <a href="" class="btn btn-success btn-xs">
-                            <b>{{ arrival.remarks}}</b>
-                            </a>
-                             </td>
-                        {% elif  arrival.remarks == 'LACKING'%}
-                            <td>
-                            <a href="" class="btn btn-warning btn-xs">
-                            <b>{{ arrival.remarks}}</b>
-                            </a>
-                             </td>
-                         {% endif %}
+                        <!-- TODO: Fix this using templatetag-->
+                        <td>
+                            {% remark_status arrival.remarks %}
+                        </td>
                         <td>{{ arrival.date_arrival}}</td>
-						   {% if user.is_staff %}
-								<td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
-								 class="btn btn-primary btn-xs edit-users">
-				                <i class="fa fa-pencil" aria-hidden="true"></i>
-						     </a>
-								<button type="button" class="btn btn-success btn-xs read-arrival" 
-								data-id = "{% url 'arrival:arrival-read' pk=arrival.id %}"
-								data-toggle="modal" data-target="#modal">
-								<i class="fa fa-eye" aria-hidden="true"></i>
-								</button>
-								</td> 
-						    {% endif %}
-				</tr>
+                     {% if user.is_staff %}
+                    <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
+                     class="btn btn-primary btn-xs edit-users">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                       </a>
+                    <button type="button" class="btn btn-success btn-xs read-arrival" 
+                    data-id = "{% url 'arrival:arrival-read' pk=arrival.id %}"
+                    data-toggle="modal" data-target="#modal">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                    </td> 
+                      {% endif %}
+                    </tr>
                           {% empty %}
                             <p class="font-weight-bold">{% trans "No parts arrival has been added try adding" %} 
                             <a href="{% url 'arrival:arrival_create' %}">{% trans "here" %}</a></p>
