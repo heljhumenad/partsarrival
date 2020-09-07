@@ -31,23 +31,20 @@ INSTALLED_APPS = [
     "parts.app.advisor",
     "parts.app.arrival",
     "parts.app.views",
-    "parts.app.mixins",
+    "parts.app.mixins", 
     "parts.app.forms",
     "parts.app.models",
     "parts.app.dashboard",
     # Testing app module
     "parts.app.tests",
-    # Third party
+    # Third partyP
     "bootstrap_modal_forms",
-    'corsheader',
-    'restframework',
-    
 ]
 
 MIDDLEWARE = [
     # Third party middleware
     "corsheaders.middleware.CorsMiddleware",
-    
+
     # In built middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
