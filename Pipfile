@@ -15,6 +15,7 @@ django-extensions = "*"
 pynvim = "*"
 pytest-cov = "*"
 pytest-django = "*"
+livereload = "*"
 
 [packages]
 psycopg2 = "*"
