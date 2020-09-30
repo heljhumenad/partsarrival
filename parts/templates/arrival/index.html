@@ -41,29 +41,22 @@
                         </td>
                         <td>{{ arrival.date_arrival}}</td>
                      {% if user.is_staff and arrival.remarks == 'COMPLETED' %}
-                    <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
-                     class="btn btn-primary btn-xs edit-users disabled">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                       </a>
-                    <button type="button" class="btn btn-success disabled btn-xs read-arrival" 
-                    data-id = "{% url 'arrival:arrival-read' pk=arrival.id %}"
-                    data-toggle="modal" data-target="#modal">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
-                    </td> 
+                        <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
+                        class="btn btn-primary btn-xs edit-users disabled">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
                     {% else %}
-                    <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
-                     class="btn btn-primary btn-xs edit-users">
+                        <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
+                        class="btn btn-primary btn-xs edit-users">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
-                       </a>
-                    <button type="button" class="btn btn-success btn-xs read-arrival" 
-                    data-id = "{% url 'arrival:arrival-read' pk=arrival.id %}"
-                    data-toggle="modal" data-target="#modal">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                    </button>
-                    </td> 
-                      {% endif %}
-
+                        </a> 
+                    {% endif %}
+                        <button type="button" class="btn btn-success btn-xs read-arrival" 
+                        data-id = "{% url 'arrival:arrival-read' pk=arrival.id %}"
+                        data-toggle="modal" data-target="#modal">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                        
                     </tr>
                           {% empty %}
                             <p class="font-weight-bold">{% trans "No parts arrival has been added try adding" %} 
