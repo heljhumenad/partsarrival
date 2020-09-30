@@ -11,11 +11,11 @@
 {% block main %}
     {% include 'common/modal/_modal.html' %}
 <div class="row">
-<div class="col-md-11 col-lg-11 card-col">       
+<div class="col-md-11 col-lg-11 card-col">
     <div class="card card-default">
         <div class="card-body">
             <table class="table table-bordered xs-data-table">
-                <thead class="thead">
+                <thead class="thead-dark">
                 <div class="row"> 
                     <a href="{% url 'partsnumber:parts_number_create_view' %}">
                     
@@ -36,7 +36,7 @@
                 </thead>
                 <tbody>
 
-                        {% for partnumbers in partsnumber  %}
+                        {% for partnumbers in object_list  %}
                     <tr>
                         <td>{{ partnumbers.partnumber }}</a></b></td>
                         <td>{{ partnumbers.unit_measure.um }}</td>
