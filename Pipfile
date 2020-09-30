@@ -26,6 +26,7 @@ django = "==2.2"
 tox = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
+django-select2 = "*"
 
 [requires]
 python_version = "3.6"

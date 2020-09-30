@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a4c6a51d0d0b12736bdf54e4af8bb60375863f513cd9e8ee67fb4a19f2b914d5"
+            "sha256": "7c7cd05956f4ec0e68960964ec5cdde479451960b705a8f923427e7d5149fe75"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -54,6 +54,13 @@
             "index": "pypi",
             "version": "==2.2"
         },
+        "django-appconf": {
+            "hashes": [
+                "sha256:1b1d0e1069c843ebe8ae5aa48ec52403b1440402b320c3e3a206a0907e97bb06",
+                "sha256:be58deb54a43d77d2e1621fe59f787681376d3cd0b8bd8e4758ef6c3a6453380"
+            ],
+            "version": "==1.0.4"
+        },
         "django-bootstrap-modal-forms": {
             "hashes": [
                 "sha256:0d64e545fc2dd1f9e2550c89074789ce6a8197675596cb295c2574ae0b9ed078"
@@ -76,6 +83,14 @@
             ],
             "index": "pypi",
             "version": "==3.5.0"
+        },
+        "django-select2": {
+            "hashes": [
+                "sha256:06531d563ce33c3133682ae2bb9e6d762103a863d0054ffef51bae8b4cfcca6c",
+                "sha256:9d3330fa0083a03fb69fceb5dcd2e78065cfd08e45c89d4fd727fce4673d3e08"
+            ],
+            "index": "pypi",
+            "version": "==7.4.2"
         },
         "djangorestframework": {
             "hashes": [
