@@ -51,12 +51,17 @@
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a> 
                     {% endif %}
-                        <button type="button" class="btn btn-success btn-xs read-arrival" 
-                        data-id = "{% url 'arrival:arrival-read' pk=arrival.id %}"
+                        <a data-id="{% url 'arrival:arrival-read' pk=arrival.id %}" 
+                        class="btn btn-success btn-xs read-arrival" 
                         data-toggle="modal" data-target="#modal">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                        </button>
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a>
                         
+                        <a data-id="{% url 'arrival:arrival-read' pk=arrival.id %}" 
+                        class="btn btn-warning btn-xs download-arrival" 
+                        data-toggle="modal" data-target="#modal">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                        </a>
                     </tr>
                           {% empty %}
                             <p class="font-weight-bold">{% trans "No parts arrival has been added try adding" %} 
