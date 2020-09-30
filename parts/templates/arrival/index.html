@@ -11,15 +11,14 @@
 <div class="col-md-12 col-lg-12 card-col">       
     <div class="card card-default">
         <div class="card-body">
+        <a href="{% url 'arrival:arrival_create' %}">
+            <button class="btn btn-danger btn-md add-button-cls">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            </a>
             <table class="table table-bordered xs-data-table">
                 <thead class="thead-dark">
                     <tr>
-                    <a href="{% url 'arrival:arrival_create' %}">
-                    <button class="btn btn-primary btn-md add-button-cls">
-                        {% trans "Add Part Arrival" %}
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                    </a>
                         <th>{% trans "Customer Name" %}</th>
                         <th>{% trans "RO & RE Number" %}</th>
                         <th>{% trans "Description" %}</th>
