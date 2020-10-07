@@ -48,7 +48,6 @@ class PartsArrivalForm(forms.ModelForm):
             self.fields["qty"].widget.attrs["readonly"] = True
             # The people can change this remarks is the one who has high
             # authorizations of the sites. like Manager and Supervisor
-            self.fields['remarks'].widget.attrs["disabled"] = True
 
     def clean_qty(self):
         # check input qty if zero
