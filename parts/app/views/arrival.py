@@ -15,7 +15,7 @@ from parts.app.forms.arrival_form import PartsArrivalForm
 class PartsArrivalListView(LoginRequiredMixin, generic.ListView):
     template_name = 'arrival/index.html'
     model = PartsArrival
-    paginate_by = 2
+    paginate_by = 3
 
 
 class PartsArrivalCreateView(UserCreateViewMixins):
