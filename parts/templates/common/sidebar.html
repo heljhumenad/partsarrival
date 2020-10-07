@@ -10,13 +10,14 @@
                 <span class="menu-title">{% trans "Dashboard" %}</span>
               </a>
             </li>
+            {% if  user.is_staff %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'advisor:advisor_index' %}">
                 <i class="menu-icon typcn typcn-th-large-outline"></i>
                 <span class="menu-title">{% trans "Service Advisor" %}</span>
               </a>
             </li>
-            {% if  user.is_staff %}
+
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon typcn typcn-coffee"></i>
@@ -57,9 +58,9 @@
             <!--For viewing of advisor and manager-->
             <!--Add also the reports in this area-->
             <li class="nav-item">
-              <a class="nav-link" href="{% url '#' %}">
+              <a class="nav-link" href="{% url 'arrival:arrival_index' %}">
                 <i class="menu-icon typcn typcn-bell"></i>
-                <span class="menu-title">{% trans "Employee" %}</span>
+                <span class="menu-title">{% trans "Parts Arrival" %}</span>
               </a>
             </li>
            {% endif %}

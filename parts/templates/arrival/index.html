@@ -39,16 +39,16 @@
                             {% remark_status arrival.remarks %}
                         </td>
                         <td>{{ arrival.date_arrival}}</td>
-                     {% if user.is_staff and arrival.remarks == 'COMPLETED' %}
-                        <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
-                        class="btn btn-primary btn-xs edit-users disabled">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                    {% else %}
+                     {% if arrival.remarks == 'NOT COMPLETED' or arrival.remarks == 'LACKING' %}
                         <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
                         class="btn btn-primary btn-xs edit-users">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                    {% elif arrival.remarks == 'COMPLETED'%}
+                        <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
+                        class="btn btn-primary btn-xs edit-users disabled">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> 
+                        </a>
                     {% endif %}
                         <a data-id="{% url 'arrival:arrival-read' pk=arrival.id %}" 
                         class="btn btn-success btn-xs read-arrival" 
