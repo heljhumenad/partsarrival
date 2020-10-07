@@ -26,6 +26,11 @@ urlpatterns = [
         name="parts_number_read_view",
     ),
     path(
+        "delete/<int:pk>/",
+        partsnumber.PartnumberDeleteView.as_view(),
+        name="parts_number_delete_view",
+    ),
+    path(
         "search",
         partsnumber.SearchView.as_view(),
         name="search_query"
