@@ -49,9 +49,20 @@ class PartNumberUpdateView(PartsNumberMixin, generic.UpdateView):
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
     model = PartsNumber
     messages = 'updated'
+    context_object_name = 'partsnumber'
 
     def get_object(self):
         return super(PartNumberUpdateView, self).get_object()
+
+
+class PartnumberDeleteView(PartsNumberMixin, generic.DeleteView):
+    template_name = "partsnumber/confirm_delete.html"
+    success_url = reverse_lazy("partsnumber:parts_number_index_view")
+    model = PartsNumber
+    context_object_name = 'partsnumber'
+
+    def get_object(self):
+        return super(PartnumberDeleteView, self).get_object()
 
 
 class SearchView(LoginRequiredMixin, generic.ListView):

@@ -7,7 +7,7 @@
         <title>Parts Arrival |{% block title %} {% endblock title %}</title>
         <!--plugin:css-->
     <link rel="stylesheet" href="{% static 'vendors/iconfonts/mdi/css/materialdesignicons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'vendors/iconfonts/ionicons/css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/font-awesome.css' %}">
     <link rel="stylesheet" href="{% static 'vendors/iconfonts/typicons/src/font/typicons.css' %}">
     <link rel="stylesheet" href="{% static 'vendors/iconfonts/flag-icon-css/css/flag-icon.min.css' %}">
     <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{% static 'css/demo_1/style.css'%}">
 
     <link href="{% static 'img/nissan_ico.ico' %}" rel="icon" type="image/x-icon" />
+    <!--Customize application css-->
+    <link rel="stylesheet" href="{% static 'css/shared/app.css'%}">
 </head>
      <body>
         {% block login %}
@@ -36,10 +38,12 @@
         {% endblock sidebar %}
 
              <div class="main-panel">
-             
+
           <div class="content-wrapper">
             {% block main %}
             {% endblock main%}
+            {% block logout_account %}
+            {% endblock logout_account %}
            </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
@@ -58,13 +62,13 @@
 
 
 
-<script src="{% static 'dev_js/js/jquery.js' %}"></script>
-<script src="{% static 'dev_js/js/jquery.bootstrap.modal.forms.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
 <!-- You can alternatively load the minified version -->
-<script src="{% static 'dev_js/js/jquery.bootstrap.modal.forms.min.js' %}"></script>
-<script src="{% static 'dev_js/js/app.js' %}"></script>
+<script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
 
-<script src="{% static 'dev_js/js/calendar/daterangepicker.js' %}"></script>{# this all jquery and javascript file in-house #}
+<script src="{% static 'js/calendar/daterangepicker.js' %}"></script>{# this all jquery and javascript file in-house #}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/calendar/moment.js' %}"></script>

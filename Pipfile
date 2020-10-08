@@ -15,6 +15,7 @@ django-extensions = "*"
 pynvim = "*"
 pytest-cov = "*"
 pytest-django = "*"
+livereload = "*"
 
 [packages]
 psycopg2 = "*"
@@ -23,6 +24,9 @@ django-bootstrap4 = "*"
 django-bootstrap-modal-forms = "*"
 django = "==2.2"
 tox = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
+django-select2 = "*"
 
 [requires]
 python_version = "3.6"

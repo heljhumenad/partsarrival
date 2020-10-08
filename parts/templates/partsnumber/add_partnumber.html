@@ -7,6 +7,7 @@
 {% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
 
 {% block main %}
+{% include 'common/modal/_modal.html' %}
 <div class="col-md-10 card-col">
     <div class="card card-default">
         <div class="card-body">
@@ -15,13 +16,18 @@
                 {% bootstrap_form form  %}
                 {% if partsnumber_id is not None %}
                     <div class="col">
-                        <label for=""></label>
+                        <label for=""></label>  
                         <button type="submit" class="btn btn-primary btn-block" id="submit-button">{% trans "Save" %}</button>
                     </div>
                 {% else %}
                     <div class="col">
                         <label for=""></label>
                         <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Update" %}</button>
+                    </div>
+                        <div class="col">
+                        <label for=""></label>
+                        <a class="btn btn-warning btn-block" 
+                        data-id="{% url 'partsnumber:parts_number_delete_view' pk=partsnumber.id %}" data-toggle="modal" data-target="#modal">{% trans "Delete" %}</a>
                     </div>
                 {% endif %}
                 <div class="col">
