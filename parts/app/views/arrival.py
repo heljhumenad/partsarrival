@@ -21,7 +21,7 @@ class PartsArrivalListView(LoginRequiredMixin, generic.ListView):
 class PartsArrivalCreateView(UserCreateViewMixins):
     template_name = 'arrival/add_arrival.html'
     form_class = PartsArrivalForm
-    success_url = reverse_lazy('arrival:arrival_index')
+    success_url = reverse_lazy('arrival:arrival_create')
     messages = 'added'
 
     def get_context_data(self,  **kwargs):

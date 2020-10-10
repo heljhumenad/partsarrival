@@ -81,4 +81,4 @@ class UnitofMeasureCreateView(generic.CreateView):
     template_name = "partsnumber/unit_of_measure.html"
     model = UnitMeasure
     form_class = partsnumber_form.UnitofMeasureForm
-    success_url = reverse_lazy("partsnumber:parts_number_index_view")
+    success_url = reverse_lazy("partsnumber:parts_um_create_view")

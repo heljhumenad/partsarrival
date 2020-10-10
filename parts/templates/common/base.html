@@ -33,6 +33,7 @@
 
       <!---sidebar-->
       <div class="container-fluid page-body-wrapper">
+      
         {% block sidebar %}
             {% comment %} {% include 'common/sidebar.html' %} {% endcomment %}
         {% endblock sidebar %}
@@ -40,6 +41,7 @@
              <div class="main-panel">
 
           <div class="content-wrapper">
+          {% block messages %} {% endblock messages %}
             {% block main %}
             {% endblock main%}
             {% block logout_account %}
