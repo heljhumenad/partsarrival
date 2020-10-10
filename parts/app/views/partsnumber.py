@@ -26,7 +26,7 @@ class PartNumberCreateView(PartsNumberMixin, generic.CreateView):
     model = PartsNumber
     form_class = partsnumber_form.PartsNumberForm
     messages = 'added'
-    success_url = reverse_lazy("partsnumber:parts_number_index_view")
+    success_url = reverse_lazy("partsnumber:parts_number_create_view")
 
     def get_context_data(self, **kwargs):
         context = super(PartNumberCreateView, self).get_context_data(**kwargs)
