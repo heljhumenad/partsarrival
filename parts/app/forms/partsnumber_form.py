@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
+from parts.config.settings import base
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 
 
@@ -15,6 +16,19 @@ class PartsNumberForm(forms.ModelForm):
             "unit_measure",
         ]
         ordering = ["-id"]
+
+    def clean_partnumber(self):
+        # Throw and error if partnumber was not in proper format
+        cleaned_data = super().clean()
+        partnumber = cleaned_data.get("partnumber")
+
+        if len(partnumber) >= base.MAX_VALUE_OF_PARTNUMBER \
+                or len(partnumber) <= base.MIN_VALUE_OF_PARTNUMBER:
+            raise forms.ValidationError(
+                _("Partnumber %(partnumber)s size is not valid"),
+                params={'partnumber': partnumber}
+            )
+        return partnumber
 
 
 class UnitofMeasureForm(forms.ModelForm):
