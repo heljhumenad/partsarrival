@@ -1,6 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
+from parts.core import validators
 from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.partsnumber.models import (PartsNumber, PartNumberClass)
@@ -50,7 +51,7 @@ class PartsArrivalForm(forms.ModelForm):
         cleaned_data = super().clean()
         qty = cleaned_data.get("qty")
 
-        if qty <= 0:
+        if qty < validators.DEFAULT_QTY:
             raise forms.ValidationError(
                 _("Error %(qty)s quantity"),
                 params={'qty': qty},
@@ -61,7 +62,7 @@ class PartsArrivalForm(forms.ModelForm):
         cleaned_data = super().clean()
         ro_number = cleaned_data.get("ro_number")
 
-        if "RO" not in ro_number:
+        if validators.DEFAULT_RO_RE_FORMAT not in ro_number:
             raise forms.ValidationError(
                 _("Error %(ro_number)s not a valid format"),
                 params={'ro_number': ro_number},

@@ -138,13 +138,6 @@ STATICFILES_DIRS = [
     ("dev_js", os.path.join(STATIC_FILES_PATH, "static")),
 ]
 
-
 # Do not store cookies when browser close
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-
-
-
-# Configurations for Validation constant
-MAX_VALUE_OF_PARTNUMBER = 14
-MIN_VALUE_OF_PARTNUMBER = 5

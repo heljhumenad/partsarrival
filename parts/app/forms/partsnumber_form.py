@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from parts.config.settings import base
+from parts.core import validators
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 
 
@@ -22,8 +22,8 @@ class PartsNumberForm(forms.ModelForm):
         cleaned_data = super().clean()
         partnumber = cleaned_data.get("partnumber")
 
-        if len(partnumber) >= base.MAX_VALUE_OF_PARTNUMBER \
-                or len(partnumber) <= base.MIN_VALUE_OF_PARTNUMBER:
+        if len(partnumber) != validators.MAX_VALUE_OF_PARTNUMBER \
+            or len(partnumber) > validators.MAX_VALUE_OF_PARTNUMBER:
             raise forms.ValidationError(
                 _("Partnumber %(partnumber)s size is not valid"),
                 params={'partnumber': partnumber}
