@@ -2,16 +2,21 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
-# change this to avoid direct calling from main config
-from parts.config.settings import base
-
 # Register model
 from .models import CustomUser
 from parts.app.forms import auth_forms
+# change this to avoid direct calling from main config
 
-admin.site.site_header = base.ADMIN_SITE_HEADER
-admin.site.site_title = base.ADMIN_SITE_TITLE
-admin.site.index_title = base.ADMIN_SITE_TITLE
+# Config settings for Look and feel
+ADMIN_SITE_HEADER = 'PAS System'
+ADMIN_INDEX_TITLE = 'PARTS ARRIVAL SYSTEM'
+ADMIN_SITE_TITLE = 'PAS ARRIVAL SYSTEM'
+
+
+admin.site.site_header = ADMIN_SITE_HEADER
+admin.site.site_title = ADMIN_SITE_TITLE
+admin.site.index_title = ADMIN_INDEX_TITLE
+
 
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
@@ -19,7 +24,6 @@ class CustomUserAdmin(UserAdmin):
     add_form = auth_forms.CustomUserCreationForm
     form = auth_forms.CustomUserChangeForm
     list_display = [
-                    'first_name', 'last_name',
-                    'email', 'username',
-                   ]
-
+        'first_name', 'last_name',
+        'email', 'username',
+    ]

@@ -42,9 +42,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    # Third party middleware
-    "corsheaders.middleware.CorsMiddleware",
-
     # In built middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -146,10 +143,6 @@ STATICFILES_DIRS = [
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
-# Config settings for Look and feel
-ADMIN_SITE_HEADER = 'PAS System'
-ADMIN_INDEX_TITLE = 'PARTS ARRIVAL SYSTEM'
-ADMIN_SITE_TITLE = 'PAS ARRIVAL SYSTEM'
 
 
 # Configurations for Validation constant
