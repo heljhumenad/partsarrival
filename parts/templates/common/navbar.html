@@ -1,68 +1,8 @@
 {% load static %}
 {% load i18n %}
 {% include 'common/modal/_modal.html' %}
-    {% comment %} <!--navbar-->
-    {% if user.is_authenticated %}
-       <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-          <a class="navbar-brand brand-logo" href="{% url 'dashboard:dashboard_view_index' %}">
-            {% trans 'NCE Parts Arrival'%} </a>
-          <a class="navbar-brand brand-logo-mini" href="{% url 'dashboard:dashboard_view_index' %}">
-            {% trans 'Nissan Cebu' %} </a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
-          <ul class="navbar-nav">
-            <li class="nav-item font-weight-semibold d-none d-lg-block">{% trans 'Help : +(032) 346-0350 local 110' %}</li>
-            <li class="nav-item dropdown language-dropdown">
-              <a class="nav-link dropdown-toggle px-2 d-flex align-items-center" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="d-inline-flex mr-0 mr-md-3">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>
-                </div>
-                <span class="profile-text font-weight-medium d-none d-md-block">{% trans 'English' %}</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-us"></i>
-                  </div>{% trans 'English' %}
-                </a>
-                <a class="dropdown-item">
-                  <div class="flag-icon-holder">
-                    <i class="flag-icon flag-icon-ph"></i>
-                  </div>{% trans 'Philippines' %}
-                </a>
-              </div>
-            </li>
-          </ul>
-          {% include 'stub/search.html' %}
-          <ul class="navbar-nav ml-auto">
-          <!--this part will show notifications of what you do in the-->
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count">7</span>
-              </a>
-              {% include 'common/partial/_system_notif.html' %}
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="mdi mdi-email-outline"></i>
-                <span class="count bg-success">3</span>
-              </a>
-              <!--notification html-->
-              {% include 'common/partial/_notif.html' %}
-            </li>
-            {% include 'common/partial/_user_edit.html' %}
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- end navbar -->
-    {% endif %} {% endcomment %}
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  {% if user.is_authenticated %}
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -180,11 +120,12 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fas fa-user"></i>
         </a>
+        {% include 'common/partial/_user_edit.html' %}
       </li>
     </ul>
   </nav>
-  <!-- /.navbar -->
+{% endif %}  <!-- /.navbar -->
