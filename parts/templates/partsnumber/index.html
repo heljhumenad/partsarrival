@@ -9,67 +9,87 @@
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 
 {% block main %}
-    {% include 'common/modal/_modal.html' %}
-<div class="row">
-<div class="col-md-11 col-lg-11 card-col">
-    <div class="card card-default">
-        <div class="card-body">
-            <table class="table table-bordered xs-data-table">
-                <thead class="thead-dark">
-                <div class="row"> 
-                    <a href="{% url 'partsnumber:parts_number_create_view' %}">
-                    
-                    <button class="btn btn-danger btn-md add-button-cls" >
-                        <i class="typcn typcn-plus" aria-hidden="true"></i>
-                    </button>
+{% include 'common/modal/_modal.html' %}
+<section class="content-header">
+            <div class="container-fluid">
+              <div class="row mb-2">
+              <div class="col-sm-6">
+              <h1 class="m-0">{% trans "Parts Number" %}</h1>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                    <a href="#">{% trans "Home" %}</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                    <a href="#">{% trans "Parts" %}</a>
+                    </li>
+                </ol>
+              </div>
+              </div>
+            </div>
+</section>
+    <section class="content">
+            <div class="container-fluid">
+            <div class="card card-default">
+                <div class="card-body">
+                    <table class="table table-bordered xs-data-table">
+                        <thead class="thead-dark">
+                        <div class="row"> 
+                            <a href="{% url 'partsnumber:parts_number_create_view' %}">
+                            
+                            <button class="btn btn-danger btn-xs add-button-cls" >
+                                <i class="fas fa-plus" aria-hidden="true"></i>
+                            </button>
+                            </a>
+                        </div>
+                            <tr>
+                                {% comment %} <th>Employee ID</th> {% endcomment %}
+                                <!-- change this approach that field name will iterate in this section-->
+                                <th>{% trans "Part Number" %}</th>
+                                <th>{% trans "Unit of Measure" %}</th>
+                                <th>{% trans "Description" %}</th>
+                            <th>{% trans "Actions" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                                {% for partnumbers in object_list  %}
+                            <tr>
+                                <td>{{ partnumbers.partnumber }}</a></b></td>
+                                <td>{{ partnumbers.unit_measure.um }}</td>
+                                <td>{{ partnumbers.description }}</td>
+                    {% comment %} {% if user.is_staff %} {% endcomment %}
+                    <td>
+                    <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
+                            class="btn btn-primary btn-xs edit">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
                     </a>
-                </div>
-                    <tr>
-                        {% comment %} <th>Employee ID</th> {% endcomment %}
-                        <!-- change this approach that field name will iterate in this section-->
-                        <th>{% trans "Part Number" %}</th>
-                        <th>{% trans "Unit of Measure" %}</th>
-                        <th>{% trans "Description" %}</th>
-                       <th>{% trans "Actions" %}</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <button type="button" class="btn btn-xs btn-danger read-partsnumber" 
+                    data-id = "{% url 'partsnumber:parts_number_read_view' pk=partnumbers.id %}"
+                data-toggle="modal" data-target="#modal">
+                    <i class="fas fa-eye" aria-hidden="true"></i>
+                
+                </button>
+                </td> 
+                    {% comment %} {% endif %} {% endcomment %}
+                            </tr>
+                            {% empty %}
+                                    <p class="font-weight-bold">{% trans "No partnumbers has been added try adding" %} 
+                                    <a href="{% url 'partsnumber:parts_number_create_view'%}">{% trans "here" %}</a></p>
+                                    <p class="mb-0"></p>
+                                {% endfor %}
 
-                        {% for partnumbers in object_list  %}
-                    <tr>
-                        <td>{{ partnumbers.partnumber }}</a></b></td>
-                        <td>{{ partnumbers.unit_measure.um }}</td>
-                        <td>{{ partnumbers.description }}</td>
-            {% if user.is_staff %}
-            <td>
-            <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
-                    class="btn btn-primary btn-xs edit">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-            </a>
-        <button type="button" class="btn btn-xs btn-danger read-partsnumber" 
-            data-id = "{% url 'partsnumber:parts_number_read_view' pk=partnumbers.id %}"
-        data-toggle="modal" data-target="#modal">
-            <i class="fa fa-eye" aria-hidden="true"></i>
-           
-        </button>
-        </td> 
-            {% endif %}
-                    </tr>
-                    {% empty %}
-                            <p class="font-weight-bold">{% trans "No partnumbers has been added try adding" %} 
-                            <a href="{% url 'partsnumber:parts_number_create_view'%}">{% trans "here" %}</a></p>
-                            <p class="mb-0"></p>
-                        {% endfor %}
+                        </tbody>
+                    </table>
+                <div>
+            </div>
 
-                </tbody>
-            </table>
-        <div>
-    </div>
-
-</div>
+        </div>
     <div class="col-md-2 offset-1"> <!--TODO: Fix the proper alignment of this area-->
     {% include 'common/paginator.html' %}
     </div>
-</div>
-
+    </div>
+    </div>
+</section>
 {% endblock main %}
