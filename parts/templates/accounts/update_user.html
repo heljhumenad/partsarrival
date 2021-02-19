@@ -7,15 +7,22 @@
 {% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
 {% block message %} {% include "common/message.html" %} {% endblock message %}
 {% block main %}
-		<div class="col-md-10 card-col">
-				<div class="card card-default">
-						<div class="card-body">
-		<form action="" method="POST">
+
+    <div class="modal-header">
+    <h3 class="modal-title">{% trans "Parts Advisor Details" %}</h3>
+    <button type="button" data-dismiss="modal" class="close" aria-label="Close">
+    <span aria-hidden="close">&times;</span>
+    </button>
+    </div> 
+    <div class="modal-body">
+        <div class="card card-default">
+        <div class="card-body">
+            <form action="" method="POST">
                 {% csrf_token %}
                 {% bootstrap_field form.username %}
                 {% bootstrap_field form.email %}
-				{% bootstrap_field form.last_name%}
-				{% bootstrap_field form.first_name%}
+                {% bootstrap_field form.last_name%}
+                {% bootstrap_field form.first_name%}
                 <div class="col">
                     <label for=""></label>
                     <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Update" %}</button>
@@ -24,9 +31,10 @@
                     <label for=""></label>
                     <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
                 </div>
-            </form>
-  	
-						</div>
-				</div>
-		</div>
+            </form>      
+                        </div>
+                </div>
+    </div>     
+                
+{% include 'common/modal/_modal_footer.html' %}
 {% endblock main %}
