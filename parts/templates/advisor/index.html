@@ -8,17 +8,43 @@
 
 {% block main %}
     {% include "common/modal/_modal.html" %}
-<div class="col-md-10 col-lg-10 card-col">       
+<section class="content-header">
+    <div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+             <h1 class="m-0"><b>{% trans "Service Advisor" %}</b></h1>
+        </div>
+        <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                <a href="#">{% trans "Home" %}</a>
+                </li>
+                <li class="breadcrumb-item active">
+                <a href="#">{% trans "Service Advisor" %}</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+</section>
+<section class="content">
+<div class="container-fluid">
     <div class="card card-default">
         <div class="card-body">
+          <div class="row mb-2">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                    <a href="{% url 'advisor:advisor_create' %}" class="btn btn-danger btn-sm float-sm-right">
+                    {% trans "Add Advisor" %}
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                    </button>
+                    </a>
+                    </div>
+                </div>
             <table class="table table-bordered xs-data-table">
                 <thead class="thead-dark">
                     <tr>
-                    <a href="{% url 'advisor:advisor_create' %}">
-                    <button class="btn btn-primary btn-md add-button-cls">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                    </button>
-                    </a>
                         {% comment %} <th>Employee ID</th> {% endcomment %}
                         <th>{% trans "First Name" %}</th>
                         <th>{% trans "Last Name" %}</th>
@@ -36,7 +62,7 @@
               {% if user.is_staff %}
             <td><a href="{% url 'advisor:advisor_update_view' pk=service_advisor.id %}" 
                     class="btn btn-primary btn-xs edit-users">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
             </a>
             <button type="button" class="btn btn-success btn-xs read-advisor" 
                 data-id = "{% url 'advisor:advisor_read_view' pk=service_advisor.id %}"
@@ -57,5 +83,7 @@
         <div>
     </div>
 </div>
+</div>
+</section>
     {% include "common/paginator.html" %}
 {% endblock main %}

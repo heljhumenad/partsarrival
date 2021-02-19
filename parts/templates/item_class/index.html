@@ -8,18 +8,43 @@
 {% block messages %} {% include "common/message.html" %} {% endblock messages %}
 
 {% block main %}
-<div class="col-md-10 col-lg-10 card-col">
+<section class="content-header">
+    <div class="content-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">{% trans "Item Class" %}</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                <a href="#">{% trans "Home" %}</a>
+                </li>
+                <li class="breadcrumb-item active">
+                <a href="#">{% trans "Item Class" %}</a>
+                </li>
+            </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
     {% include "common/modal/_modal.html" %}
+    <div class="row mb-2">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                    <a href="{% url 'partsnumber:part_class_create_view' %}" class="btn btn-danger btn-sm float-sm-right">
+                    {% trans "Add Class Number" %}
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                    </button>
+                    </a>
+                    </div>
+                </div>
     <div class="card card-default">
         <div class="card-body">
                 <table class="table table-bordered xs-data-table">
                     <thead class="thead-dark">
                         <tr>
-                        <a href="{% url 'partsnumber:part_class_create_view' %}">
-                        <button class="btn btn-primary btn-md add-button-cls">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </button>
-                        </a>
                             <th>{% trans "Account Code ID" %}</th>
                             <th>{% trans "Class Name" %}</th>
                             <th>{% trans "Charge Type" %}</th>
@@ -35,12 +60,12 @@
                     {% if user.is_staff %}
                 <a href="{% url 'partsnumber:part_class_update_view' pk=partnumber_class.id %}" 
                         class="btn btn-primary btn-xs edit-users">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                 </a>
                 <button type="button" class="btn btn-success btn-xs read-item-class" 
                     data-id = "{% url 'partsnumber:item_class_read' pk=partnumber_class.id %}"
                 data-toggle="modal" data-target="#modal">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <i class="fas fa-eye" aria-hidden="true"></i>
                 </button>
                 </td>
                 {% endif %}
@@ -56,6 +81,7 @@
         </div>
     </div>
 </div>
+</section>
 {% include "common/paginator.html" %}
 {% endblock main %}
 ]
