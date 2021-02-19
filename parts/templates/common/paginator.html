@@ -1,6 +1,6 @@
-<nav aria-label="Page navigation">
+<nav aria-label="Page navigation" class="float-sm-right" style="margin-right:17px;">
 {% if is_paginated %}
-<ul class="pagination pull-right" style="margin-right:10px;">
+<ul class="pagination pull-right">
         {% if page_obj.has_previous %}
     <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo;</a></li>
     {% else %}
