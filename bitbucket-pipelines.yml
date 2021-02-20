@@ -15,8 +15,8 @@ pipelines:
             - pip
           script:
             # Modify the commands below to build your repository
-            - sudo add-apt-repository ppa:deadsnake/ppa
-            - sudo apt update
+            - add-apt-repository ppa:deadsnake/ppa
+            - apt get update
             - apt get install python3.6
             - pip install upgrade pip
             - pip install django==2.1
