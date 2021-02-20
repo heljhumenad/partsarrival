@@ -30,12 +30,12 @@ class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
 class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "item_class/add_class_partnumber.html"
     form_class = item_class_form.PartNumberClassForm
+    model = PartNumberClass
     success_url = reverse_lazy("partsnumber:parts_show_class")
+    context_object_name = 'item_class'
 
-    def get_object(self, query_pk_and_slug=None):
-        item_class = PartNumberClass.objects.filter(
-            id=self.kwargs["pk"]).first()
-        return item_class
+    def get_object(self):
+        return super(PartnumberClassUpdateView, self).get_object()
 
 
 class PartsNumberClassDetailView(LoginRequiredMixin, generic.DetailView):
@@ -43,7 +43,5 @@ class PartsNumberClassDetailView(LoginRequiredMixin, generic.DetailView):
     model = PartNumberClass
     context_object_name = 'item_class'
 
-    def get_object(self, query_pk_and_slug=None):
-        item_class = PartNumberClass.objects.filter(
-            id=self.kwargs["pk"]).first()
-        return item_class
+    def get_object(self):
+        return super(PartsNumberClassDetailView, self).get_object()

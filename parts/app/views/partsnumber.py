@@ -9,9 +9,8 @@ from parts.app.mixins.useraccount_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form
 
-from bootstrap_modal_forms.generic import BSModalCreateView
-
 # PartNumber
+
 
 
 class PartNumberTemplateView(generic.ListView):
@@ -77,7 +76,7 @@ class SearchView(LoginRequiredMixin, generic.ListView):
         return object_list
 
 
-class UnitofMeasureCreateView(generic.CreateView):
+class UnitofMeasureCreateView(LoginRequiredMixin,generic.CreateView):
     template_name = "partsnumber/unit_of_measure.html"
     model = UnitMeasure
     form_class = partsnumber_form.UnitofMeasureForm
