@@ -6,19 +6,18 @@
 image: python:3.6
 
 pipelines:
-  default:
-    - step:
-        name: Deploy for Production
-        deployment: Production
-        caches:
-          - pip
-        script:
-          # Modify the commands below to build your repository
-          - sudo add-apt-repository ppa:deadsnake/ppa
-          - sudo apt update
-          - apt get install python3.6
-          - pip install upgrade pip
-          - pip install django==2.1
-          - pip install pipenv
-          - pipenv shell
-          - pipenv install
+  branches:
+    dev:
+      - step:
+          name: Deploy for Production
+          deployment: Production
+          caches:
+            - pip
+          script:
+            # Modify the commands below to build your repository
+            - sudo add-apt-repository ppa:deadsnake/ppa
+            - sudo apt update
+            - apt get install python3.6
+            - pip install upgrade pip
+            - pip install django==2.1
+            - pip install pipenv
