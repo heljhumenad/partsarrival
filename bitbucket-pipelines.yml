@@ -20,6 +20,5 @@ pipelines:
             - pip install --upgrade pip
             - pip install django==2.1
             - pip install pipenv
-            - pipenv shell
-            - pipenv install
+            - pipenv install --deploy --system
             - pipenv update
