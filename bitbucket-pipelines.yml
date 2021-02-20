@@ -17,6 +17,8 @@ pipelines:
             # Modify the commands below to build your repository
             - apt-get update
             - python -v
-            - pip install upgrade pip
-            - pip install django==2.1
+            - pip install --upgrade pip
             - pip install pipenv
+            - pipenv shell
+            - pipenv install
+            - pipenv update
