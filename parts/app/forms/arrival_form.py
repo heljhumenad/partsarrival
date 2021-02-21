@@ -40,9 +40,9 @@ class PartsArrivalForm(forms.ModelForm):
             self.fields["ro_number"].widget.attrs["readonly"] = True
             self.fields["customer_name"].widget.attrs["readonly"] = True
             self.fields["qty"].widget.attrs["readonly"] = True
-            self.fields["partnumber"].widget.attrs["disabled"] = True
-            self.fields["advisor"].widget.attrs["disabled"] = True
-            self.fields["item_class"].widget.attrs["disabled"] = True
+            self.fields["partnumber"].widget.attrs["readonly"] = True
+            self.fields["advisor"].widget.attrs["readonly"] = True
+            self.fields["item_class"].widget.attrs["readonly"] = True
             # The people can change this remarks is the one who has high
             # authorizations of the sites. like Manager and Supervisor
 
