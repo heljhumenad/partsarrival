@@ -9,10 +9,6 @@ from parts.app.mixins.useraccount_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form
 
-# PartNumber
-
-
-
 class PartNumberTemplateView(generic.ListView):
     template_name = "partsnumber/index.html"
     model = PartsNumber
