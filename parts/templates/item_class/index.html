@@ -1,7 +1,6 @@
 {% extends "common/base.html" %}
 {% block title %} Item Class {% endblock title %}
-{% load i18n %}
-{% load bootstrap4 %}
+{% load humanize i18n bootstrap4 %}
 
 {% block sidebar %} {% include "common/sidebar.html" %}{% endblock sidebar %}
 {% block navbar %} {% include "common/navbar.html" %}{% endblock navbar %}
@@ -57,7 +56,6 @@
                         <td>{{ partnumber_class.class_name }}</td>
                         <td>{{ partnumber_class.charge_type }}</td>
                 <td>
-                    {% if user.is_staff %}
                 <a href="{% url 'partsnumber:part_class_update_view' pk=partnumber_class.id %}" 
                         class="btn btn-primary btn-xs edit-users">
                     <i class="fas fa-pencil-alt" aria-hidden="true"></i>
@@ -68,7 +66,6 @@
                     <i class="fas fa-eye" aria-hidden="true"></i>
                 </button>
                 </td>
-                {% endif %}
                     </tr>
                     {% empty %}
                             <p class="font-weight-bold">{% trans "No Part Number class has been added try adding" %} 
