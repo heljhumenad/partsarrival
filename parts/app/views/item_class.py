@@ -34,8 +34,8 @@ class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("partsnumber:parts_show_class")
     context_object_name = 'item_class'
 
-    def get_object(self):
-        return super(PartnumberClassUpdateView, self).get_object()
+    def get_first_object(self):
+        return super(PartnumberClassUpdateView, self).get_first_object()
 
 
 class PartsNumberClassDetailView(LoginRequiredMixin, generic.DetailView):
@@ -43,5 +43,5 @@ class PartsNumberClassDetailView(LoginRequiredMixin, generic.DetailView):
     model = PartNumberClass
     context_object_name = 'item_class'
 
-    def get_object(self):
-        return super(PartsNumberClassDetailView, self).get_object()
+    def get_first_object(self):
+        return super(PartnumberClassUpdateView, self).get_first_object()
