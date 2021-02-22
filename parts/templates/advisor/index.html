@@ -1,9 +1,9 @@
 {% extends "common/base.html" %}
 {% load humanize i18n bootstrap4 %}
 
-{% block navbar %} {% include "common/navbar.html" %} {% endblock navbar %}
-{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
-{% block messages %} {% include "common/message.html" %} {% endblock messages %}
+{% block navbar %} {% include "common/includes/navbar.html" %} {% endblock navbar %}
+{% block sidebar %} {% include "common/includes/sidebar.html" %} {% endblock sidebar %}
+{% block messages %} {% include "common/includes/message.html" %} {% endblock messages %}
 
 {% block main %}
     {% include "common/modal/_modal.html" %}
@@ -84,5 +84,5 @@
 </div>
 </div>
 </section>
-    {% include "common/paginator.html" %}
+    {% include "common/includes/paginator.html" %}
 {% endblock main %}

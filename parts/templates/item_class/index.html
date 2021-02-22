@@ -2,9 +2,9 @@
 {% block title %} Item Class {% endblock title %}
 {% load humanize i18n bootstrap4 %}
 
-{% block sidebar %} {% include "common/sidebar.html" %}{% endblock sidebar %}
-{% block navbar %} {% include "common/navbar.html" %}{% endblock navbar %}
-{% block messages %} {% include "common/message.html" %} {% endblock messages %}
+{% block sidebar %} {% include "common/includes/sidebar.html" %}{% endblock sidebar %}
+{% block navbar %} {% include "common/includes/navbar.html" %}{% endblock navbar %}
+{% block messages %} {% include "common/includes/message.html" %} {% endblock messages %}
 
 {% block main %}
 <section class="content-header">
@@ -79,6 +79,6 @@
     </div>
 </div>
 </section>
-{% include "common/paginator.html" %}
+{% include "common/includes/paginator.html" %}
 {% endblock main %}
 ]
