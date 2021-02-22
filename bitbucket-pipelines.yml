@@ -20,4 +20,3 @@ pipelines:
             - pip install pipenv
             - pipenv install --deploy --system
             - pipenv update
-            - pipenv check
