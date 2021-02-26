@@ -13,7 +13,7 @@ class CustomUserChangeForm(forms.UserChangeForm):
     class Meta(forms.UserChangeForm):
         model = CustomUser
         # fields = UserChangeForm.Meta.fields
-        fields = ['username', 'first_name', 'last_name', 'email']
+        fields = ["username", "first_name", "last_name", "email"]
 
 
 class AccountPasswordResetForm(forms.PasswordResetForm):

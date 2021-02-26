@@ -14,17 +14,18 @@ class AccountTemplateView(UserAccountMixins, generic.TemplateView):
 class AccountLoginView(views.LoginView):
     template = "accounts/login.html"
 
-# TODO 
+
+# TODO
 # Fix Logout that can use to redirect logout without authentication
 class AccountLogoutView(views.LogoutView):
     template_name = "registration/logout.html"
 
+
 class AccountEditView(generic.UpdateView):
     template_name = "accounts/update_user.html"
-    success_url = reverse_lazy('accounts:edit_user')
-    form_class  = auth_forms.CustomUserChangeForm
+    success_url = reverse_lazy("accounts:edit_user")
+    form_class = auth_forms.CustomUserChangeForm
 
     def get_object(self, query_pk_and_slug=None):
-        user = CustomUser.objects.filter(id=self.kwargs['pk']).first()
+        user = CustomUser.objects.filter(id=self.kwargs["pk"]).first()
         return user
-

@@ -9,18 +9,19 @@ from parts.app.mixins.useraccount_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form
 
+
 class PartNumberTemplateView(generic.ListView):
     template_name = "partsnumber/index.html"
     model = PartsNumber
     paginate_by = 2
-    context_object_name = 'partsnumber'
+    context_object_name = "partsnumber"
 
 
 class PartNumberCreateView(PartsNumberMixin, generic.CreateView):
     template_name = "partsnumber/add_partnumber.html"
     model = PartsNumber
     form_class = partsnumber_form.PartsNumberForm
-    messages = 'added'
+    messages = "added"
     success_url = reverse_lazy("partsnumber:parts_number_create_view")
 
     def get_context_data(self, **kwargs):
@@ -32,7 +33,7 @@ class PartNumberCreateView(PartsNumberMixin, generic.CreateView):
 class PartsNumberDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "partsnumber/read_partnumber.html"
     model = PartsNumber
-    context_object_name = 'partsnumber'
+    context_object_name = "partsnumber"
 
     def get_object(self):
         return super(PartsNumberDetailView, self).get_object()
@@ -43,8 +44,8 @@ class PartNumberUpdateView(PartsNumberMixin, generic.UpdateView):
     form_class = partsnumber_form.PartsNumberForm
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
     model = PartsNumber
-    messages = 'updated'
-    context_object_name = 'partsnumber'
+    messages = "updated"
+    context_object_name = "partsnumber"
 
     def get_object(self):
         return super(PartNumberUpdateView, self).get_object()
@@ -54,7 +55,7 @@ class PartnumberDeleteView(PartsNumberMixin, generic.DeleteView):
     template_name = "partsnumber/confirm_delete.html"
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
     model = PartsNumber
-    context_object_name = 'partsnumber'
+    context_object_name = "partsnumber"
 
     def get_object(self):
         return super(PartnumberDeleteView, self).get_object()
@@ -72,7 +73,7 @@ class SearchView(LoginRequiredMixin, generic.ListView):
         return object_list
 
 
-class UnitofMeasureCreateView(LoginRequiredMixin,generic.CreateView):
+class UnitofMeasureCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "partsnumber/unit_of_measure.html"
     model = UnitMeasure
     form_class = partsnumber_form.UnitofMeasureForm

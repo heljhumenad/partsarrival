@@ -10,11 +10,7 @@ class PartsNumberForm(forms.ModelForm):
         verbose_name = _("Parts Number")
         verbose_name_plural = _("Parts Numbers")
         model = PartsNumber
-        fields = [
-            "partnumber",
-            "description",
-            "unit_measure",
-        ]
+        fields = ["partnumber", "description", "unit_measure"]
         ordering = ["-id"]
 
     def clean_partnumber(self):
@@ -22,11 +18,13 @@ class PartsNumberForm(forms.ModelForm):
         cleaned_data = super().clean()
         partnumber = cleaned_data.get("partnumber")
 
-        if len(partnumber) != validators.MAX_VALUE_OF_PARTNUMBER \
-            or len(partnumber) > validators.MAX_VALUE_OF_PARTNUMBER:
+        if (
+            len(partnumber) != validators.MAX_VALUE_OF_PARTNUMBER
+            or len(partnumber) > validators.MAX_VALUE_OF_PARTNUMBER
+        ):
             raise forms.ValidationError(
                 _("Partnumber %(partnumber)s size is not valid"),
-                params={'partnumber': partnumber}
+                params={"partnumber": partnumber},
             )
         return partnumber
 

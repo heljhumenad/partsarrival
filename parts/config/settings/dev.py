@@ -40,7 +40,7 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 # Get the current machine IP Address
-def getipaddress():
+def get_ipaddress():
     import socket
 
     host_name = socket.gethostname()
@@ -48,4 +48,4 @@ def getipaddress():
     return ip_address
 
 
-ALLOWED_HOSTS = [getipaddress(), "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [get_ipaddress(), "localhost", "127.0.0.1"]

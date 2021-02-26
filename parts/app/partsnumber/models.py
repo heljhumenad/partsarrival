@@ -21,22 +21,21 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
         ("Deactivated", "Deactivated"),
     ]
 
-    partnumber = models.CharField(max_length=200, verbose_name=_("Parts Number"), unique=True)
-
+    partnumber = models.CharField(
+        max_length=200, verbose_name=_("Parts Number"), unique=True
+    )
     source_code = models.CharField(
         max_length=200, verbose_name=_("Parts Number"), choices=SOURCE_CODE
     )
-
     bar_code = models.CharField(max_length=200, verbose_name=_("Barcode No."))
 
     selling_price = models.IntegerField(verbose_name=_("Selling Price"))
 
-    status = models.CharField(max_length=200, verbose_name=_("Status"), choices=PARTNUMBER_STATUS)
-
+    status = models.CharField(
+        max_length=200, verbose_name=_("Status"), choices=PARTNUMBER_STATUS
+    )
     unit_measure = models.ForeignKey(
-        "UnitMeasure",
-        verbose_name=_("Stock/UM"),
-        on_delete=models.CASCADE,
+        "UnitMeasure", verbose_name=_("Stock/UM"), on_delete=models.CASCADE
     )
 
     class Meta:
@@ -51,10 +50,7 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
 class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 
-    um = models.CharField(
-        max_length=20,
-        verbose_name=_("Unit of Measure"),
-    )
+    um = models.CharField(max_length=20, verbose_name=_("Unit of Measure"))
 
     class Meta:
         db_table = _("um")
@@ -70,11 +66,7 @@ class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
 
     class_name = models.CharField(max_length=20, verbose_name=_("Class name"))
 
-    # Add charge type using class name insert
-    charge_type = models.CharField(
-        max_length=20,
-        verbose_name=_("Charge Type"),
-    )
+    charge_type = models.CharField(max_length=20, verbose_name=_("Charge Type"))
 
     class Meta:
         db_table = _("partnumber_class")
