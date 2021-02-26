@@ -7,21 +7,36 @@ from parts.models.managers.update_view import AbstractUpdateViewManager
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
-    partnumber = models.CharField(
-        max_length=200,
-        verbose_name=_("Parts Number"),
-        unique=True
+    SOURCE_CODE = [
+        ("01", "Nissan Japan"),
+        ("02", "Nissan Taiwan"),
+        ("05", "Nissan Thailand"),
+        ("08", "Nissan Indonesia"),
+    ]
+
+    PARTNUMBER_STATUS = [
+        ("Active", "Active"),
+        ("Depcreated", "Depcreated"),
+        ("Obsolete", "Obsolete"),
+        ("Deactivated", "Deactivated"),
+    ]
+
+    partnumber = models.CharField(max_length=200, verbose_name=_("Parts Number"), unique=True)
+
+    source_code = models.CharField(
+        max_length=200, verbose_name=_("Parts Number"), choices=SOURCE_CODE
     )
+
+    bar_code = models.CharField(max_length=200, verbose_name=_("Barcode No."))
+
+    selling_price = models.IntegerField(verbose_name=_("Selling Price"))
+
+    status = models.CharField(max_length=200, verbose_name=_("Status"), choices=PARTNUMBER_STATUS)
 
     unit_measure = models.ForeignKey(
         "UnitMeasure",
-        verbose_name=_("Unit of Measure"),
+        verbose_name=_("Stock/UM"),
         on_delete=models.CASCADE,
-    )
-
-    description = models.CharField(
-        max_length=200,
-        verbose_name=_("Description"),
     )
 
     class Meta:
@@ -53,20 +68,12 @@ class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 
 class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
 
-    class_name = models.CharField(
-        max_length=20,
-        verbose_name=_("Class name")
-    )
+    class_name = models.CharField(max_length=20, verbose_name=_("Class name"))
 
     # Add charge type using class name insert
     charge_type = models.CharField(
         max_length=20,
         verbose_name=_("Charge Type"),
-    )
-
-    code_name = models.CharField(
-        max_length=7,
-        verbose_name=_("Code Name/Code Number"),
     )
 
     class Meta:
