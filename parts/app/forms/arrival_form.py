@@ -15,7 +15,7 @@ class PartsArrivalForm(forms.ModelForm):
     )
 
     item_class = forms.ModelChoiceField(
-        queryset=PartNumberClass.objects.order_by("code_name"),
+        queryset=PartNumberClass.objects.order_by("charge_type"),
         empty_label=_("Choose your Item Class"),
     )
 

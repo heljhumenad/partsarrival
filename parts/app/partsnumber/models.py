@@ -8,10 +8,10 @@ from parts.models.managers.update_view import AbstractUpdateViewManager
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
     SOURCE_CODE = [
-        ("01", "Nissan Japan"),
-        ("02", "Nissan Taiwan"),
-        ("05", "Nissan Thailand"),
-        ("08", "Nissan Indonesia"),
+        ("01", "Nissan Japan-01"),
+        ("02", "Nissan Taiwan-02"),
+        ("05", "Nissan Thailand-05"),
+        ("08", "Nissan Indonesia-08"),
     ]
 
     PARTNUMBER_STATUS = [
@@ -25,7 +25,7 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
         max_length=200, verbose_name=_("Parts Number"), unique=True
     )
     source_code = models.CharField(
-        max_length=200, verbose_name=_("Parts Number"), choices=SOURCE_CODE
+        max_length=200, verbose_name=_("Source Code"), choices=SOURCE_CODE
     )
     bar_code = models.CharField(max_length=200, verbose_name=_("Barcode No."))
 

@@ -10,7 +10,14 @@ class PartsNumberForm(forms.ModelForm):
         verbose_name = _("Parts Number")
         verbose_name_plural = _("Parts Numbers")
         model = PartsNumber
-        fields = ["partnumber", "description", "unit_measure"]
+        fields = [
+            "partnumber",
+            "source_code",
+            "bar_code",
+            "description",
+            "unit_measure",
+            "selling_price",
+        ]
         ordering = ["-id"]
 
     def clean_partnumber(self):
@@ -34,5 +41,5 @@ class UnitofMeasureForm(forms.ModelForm):
         verbose_name = _("Unit of Measure")
         verbose_name_plural = _("Unit of Measures")
         model = UnitMeasure
-        fields = ["um"]
+        fields = ["um", "description"]
         ordering = ["-id"]
