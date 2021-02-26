@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -51,6 +49,8 @@ class PartsArrival(TimeStampModel):
 
     @property
     def convert_date_string(self):
+        from datetime import datetime
+
         # 9/5/2020 12:00 AM
         date_string = self.date_arrival
         return datetime.strptime(date_string, "%m/%d/%y %H:%M:%S")
