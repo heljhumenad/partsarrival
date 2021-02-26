@@ -9,7 +9,7 @@ class PartNumberClassForm(forms.ModelForm):
         verbose_name = _("Part Number Class")
         verbose_name_plural = _("Part Number Classes")
         model = PartNumberClass
-        fields = ["code_name", "charge_type", "class_name"]
+        fields = ["charge_type", "class_name"]
 
     def __init__(self, *args, **kwargs):
         # * All modelform has a self.instances attributes
