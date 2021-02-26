@@ -44,10 +44,9 @@ class PartsArrival(TimeStampModel):
         verbose_name=_("Service Advisor"),
     )
 
-    partnumber = models.ForeignKey(
-        PartsNumber,
-        on_delete=models.CASCADE,
-        verbose_name=_("Part Number"),
+    partnumber = models.CharField(
+        max_length=200,
+        verbose_name=_("Partsnumber")
     )
 
     qty = models.IntegerField(
