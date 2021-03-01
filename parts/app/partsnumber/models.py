@@ -47,6 +47,11 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
     def __str__(self):
         return self.partnumber
 
+    # !Find way to handle this feat in template
+    @property
+    def add_leading_zero(self):
+        return str(self.selling_price) + ".00"
+
 
 class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 

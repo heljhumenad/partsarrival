@@ -61,7 +61,7 @@
                                 <td>{{ partnumbers.partnumber }}</a></b></td>
                                 <td>{{ partnumbers.unit_measure.um }}</td>
                                 <td>{{ partnumbers.description }}</td>
-                                <td>{{ partnumbers.selling_price }}</td>
+                                <td>{{ partnumbers.add_leading_zero }}</td>
                     {% comment %} {% if user.is_staff %} {% endcomment %}
                     <td>
                     <a href="{% url 'partsnumber:parts_number_update_view' pk=partnumbers.id %}" 
