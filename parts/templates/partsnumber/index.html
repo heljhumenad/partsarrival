@@ -50,6 +50,7 @@
                                 <th>{% trans "Part Number" %}</th>
                                 <th>{% trans "Unit of Measure" %}</th>
                                 <th>{% trans "Description" %}</th>
+                                <th>{% trans "Source Code" %}</th>
                                 <th>{% trans "Selling Price" %}</th>
                             <th>{% trans "Actions" %}</th>
                             </tr>
@@ -61,6 +62,7 @@
                                 <td>{{ partnumbers.partnumber }}</a></b></td>
                                 <td>{{ partnumbers.unit_measure.um }}</td>
                                 <td>{{ partnumbers.description }}</td>
+                                <td>{{ partnumbers.source_code }} </td>
                                 <td>{{ partnumbers.add_leading_zero }}</td>
                     {% comment %} {% if user.is_staff %} {% endcomment %}
                     <td>
