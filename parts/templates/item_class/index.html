@@ -44,7 +44,6 @@
                 <table class="table table-bordered xs-data-table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>{% trans "Account Code ID" %}</th>
                             <th>{% trans "Class Name" %}</th>
                             <th>{% trans "Charge Type" %}</th>
                             <th>{% trans "Actions" %}</th>
@@ -52,7 +51,6 @@
                     </thead>
                     <tbody>
                         {% for partnumber_class in page_obj.object_list  %}
-                        <td>{{ partnumber_class.code_name}}</td>
                         <td>{{ partnumber_class.class_name }}</td>
                         <td>{{ partnumber_class.charge_type }}</td>
                 <td>
