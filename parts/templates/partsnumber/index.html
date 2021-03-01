@@ -2,8 +2,8 @@
 {% load humanize i18n bootstrap4 %}
 {% block title %} Partnumbers{% endblock title %} Partnumbers
 
-{% block navbar %} {% include  'common/navbar.html'%}{% endblock navbar %}
-{% block sidebar%} {% include  'common/sidebar.html'%}{% endblock sidebar %}
+{% block navbar %} {% include  'common/includes/navbar.html'%}{% endblock navbar %}
+{% block sidebar%} {% include  'common/includes/sidebar.html'%}{% endblock sidebar %}
 {% block messages %} {% include "common/includes/message.html" %} {% endblock messages %}
 
 {% block main %}
@@ -91,7 +91,7 @@
     <div class="col-sm-6">
     </div>
     <div class="col-sm-6">
-        {% include 'common/paginator.html' %}
+        {% include 'common/includes/paginator.html' %}
     </div>
         </div><!--end of the row mb-2 -->
     </div>
