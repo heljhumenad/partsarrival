@@ -39,4 +39,13 @@ DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": True,
 }
 
-ALLOWED_HOSTS = ['192.168.1.104', 'localhost', '127.0.0.1']
+# Get the current machine IP Address
+def get_ipaddress():
+    import socket
+
+    host_name = socket.gethostname()
+    ip_address = socket.gethostbyname(host_name)
+    return ip_address
+
+
+ALLOWED_HOSTS = [get_ipaddress(), "localhost", "127.0.0.1"]

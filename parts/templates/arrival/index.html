@@ -2,9 +2,9 @@
 {% load humanize i18n bootstrap4 %}
 {% load arrival_tags %}
 
-{% block navbar %} {% include  'common/navbar.html'%}{% endblock navbar %}
-{% block sidebar%} {% include  'common/sidebar.html'%}{% endblock sidebar %}
-{% block message %} {% include "common/message.html" %} {% endblock message %}
+{% block navbar %} {% include  'common/includes/navbar.html'%}{% endblock navbar %}
+{% block sidebar%} {% include  'common/includes/sidebar.html'%}{% endblock sidebar %}
+{% block messages %} {% include "common/includes/message.html" %} {% endblock messages %}
 
 {% block main %}
     {% include 'common/modal/_modal.html' %}
@@ -66,7 +66,7 @@
                             {% remark_status arrival.remarks %}
                         </td>
                         <td>{{ arrival.date_arrival}}</td>
-                     {% if arrival.remarks == 'NOT COMPLETED' or arrival.remarks == 'LACKING' %}
+                     {% if arrival.remarks != 'COMPLETED' %}
                         <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
                         class="btn btn-primary btn-xs edit-users">
                         <i class="fa fa-pencil-alt" aria-hidden="true"></i>
@@ -100,6 +100,6 @@
     </div>
 </div>
 </div>
-{% include 'common/paginator.html' %}
+{% include 'common/includes/paginator.html' %}
 </section>
 {% endblock main %}

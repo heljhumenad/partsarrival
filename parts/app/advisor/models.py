@@ -7,8 +7,7 @@ from parts.models.managers.update_view import AbstractUpdateViewManager
 
 class ServiceAdvisor(AbstractUpdateViewManager, TimeStampModel):
 
-    DESIGNATION = [("SVC", "Service Advisor"),
-                   ("BRPSVC", "Service Advisor BRP")]
+    DESIGNATION = [("SVC", "Service Advisor"), ("BRPSVC", "Service Advisor BRP")]
 
     first_name = models.CharField(
         max_length=200, verbose_name=_("First Name"), blank=False

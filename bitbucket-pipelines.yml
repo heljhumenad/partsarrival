@@ -9,16 +9,18 @@ pipelines:
   branches:
     dev:
       - step:
-          name: Deploy for Production
+          name: Development Phase
           deployment: Production
           caches:
             - pip
           script:
             # Modify the commands below to build your repository
             - apt-get update
-            - python -v
             - pip install --upgrade pip
-            - pip install django==2.1
             - pip install pipenv
+<<<<<<< HEAD
             - pipenv install --deploy --system
+=======
+>>>>>>> dev
             - pipenv update
+            - pipenv install --deploy --system

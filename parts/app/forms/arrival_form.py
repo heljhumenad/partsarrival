@@ -4,19 +4,19 @@ from django.utils.translation import ugettext_lazy as _
 from parts.core import validators
 from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
-from parts.app.partsnumber.models import (PartsNumber, PartNumberClass)
+from parts.app.partsnumber.models import PartsNumber, PartNumberClass
 
 
 class PartsArrivalForm(forms.ModelForm):
 
     advisor = forms.ModelChoiceField(
-        queryset=ServiceAdvisor.objects.order_by('last_name', 'first_name'),
-        empty_label=_("Choose your Advisor")
+        queryset=ServiceAdvisor.objects.order_by("last_name", "first_name"),
+        empty_label=_("Choose your Advisor"),
     )
 
     item_class = forms.ModelChoiceField(
-        queryset=PartNumberClass.objects.order_by('code_name'),
-        empty_label=_("Choose your Item Class")
+        queryset=PartNumberClass.objects.order_by("charge_type"),
+        empty_label=_("Choose your Item Class"),
     )
 
     class Meta:
@@ -24,11 +24,17 @@ class PartsArrivalForm(forms.ModelForm):
         verbose_name_plural = _("Parts Arrival Forms")
         model = PartsArrival
         fields = [
-            'customer_name', 'ro_number',
-            'item_class', 'advisor',
-            'partnumber', 'qty',
-            'remarks', 'reason', 'date_arrival',
+            "customer_name",
+            "ro_number",
+            "item_class",
+            "advisor",
+            "partnumber",
+            "qty",
+            "remarks",
+            "reason",
+            "date_arrival",
         ]
+
     # TODO
     # ! Bug When update the arrival the field for update
     # ! will back to default value of the choice field
@@ -40,9 +46,9 @@ class PartsArrivalForm(forms.ModelForm):
             self.fields["ro_number"].widget.attrs["readonly"] = True
             self.fields["customer_name"].widget.attrs["readonly"] = True
             self.fields["qty"].widget.attrs["readonly"] = True
-            self.fields["partnumber"].widget.attrs["disabled"] = True
-            self.fields["advisor"].widget.attrs["disabled"] = True
-            self.fields["item_class"].widget.attrs["disabled"] = True
+            self.fields["partnumber"].widget.attrs["readonly"] = True
+            self.fields["advisor"].widget.attrs["readonly"] = True
+            self.fields["item_class"].widget.attrs["readonly"] = True
             # The people can change this remarks is the one who has high
             # authorizations of the sites. like Manager and Supervisor
 
@@ -53,8 +59,7 @@ class PartsArrivalForm(forms.ModelForm):
 
         if qty < validators.DEFAULT_QTY:
             raise forms.ValidationError(
-                _("Error %(qty)s quantity"),
-                params={'qty': qty},
+                _("Error %(qty)s quantity"), params={"qty": qty}
             )
         return qty
 
@@ -65,6 +70,6 @@ class PartsArrivalForm(forms.ModelForm):
         if validators.DEFAULT_RO_RE_FORMAT not in ro_number:
             raise forms.ValidationError(
                 _("Error %(ro_number)s not a valid format"),
-                params={'ro_number': ro_number},
+                params={"ro_number": ro_number},
             )
         return ro_number

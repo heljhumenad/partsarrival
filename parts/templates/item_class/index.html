@@ -1,11 +1,10 @@
 {% extends "common/base.html" %}
 {% block title %} Item Class {% endblock title %}
-{% load i18n %}
-{% load bootstrap4 %}
+{% load humanize i18n bootstrap4 %}
 
-{% block sidebar %} {% include "common/sidebar.html" %}{% endblock sidebar %}
-{% block navbar %} {% include "common/navbar.html" %}{% endblock navbar %}
-{% block messages %} {% include "common/message.html" %} {% endblock messages %}
+{% block sidebar %} {% include "common/includes/sidebar.html" %}{% endblock sidebar %}
+{% block navbar %} {% include "common/includes/navbar.html" %}{% endblock navbar %}
+{% block messages %} {% include "common/includes/message.html" %} {% endblock messages %}
 
 {% block main %}
 <section class="content-header">
@@ -45,7 +44,6 @@
                 <table class="table table-bordered xs-data-table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>{% trans "Account Code ID" %}</th>
                             <th>{% trans "Class Name" %}</th>
                             <th>{% trans "Charge Type" %}</th>
                             <th>{% trans "Actions" %}</th>
@@ -53,11 +51,9 @@
                     </thead>
                     <tbody>
                         {% for partnumber_class in page_obj.object_list  %}
-                        <td>{{ partnumber_class.code_name}}</td>
                         <td>{{ partnumber_class.class_name }}</td>
                         <td>{{ partnumber_class.charge_type }}</td>
                 <td>
-                    {% if user.is_staff %}
                 <a href="{% url 'partsnumber:part_class_update_view' pk=partnumber_class.id %}" 
                         class="btn btn-primary btn-xs edit-users">
                     <i class="fas fa-pencil-alt" aria-hidden="true"></i>
@@ -68,7 +64,6 @@
                     <i class="fas fa-eye" aria-hidden="true"></i>
                 </button>
                 </td>
-                {% endif %}
                     </tr>
                     {% empty %}
                             <p class="font-weight-bold">{% trans "No Part Number class has been added try adding" %} 
@@ -82,6 +77,6 @@
     </div>
 </div>
 </section>
-{% include "common/paginator.html" %}
+{% include "common/includes/paginator.html" %}
 {% endblock main %}
 ]

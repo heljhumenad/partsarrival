@@ -12,8 +12,11 @@ class PartsNumberForm(forms.ModelForm):
         model = PartsNumber
         fields = [
             "partnumber",
+            "source_code",
+            "bar_code",
             "description",
             "unit_measure",
+            "selling_price",
         ]
         ordering = ["-id"]
 
@@ -22,11 +25,13 @@ class PartsNumberForm(forms.ModelForm):
         cleaned_data = super().clean()
         partnumber = cleaned_data.get("partnumber")
 
-        if len(partnumber) != validators.MAX_VALUE_OF_PARTNUMBER \
-            or len(partnumber) > validators.MAX_VALUE_OF_PARTNUMBER:
+        if (
+            len(partnumber) != validators.MAX_VALUE_OF_PARTNUMBER
+            or len(partnumber) > validators.MAX_VALUE_OF_PARTNUMBER
+        ):
             raise forms.ValidationError(
                 _("Partnumber %(partnumber)s size is not valid"),
-                params={'partnumber': partnumber}
+                params={"partnumber": partnumber},
             )
         return partnumber
 
@@ -36,5 +41,5 @@ class UnitofMeasureForm(forms.ModelForm):
         verbose_name = _("Unit of Measure")
         verbose_name_plural = _("Unit of Measures")
         model = UnitMeasure
-        fields = ["um"]
+        fields = ["um", "description"]
         ordering = ["-id"]

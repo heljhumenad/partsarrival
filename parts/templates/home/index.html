@@ -1,8 +1,7 @@
 {% extends "common/base.html" %}
 {% block title %} Home {% endblock title %}
-{% load i18n %}
-{% load bootstrap4 %}
+{% load humanize i18n bootstrap4 %}
 
-{% block navbar %} {% include "common/navbar.html" %}{% endblock navbar %}
+{% block navbar %} {% include "common/includes/navbar.html" %}{% endblock navbar %}
 
 {% block jumbotrons-header %}{% include "stub/jumbotron.html" %}{% endblock jumbotrons-header %}

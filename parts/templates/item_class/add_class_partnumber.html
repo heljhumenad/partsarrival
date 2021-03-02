@@ -1,11 +1,10 @@
 {% extends "common/base.html" %}
-{% load bootstrap4 %}
-{% load i18n %}
+{% load i18n bootstrap4 %}
 
 {% block title %} Add Parts Number {% endblock title %}
-{% block navbar %} {% include "common/navbar.html" %} {% endblock navbar %}
-{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
-{% block messages %} {% include "common/message.html" %}{% endblock messages %}
+{% block navbar %} {% include "common/includes/navbar.html" %} {% endblock navbar %}
+{% block sidebar %} {% include "common/includes/sidebar.html" %} {% endblock sidebar %}
+{% block messages %} {% include "common/includes/message.html" %}{% endblock messages %}
 
 
 {% block main %}

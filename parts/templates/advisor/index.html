@@ -1,10 +1,9 @@
 {% extends "common/base.html" %}
-{% load i18n %}
-{% load bootstrap4 %}
+{% load humanize i18n bootstrap4 %}
 
-{% block navbar %} {% include "common/navbar.html" %} {% endblock navbar %}
-{% block sidebar %} {% include "common/sidebar.html" %} {% endblock sidebar %}
-{% block message %} {% include "common/message.html" %} {% endblock message %}
+{% block navbar %} {% include "common/includes/navbar.html" %} {% endblock navbar %}
+{% block sidebar %} {% include "common/includes/sidebar.html" %} {% endblock sidebar %}
+{% block messages %} {% include "common/includes/message.html" %} {% endblock messages %}
 
 {% block main %}
     {% include "common/modal/_modal.html" %}
@@ -73,7 +72,7 @@
                 {% endif %}
                 </tr>
                 {% empty %}
-                            <p class="font-weight-bold">{% trans "No partnumbers has been added try adding" %} 
+                            <p class="font-weight-bold">{% trans "No advisor has been maintained try adding" %} 
                             <a href="{% url 'partsnumber:parts_number_create_view'%}">{% trans "here" %}</a></p>
                             <p class="mb-0"></p>
                         {% endfor %}
@@ -85,5 +84,5 @@
 </div>
 </div>
 </section>
-    {% include "common/paginator.html" %}
+    {% include "common/includes/paginator.html" %}
 {% endblock main %}
