@@ -27,7 +27,6 @@ tox = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 django-select2 = "*"
-black = "*"
 
 [requires]
 python_version = "3.6"
