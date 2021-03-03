@@ -31,8 +31,8 @@ Its an client to server architecture where its either standalone or you can depl
 ## **Licensing**
  Based on MIT Licensing with free of charge of modificationa and alteration of code or selling and using with other parts or modifying the look and feel of the sites and free of charge of distributions
 
- ## **Donations**
- Feel free to donate to this project to see some awesome features and help in terms of developing cost for devs include is the [Paypal Account](heljhumenad@gmail.com)
+## **Donations**
+Feel free to donate to this project to see some awesome features and help in terms of developing cost for devs include is the [Paypal Account](heljhumenad@gmail.com)
 
 ## **Contributions**
 As of know its a closed beta and doesnt accept for contributions soon enough if developer will be tight up and accept for contributions. As of now you can create pull request for features you want to add or things that break.
