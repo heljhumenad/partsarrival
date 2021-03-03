@@ -7,7 +7,7 @@ Parts Arrival is an internal tooling built-in to accomodate the task and problem
 You can monitor also and create report based on the data that process in realtime
 
 
-## Technology Used
+## **Technology Used**
  - PostgreSQL
  - Django 2.2
  - Gunicorn
@@ -23,7 +23,8 @@ You can monitor also and create report based on the data that process in realtim
  $ python manage.py migrate
  $ python manage.py runserver
 ```
-<em>https://localhost:8000/</em>
+
+```https://localhost:8000/```
 ## **Architecture**
 Its an client to server architecture where its either standalone or you can deploy it in an AWS (Amazon Web Services) deployement or other cloud based platform and environment.
 
