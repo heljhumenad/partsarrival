@@ -18,9 +18,5 @@ pipelines:
             - apt-get update
             - pip install --upgrade pip
             - pip install pipenv
-<<<<<<< HEAD
-            - pipenv install --deploy --system
-=======
->>>>>>> dev
             - pipenv update
             - pipenv install --deploy --system
