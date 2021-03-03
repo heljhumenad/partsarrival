@@ -1,6 +1,7 @@
 $(document).ready(function() {
   $('input[name="date_arrival"]').daterangepicker({
     singleDatePicker: true,
+    showDropdowns:"true",
     timePicker: true,
     drops: "up",
     locale: {
