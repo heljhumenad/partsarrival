@@ -48,7 +48,6 @@
                     <tr>
                         <th>{% trans "Customer Name" %}</th>
                         <th>{% trans "RO & RE Number" %}</th>
-                        <th>{% trans "Description" %}</th>
                         <th>{% trans "Remarks" %}</th>
                         <th>{% trans "Date Arrival" %}</th>
                         <th>{% trans "Actions" %}</th>
@@ -60,8 +59,6 @@
                     <tr>
                         <td>{{ arrival.customer_name }}</a></b></td>
                         <td>{{ arrival.ro_number }}</td>
-                        <td>{{ arrival.partnumber.description}}</td>
-                        <!-- TODO: Fix this using templatetag-->
                         <td>
                             {% remark_status arrival.remarks %}
                         </td>
