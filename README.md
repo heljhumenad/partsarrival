@@ -4,7 +4,7 @@
 ![PyPI - Django Version](https://img.shields.io/pypi/djversions/djangorestframework) ![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/enadheljhum/parts-arrival/master)
 
 Parts Arrival is an internal tooling built-in to accomodate the task and problems occur in parts department or other company receiving area where there always an schedule and receiving problem in the end of the receiver. Its a web based project where you can update and create arrival or monitor the arrival of parts and view the schedule and ETA (Estimated Time Arrive) of parts.
-You can monitor also and create report based on the data that process in realtime
+You can add scheduling que to address the day to day task of checking the parts need to order or parts need to receive.
 
 
 ## **Technology Used**
@@ -12,10 +12,12 @@ You can monitor also and create report based on the data that process in realtim
  - Django 2.2
  - Gunicorn
  - Pipenv
+ - Django Rest Framework (DRF)
  - Bootstrap4
  - Font-Awesome
 
 ## **Installations**
+
 ```
  $ pip install pipenv
  $ pipenv shell
@@ -26,13 +28,13 @@ You can monitor also and create report based on the data that process in realtim
 
 ```https://localhost:8000/```
 ## **Architecture**
-Its an client to server architecture where its either standalone or you can deploy it in an AWS (Amazon Web Services) deployement or other cloud based platform and environment.
+Its an client to server architecture where you can migrate this in cloud based environment which compose of AWS (Amazon Web Services) or MS Azure (Microsoft Azure) platform  or more on premises that can be setup as an stand-alone software to be used by your end-user.
 
 ## **Licensing**
- Based on MIT Licensing with free of charge of modificationa and alteration of code or selling and using with other parts or modifying the look and feel of the sites and free of charge of distributions
+Its based on MIT Licensing which you can be allowed to distribute or sell this program and use existing code for modifacations and other stuff to address your needs or your company requirements that fit and compatible for your desired results.
 
 ## **Donations**
-Feel free to donate to this project to see some awesome features and help in terms of developing cost for devs include is the [Paypal Account](heljhumenad@gmail.com)
+Feel free to donate to this project to see some awesome features and help in terms of developing cost for devs. You can email the developer or leave a message in this email address (heljhumenad@gmail.com).
 
 ## **Contributions**
-As of know its a closed beta and doesnt accept for contributions soon enough if developer will be tight up and accept for contributions. As of now you can create pull request for features you want to add or things that break.
+As you know this project is under beta and doesnt accept today for contributions the author of this project will post announcement when the time to accept community contributions as of know you can issue pull request and discuss whats break the project or bugs you been discovered in this project. I hope you will understand the side of developer.
