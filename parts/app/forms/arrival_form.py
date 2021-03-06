@@ -19,6 +19,8 @@ class PartsArrivalForm(forms.ModelForm):
         empty_label=_("Choose your Item Class"),
     )
 
+    reason = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
+
     class Meta:
         verbose_name = _("Parts Arrival Form")
         verbose_name_plural = _("Parts Arrival Forms")

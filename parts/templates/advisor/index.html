@@ -58,18 +58,16 @@
                         <td>{{ service_advisor.first_name }}</a></b></td>
                         <td>{{ service_advisor.last_name }}</td>
                         <td>{{ service_advisor.designation }}</td>
-              {% if user.is_staff %}
             <td><a href="{% url 'advisor:advisor_update_view' pk=service_advisor.id %}" 
                     class="btn btn-primary btn-xs edit-users">
-                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                <i class="fas fa-pencil-alt" aria-hidden="true"></i>
             </a>
-            <button type="button" class="btn btn-success btn-xs read-advisor" 
+            <button type="button" class="btn btn-danger btn-xs read-advisor" 
                 data-id = "{% url 'advisor:advisor_read_view' pk=service_advisor.id %}"
             data-toggle="modal" data-target="#modal">
-                <i class="fa fa-eye" aria-hidden="true"></i>
+                <i class="fas fa-eye" aria-hidden="true"></i>
             </button>
             </td>
-                {% endif %}
                 </tr>
                 {% empty %}
                             <p class="font-weight-bold">{% trans "No advisor has been maintained try adding" %} 
