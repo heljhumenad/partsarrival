@@ -23,7 +23,7 @@ pipelines:
           script:
             - pipe: atlassian/bitbucket-clear-cache:3.1.1
               variables:
-                BITBUCKET_USERNAME: $BITBUCKET_USERNAME
-                BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
+                BITBUCKET_USERNAME: "heljhumenad@gmail.com"
+                BITBUCKET_APP_PASSWORD: "keep_coding101"
                 CACHES: "pip"
                 REPO_SLUG: "dev"
