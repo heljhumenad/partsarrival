@@ -13,11 +13,8 @@
 <div class="dropdown-divider"></div>
   {% comment %} <a class="dropdown-item" href="{% url 'accounts:edit_user' pk=user.id %}">{% trans 'Profile' %}</a> {% endcomment %}
   <a class="dropdown-item" 
-  data-id="{% url 'accounts:edit_user' pk=user.id %}" 
-  data-toggle="modal"
-  data-target="#modal">
-  {% trans 'Profile' %}
-  </a>
+  href="{% url 'accounts:edit_user' pk=user.id %}">
+  {% trans 'Profile' %} </a>
 
 <div class="dropdown-divider"></div>
   <a class="dropdown-item">{% trans 'Activity' %}</a>

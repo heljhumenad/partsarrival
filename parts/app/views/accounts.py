@@ -24,6 +24,7 @@ class AccountLogoutView(views.LogoutView):
 class AccountEditView(generic.UpdateView):
     template_name = "accounts/update_user.html"
     success_url = reverse_lazy("accounts:edit_user")
+    context_object_name = "user"
     form_class = auth_forms.CustomUserChangeForm
 
     def get_object(self, query_pk_and_slug=None):

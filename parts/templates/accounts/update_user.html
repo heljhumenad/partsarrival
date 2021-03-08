@@ -6,35 +6,56 @@
 {% block navbar %} {% include "common/includes/navbar.html" %} {% endblock navbar %}
 {% block sidebar %} {% include "common/includes/sidebar.html" %} {% endblock sidebar %}
 {% block message %} {% include "common/includes/message.html" %} {% endblock message %}
-{% block main %}
 
-    <div class="modal-header">
-    <h3 class="modal-title">{% trans "Parts Advisor Details" %}</h3>
-    <button type="button" data-dismiss="modal" class="close" aria-label="Close">
-    <span aria-hidden="close">&times;</span>
-    </button>
-    </div> 
-    <div class="modal-body">
-        <div class="card card-default">
+{% block main %}
+<section class="content-header">
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+             <h1 class="m-0">{% trans "Update Profile" %}</h1>
+        </div>
+        <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                <a href="#">{% trans "Home" %}</a>
+                </li>
+                <li class="breadcrumb-item active">
+                <a href="#">{% trans "Update Profile" %}</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+    <div class="card card-default">
         <div class="card-body">
-            <form action="" method="POST">
+           <form action="" method="POST">
                 {% csrf_token %}
                 {% bootstrap_field form.username %}
                 {% bootstrap_field form.email %}
                 {% bootstrap_field form.last_name%}
                 {% bootstrap_field form.first_name%}
+                {% if user is None %}
+                    <div class="col">
+                        <label for=""></label>
+                        <button type="submit" class="btn btn-primary btn-block" id="submit-button">{% trans "Save" %}</button>
+                    </div>
+                {% else %}
+                    <div class="col">
+                        <label for=""></label>
+                        <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Update" %}</button>
+                    </div>
+                {% endif %}
                 <div class="col">
                     <label for=""></label>
-                    <button type="submit" class="btn btn-success btn-block" id="submit-button">{% trans "Update" %}</button>
+                    <a href="{% url 'dashboard:dashboard_view_index' %}" class="btn btn-danger btn-block">
+                    {% trans "Cancel" %}</a>
                 </div>
-                 <div class="col">
-                    <label for=""></label>
-                    <a href="{% url 'partsnumber:parts_number_index_view' %}" class="btn btn-danger btn-block">{% trans "Cancel" %}</a>
-                </div>
-            </form>      
-                        </div>
-                </div>
-    </div>     
-                
-{% include 'common/modal/_modal_footer.html' %}
+            </div>
+         </form>
+    </div>
+    </div>
+</section>
 {% endblock main %}
