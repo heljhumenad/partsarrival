@@ -51,6 +51,7 @@ class PartsArrivalForm(forms.ModelForm):
             self.fields["partnumber"].widget.attrs["readonly"] = True
             self.fields["advisor"].widget.attrs["readonly"] = True
             self.fields["item_class"].widget.attrs["readonly"] = True
+            self.fields["date_arrival"].widget.attrs["disabled"] = True
             # The people can change this remarks is the one who has high
             # authorizations of the sites. like Manager and Supervisor
 
