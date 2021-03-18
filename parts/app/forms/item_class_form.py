@@ -12,7 +12,6 @@ class PartNumberClassForm(forms.ModelForm):
         fields = ["charge_type", "class_name"]
 
     def __init__(self, *args, **kwargs):
-        # * All modelform has a self.instances attributes
         super(PartNumberClassForm, self).__init__(*args, **kwargs)
         instance = getattr(self, "instance", None)
         if instance and instance.id:

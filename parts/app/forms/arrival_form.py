@@ -37,10 +37,6 @@ class PartsArrivalForm(forms.ModelForm):
             "date_arrival",
         ]
 
-    # TODO
-    # ! Bug When update the arrival the field for update
-    # ! will back to default value of the choice field
-
     def __init__(self, *args, **kwargs):
         super(PartsArrivalForm, self).__init__(*args, **kwargs)
         instance = getattr(self, "instance", None)
@@ -52,11 +48,8 @@ class PartsArrivalForm(forms.ModelForm):
             self.fields["advisor"].widget.attrs["readonly"] = True
             self.fields["item_class"].widget.attrs["readonly"] = True
             self.fields["date_arrival"].widget.attrs["disabled"] = True
-            # The people can change this remarks is the one who has high
-            # authorizations of the sites. like Manager and Supervisor
 
     def clean_qty(self):
-        # check input qty if zero
         cleaned_data = super().clean()
         qty = cleaned_data.get("qty")
 

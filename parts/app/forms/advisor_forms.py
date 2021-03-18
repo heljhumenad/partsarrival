@@ -14,7 +14,6 @@ class AdvisorForm(forms.ModelForm):
         super(AdvisorForm, self).__init__(*args, **kwargs)
     
     def clean_first_name(self):
-        # Check name if is equal to the database
        cleaned_data = super().clean()
        first_name = cleaned_data.get("first_name")
        queryset = ServiceAdvisor.objects.filter(first_name=first_name)
