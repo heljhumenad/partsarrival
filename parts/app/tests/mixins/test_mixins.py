@@ -17,4 +17,4 @@ class TestUserAccountMixins(TestCase):
     def test_urls_for_accounts_mixins_redirect(self):
         self.mixins_url = getattr(self._user_account_mixins, "login_url")
         self.assertEqual(self.mixins_url, reverse_lazy(
-            'accounts:login'))
+            'login'))
