@@ -1,11 +1,5 @@
-from factory import (
-    DjangoModelFactory,
-    Factory,
-    SubFactory,
-    PostGenerationMethodCall,
-    Sequence,
-    Faker
-)
+from factory.django import DjangoModelFactory
+from factory import SubFactory
 
 from faker import Factory
 
@@ -38,9 +32,28 @@ class PartNumberFactory(DjangoModelFactory):
     class Meta:
         model = PartsNumber
 
-    partnumber = faker.pyint(
-        min_value=10,
-        max_value=50
+    partnumber = faker.pystr(max_chars=20)
+
+    source_code = faker.random_element(
+        elements = (
+            "01",
+            "02",
+            "05",
+            "08"
+        )
+    )
+
+    bar_code = faker.ean(length=13)
+
+    selling_price = faker.pyint(min_value=10, max_value=50)
+
+    status = faker.random_element(
+        elements = (
+            "Active",
+            "Deprecated",
+            "Obsolete",
+            "Deactivated"
+        )
     )
 
     unit_measure = SubFactory(UnitofMeasureFactory)
@@ -73,17 +86,6 @@ class PartNumberClassFactory(DjangoModelFactory):
             'WTY'
         )
     )
-
-    code_name = faker.random_element(
-        elements=(
-            'INT',
-            'CUST',
-            'WTY'
-        )
-    )
-
-# Advisor
-
 
 class ServiceAdvisorFactory(DjangoModelFactory):
     class Meta:
@@ -132,6 +134,12 @@ class PartsArrivalFactory(DjangoModelFactory):
             'NOT COMPLETED',
             'LACKING'
         )
+    )
+
+    reason = faker.sentence(
+        nb_words=6,
+        variable_nb_words=True,
+        ext_word_list=None
     )
 
     date_arrival = faker.date(

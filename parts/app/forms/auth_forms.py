@@ -15,6 +15,12 @@ class CustomUserChangeForm(forms.UserChangeForm):
         # fields = UserChangeForm.Meta.fields
         fields = ["username", "first_name", "last_name", "email"]
 
+    def __init__(self, *args, **kwargs):
+        super(CustomUserChangeForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, "instance", None)
+        if instance and instance.id:
+            self.fields["username"].widget.attrs["readonly"] = True
+
 
 class AccountPasswordResetForm(forms.PasswordResetForm):
     class Meta(forms.PasswordResetForm):

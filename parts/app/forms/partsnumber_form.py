@@ -21,7 +21,6 @@ class PartsNumberForm(forms.ModelForm):
         ordering = ["-id"]
 
     def clean_partnumber(self):
-        # Throw and error if partnumber was not in proper format
         cleaned_data = super().clean()
         partnumber = cleaned_data.get("partnumber")
 

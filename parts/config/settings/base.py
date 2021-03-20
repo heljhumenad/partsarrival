@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "parts.app.tests",
     # Third partyP
     "bootstrap_modal_forms",
+    "rest_framework"
 ]
 
 MIDDLEWARE = [

@@ -6,7 +6,7 @@ app_name = 'dashboard'
 
 urlpatterns = [
 
-    path('dashboard/index',
+    path('',
          dashboard.DashboardViewsTemplate.as_view(),
          name="dashboard_view_index"
          ),

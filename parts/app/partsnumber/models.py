@@ -22,7 +22,7 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
     ]
 
     partnumber = models.CharField(
-        max_length=200, verbose_name=_("Parts Number"), unique=True
+        max_length=200, verbose_name=_("Parts Number")
     )
     source_code = models.CharField(
         max_length=200, verbose_name=_("Source Code"), choices=SOURCE_CODE

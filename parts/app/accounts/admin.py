@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
 # Register model
-from .models import CustomUser
+from parts.app.accounts.models import CustomUser, ProfileUser
 from parts.app.forms import auth_forms
 # change this to avoid direct calling from main config
 
@@ -27,3 +27,9 @@ class CustomUserAdmin(UserAdmin):
         'first_name', 'last_name',
         'email', 'username',
     ]
+
+@admin.register(ProfileUser)
+class ProfileUserAdmin(admin.ModelAdmin):
+    model = ProfileUser
+    list_display = ["user", "user_level"]
+
