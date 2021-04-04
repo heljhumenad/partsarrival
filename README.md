@@ -34,7 +34,7 @@ Its an client to server architecture where you can migrate this in cloud based e
 Its based on MIT Licensing which you can be allowed to distribute or sell this program and use existing code for modifacations and other stuff to address your needs or your company requirements that fit and compatible for your desired results.
 
 ## **Donations**
-Feel free to donate to this project to see some awesome features and help in terms of developing cost for devs. You can email the developer or leave a message in this email address (heljhumenad@gmail.com).
+Feel free to donate to this project to see some awesome features and help in terms of developing cost for devs. You can email the developer or leave a message in this email (heljhumenad at gmail dot com)
 
 ## **Contributions**
-As you know this project is under beta and doesnt accept today for contributions the author of this project will post announcement when the time to accept community contributions as of know you can issue pull request and discuss whats break the project or bugs you been discovered in this project. I hope you will understand the side of developer.
+As you know this project is under beta and doesnt accept contributions as of now as the author of this project will post announcement when the time to accept community contributions but you can still issue pull request and discuss whats break the project or bugs you been discovered in this project.
