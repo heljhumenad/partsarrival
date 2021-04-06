@@ -4,8 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.db.models import Q
 
-
-from parts.app.mixins.useraccount_mixins import PartsNumberMixin
+from parts.app.mixins.common_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
 from parts.app.forms import partsnumber_form
 
@@ -28,8 +27,8 @@ class PartNumberCreateView(PartsNumberMixin, generic.CreateView):
         context = super(PartNumberCreateView, self).get_context_data(**kwargs)
         context["partsnumber_id"] = PartsNumber.objects.all()
         return context
-
-
+    
+    
 class PartsNumberDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "partsnumber/read_partnumber.html"
     model = PartsNumber

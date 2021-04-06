@@ -3,12 +3,11 @@ from django.contrib.auth import views
 from django.urls import reverse_lazy
 from django.contrib.auth import views 
 
-from parts.app.mixins.useraccount_mixins import UserAccountMixins
 from parts.app.forms import auth_forms
 from parts.app.accounts.models import CustomUser
 
 
-class AccountTemplateView(UserAccountMixins, generic.TemplateView):
+class AccountTemplateView(generic.TemplateView):
     template_name = "accounts/index.html"
 
 

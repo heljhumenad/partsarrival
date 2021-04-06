@@ -3,12 +3,11 @@ from django.utils.translation import ugettext_lazy as _
 from django.urls import reverse_lazy
 
 
-from parts.app.mixins.useraccount_mixins import UserSuccessMessageMixin
+from parts.core.mixins import MessageMixin
 
-
-class UserCreateViewMixins(UserSuccessMessageMixin, generic.CreateView):
+class UserCreateViewMixins(MessageMixin, generic.CreateView):
     messages = 'added'
 
 
-class UserUpdateViewMixins(UserSuccessMessageMixin, generic.UpdateView):
+class UserUpdateViewMixins(MessageMixin, generic.UpdateView):
     messages = 'updated'
