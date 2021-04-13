@@ -94,6 +94,15 @@ DATABASES = {
 }
 
 
+# Database Caches
+CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+            'LOCATION': 'systemcache',
+        }
+}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
