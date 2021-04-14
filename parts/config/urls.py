@@ -21,4 +21,7 @@ urlpatterns = [
     path("arrival/", include("parts.app.arrival.urls")),
 
     path("__debug__", include(debug_toolbar.urls)),  # Debug purposes
+
+    # Restframework
+    path("api-auth/", include("rest_framework.urls")),
 ]
