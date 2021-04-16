@@ -10,7 +10,14 @@ pipelines:
     - step:
         name: Build
         script:
+          - mkdir parts-arrival
           - cd parts-arrival
+          - git clone https://enadheljhum@bitbucket.org/enadheljhum/parts-arrival.git
+          - apt-get update
+          - pip install --upgrade pip
+          - pip install pipenv
+          - pipenv update
+          - pipenv install --deploy --system
           - git archive --format=tar.gz master -o parts-arrival.tar.gz
         artifacts:
           - parts-arrival/parts-arrival.tar.gz
@@ -26,9 +33,4 @@ pipelines:
               variables:
                 HEROKU_API_KEY: '153ed396-9338-4180-97f3-dcddb5466a2a'
                 HEROKU_APP_NAME: 'parts-arrival'
-            - apt-get update
-            - pip install --upgrade pip
-            - pip install pipenv
-            - pipenv update
-            - pipenv install --deploy --system
 
