@@ -18,7 +18,7 @@ pytest-django = "*"
 livereload = "*"
 
 [packages]
-psycopg2 = "*"
+psycopg2-binary = "*"
 werkzeug = "*"
 django-bootstrap4 = "*"
 django-bootstrap-modal-forms = "*"
@@ -29,7 +29,7 @@ django-cors-headers = "*"
 django-select2 = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"
 
 [pipenv]
 allow_prereleases = false
