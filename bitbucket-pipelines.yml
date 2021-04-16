@@ -13,6 +13,7 @@ pipelines:
           - mkdir parts-arrival
           - cd parts-arrival
           - git clone https://enadheljhum@bitbucket.org/enadheljhum/parts-arrival.git
+          - git clean -dnx
           - git archive --format=tar.gz master -o parts-arrival.tar.gz
         artifacts:
           - parts-arrival/parts-arrival.tar.gz
