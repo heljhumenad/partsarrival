@@ -12,12 +12,10 @@ pipelines:
         script:
           - mkdir parts-arrival
           - cd parts-arrival
-          - git clone https://enadheljhum@bitbucket.org/enadheljhum/parts-arrival.git
-          - git clean -dnx
-          - git archive --format=tar.gz master -o parts-arrival.tar.gz
+            #- git clone https://enadheljhum@bitbucket.org/enadheljhum/parts-arrival.git
+          - git archive --output=partsarrival.tar.gz --format=tar.gz HEAD
         artifacts:
           - parts-arrival/parts-arrival.tar.gz
-
     - step:
          name: Deploy to Production
          deployment: production
@@ -27,6 +25,6 @@ pipelines:
             # Modify the commands below to build your repository
             - pipe: atlassian/heroku-deploy:1.2.1
               variables:
-                HEROKU_API_KEY: '153ed396-9338-4180-97f3-dcddb5466a2a'
-                HEROKU_APP_NAME: 'parts-arrival'
-
+                HEROKU_API_KEY: $HEROKU_API_KEY
+                HEROKU_APP_NAME: $HEROKU_APP_NAME
+                ZIP_FILE: 'parts-arrival/parts-arrival.tar.gz'
