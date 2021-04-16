@@ -15,12 +15,12 @@ pipelines:
         artifacts:
           - parts-arrival/parts-arrival.tar.gz
 
-     - step:
+    - step:
          name: Deploy to Production
          deployment: production
          caches:
             - pip
-          script:
+         script:
             # Modify the commands below to build your repository
             - pipe: atlassian/heroku-deploy:1.2.1
               variables:
