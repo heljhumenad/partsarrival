@@ -4,7 +4,8 @@
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
 image: python:3.6
-
+clone:
+  depth: full
 pipelines:
   default:
     - step:
