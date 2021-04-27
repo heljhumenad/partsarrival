@@ -3,8 +3,9 @@ from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from parts.app.partsnumber import models
+from parts.app.partsnumber.models import PartsNumber
 from parts.app.arrival.models import PartsArrival
+from parts.app.advisor.models import ServiceAdvisor
 
 
 class DashboardViewsTemplate(LoginRequiredMixin, generic.TemplateView):
@@ -13,7 +14,7 @@ class DashboardViewsTemplate(LoginRequiredMixin, generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(DashboardViewsTemplate,
                         self).get_context_data(**kwargs)
-        context['partsnumber'] = models.PartsNumber.objects.all()
+        context['partsnumber'] = PartsNumber.objects.all().count()
         context['arrival'] = PartsArrival.objects.all().count()
         context['complete'] = PartsArrival.objects.filter(
             remarks__contains='COMPLETED').count()
@@ -21,4 +22,5 @@ class DashboardViewsTemplate(LoginRequiredMixin, generic.TemplateView):
             remarks__contains='NOT COMPLETED').count()
         context['lacking'] = PartsArrival.objects.filter(
             remarks__contains='LACKING').count()
+        context['service_advisor'] = ServiceAdvisor.objects.all().count()
         return context
