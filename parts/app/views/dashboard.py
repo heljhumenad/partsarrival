@@ -10,17 +10,18 @@ from parts.app.advisor.models import ServiceAdvisor
 
 class DashboardViewsTemplate(LoginRequiredMixin, generic.TemplateView):
     template_name = 'dashboard/index.html'
-
+    
     def get_context_data(self, **kwargs):
         context = super(DashboardViewsTemplate,
                         self).get_context_data(**kwargs)
-        context['partsnumber'] = PartsNumber.objects.all().count()
-        context['arrival'] = PartsArrival.objects.all().count()
+        # Refactor the queryset
+        context['partsnumber'] = PartsNumber.objects.values('id').count()
+        context['arrival'] = PartsArrival.objects.values('id').count()
         context['complete'] = PartsArrival.objects.filter(
             remarks__contains='COMPLETED').count()
         context['not_complete'] = PartsArrival.objects.filter(
             remarks__contains='NOT COMPLETED').count()
         context['lacking'] = PartsArrival.objects.filter(
             remarks__contains='LACKING').count()
-        context['service_advisor'] = ServiceAdvisor.objects.all().count()
+        context['service_advisor'] = ServiceAdvisor.objects.values('id').count()
         return context
