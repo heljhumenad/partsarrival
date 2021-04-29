@@ -12,15 +12,4 @@ class AdvisorForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super(AdvisorForm, self).__init__(*args, **kwargs)
-    
-    def clean_first_name(self):
-       cleaned_data = super().clean()
-       first_name = cleaned_data.get("first_name")
-       queryset = ServiceAdvisor.objects.filter(first_name=first_name)
 
-       if queryset:
-           raise forms.ValidationError(
-               _("Error %(first_name)s has already in database"),
-               params = {"first_name": first_name},
-        )
-       return first_name
