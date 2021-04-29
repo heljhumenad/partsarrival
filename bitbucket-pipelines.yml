@@ -12,11 +12,12 @@ pipelines:
          deployment: production
          caches:
             - pip
-          script:
+         script:
             # Modify the commands below to build your repository
             - apt-get update
             - pip install --upgrade pip
             - pip install pipenv
             - pipenv update
             - pipenv install --deploy --system
+
 
