@@ -25,3 +25,14 @@ class PartsNumberMixin(MessageMixin):
             field=self.object.partnumber,
             messages=self.messages
         )
+
+class AccountsMessageMixins(MessageMixin):
+    success_message = _(
+            "%(field)s is successfully %(messages)s")
+
+    def get_success_message(self, cleaned_data, **kwargs):
+        return self.success_message % dict(
+                cleaned_data,
+                field=self.request.user,
+                messages=self.messages
+        )
