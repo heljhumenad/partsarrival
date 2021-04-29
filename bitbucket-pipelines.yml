@@ -4,28 +4,17 @@
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
 image: python:3.6
-clone:
-  depth: full
 pipelines:
   default:
-    - step:
-        name: Build
-        script:
-          - mkdir parts-arrival
-          - cd parts-arrival
-            #- git clone https://enadheljhum@bitbucket.org/enadheljhum/parts-arrival.git
-          - git archive --output=partsarrival.tar.gz --format=tar.gz HEAD
-        artifacts:
-          - parts-arrival/parts-arrival.tar.gz
-    - step:
+     - step:
          name: Deploy to Production
          deployment: production
          caches:
             - pip
          script:
-            # Modify the commands below to build your repository
-            - pipe: atlassian/heroku-deploy:1.2.1
-              variables:
-                HEROKU_API_KEY: $HEROKU_API_KEY
-                HEROKU_APP_NAME: $HEROKU_APP_NAME
-                ZIP_FILE: 'parts-arrival/parts-arrival.tar.gz'
+            - apt-get update
+            - pip install --upgrade pip
+            - pip install pipenv
+            - pipenv update
+            - pipenv install --deploy --system
+
