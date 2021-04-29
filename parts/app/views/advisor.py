@@ -4,22 +4,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework import renderers
 from rest_framework import generics
 
-from parts.app.advisor.serializers import ServiceAdvisorSerializers
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.forms.advisor_forms import AdvisorForm
 
 
-class AdvisorTemplateView(generics.RetrieveAPIView):
-    renderer_classes = [renderers.JSONRenderer]
-    serializer_class = ServiceAdvisorSerializers
-    queryset = ServiceAdvisor.objects.all()
-#    paginate_by = 2
+class AdvisorTemplateView(LoginRequiredMixin, generic.TemplateView):
+   template_name = "advisor/index.html"
+   model = ServiceAdvisor
+   queryset = ServiceAdvisor.objects.all()
+   paginate_by = 2
     
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        return Response({'advisor': self.object}, template_name="advisor/index.html")
-
-
+    
 class AdvisorCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "advisor/add_advisor.html"
     form_class = AdvisorForm
