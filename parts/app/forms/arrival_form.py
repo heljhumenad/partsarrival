@@ -47,7 +47,7 @@ class PartsArrivalForm(forms.ModelForm):
             self.fields["partnumber"].widget.attrs["readonly"] = True
             self.fields["advisor"].widget.attrs["readonly"] = True
             self.fields["item_class"].widget.attrs["readonly"] = True
-            self.fields["date_arrival"].widget.attrs["disabled"] = True
+           # self.fields["date_arrival"].widget.attrs["disabled"] = True
 
     def clean_qty(self):
         cleaned_data = super().clean()

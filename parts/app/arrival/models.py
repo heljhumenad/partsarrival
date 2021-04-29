@@ -22,7 +22,7 @@ class PartsArrival(TimeStampModel):
 
     customer_name = models.CharField(verbose_name=_("Customer Name"), max_length=200)
 
-    ro_number = models.CharField(verbose_name=_("RO/RE Number"), max_length=50)
+    ro_number = models.CharField(verbose_name=_("RO/RE Number"), max_length=50, unique=True)
 
     item_class = models.ForeignKey(
         PartNumberClass, on_delete=models.CASCADE, verbose_name=_("Item Class")
