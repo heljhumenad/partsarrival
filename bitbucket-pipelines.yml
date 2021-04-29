@@ -7,14 +7,6 @@ image: python:3.6
 
 pipelines:
   default:
-    - step:
-        name: Build
-        script:
-          - cd parts-arrival
-          - git archive --format=tar.gz master -o parts-arrival.tar.gz
-        artifacts:
-          - parts-arrival/parts-arrival.tar.gz
-
      - step:
          name: Deploy to Production
          deployment: production
@@ -22,10 +14,6 @@ pipelines:
             - pip
           script:
             # Modify the commands below to build your repository
-            - pipe: atlassian/heroku-deploy:1.2.1
-              variables:
-                HEROKU_API_KEY: '153ed396-9338-4180-97f3-dcddb5466a2a'
-                HEROKU_APP_NAME: 'parts-arrival'
             - apt-get update
             - pip install --upgrade pip
             - pip install pipenv

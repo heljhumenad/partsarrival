@@ -6,5 +6,79 @@
 {% block sidebar%} {% include  'common/includes/sidebar.html'%}{% endblock sidebar %}
 
 {% block main %} 
+<section class="content">
+<div class="container-fluid">
+ <h5 class="mb-2 mt-4"></h5>
+		{% comment %} Optimize this query {% endcomment %}
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-info">
+              <div class="inner">
+					  <h3>{{ partsnumber }} </h3>
 
+				<p>{% trans 'Parts Order' %}</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+		   </div>	
+		   
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+					  <h3>{{ arrival }}</h3>
+
+				<p>{% trans 'Arrival' %}</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-truck-moving"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+		   </div>	
+		   
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-success">
+              <div class="inner">
+					  <h3>{{ service_advisor }} </h3>
+					  <!-- Add comparison for plural and singular form of text -->
+				<p>{% trans 'Service Advisor'%}</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+		   </div>	
+
+          <div class="col-lg-3 col-6">
+            <!-- small card -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>150</h3>
+
+				<p>{% trans 'Schedule Date' %}</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-calendar"></i>
+              </div>
+              <a href="#" class="small-box-footer">
+                More info <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </div>
+		   </div>	
+		</div><!--end of row -->
+		</div> <!--end of container-fluid -->
+</section>
 {%endblock %}
