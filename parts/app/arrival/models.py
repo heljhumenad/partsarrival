@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from parts.models.timestamp import TimeStampModel
+from parts.core.models import TimeStampModel
 from parts.app.partsnumber.models import PartNumberClass, PartsNumber
 from parts.app.advisor.models import ServiceAdvisor
 
