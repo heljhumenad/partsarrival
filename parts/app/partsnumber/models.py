@@ -1,16 +1,14 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-# from parts.models.timestamp import TimeStampModel
 from parts.core.models import TimeStampModel
-from parts.models.managers.update_view import AbstractUpdateViewManager
-
+from parts.core.managers import AbstractUpdateViewManager
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
     SOURCE_CODE = [
         ("01", "Nissan Japan-01"),
-        ("02", "Nissan Taiwan-02"),
+       ("02", "Nissan Taiwan-02"),
         ("05", "Nissan Thailand-05"),
         ("08", "Nissan Indonesia-08"),
     ]

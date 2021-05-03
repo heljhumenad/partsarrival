@@ -2,7 +2,7 @@ from django.db import models
 
 from django.utils.translation import ugettext_lazy as _
 from parts.core.models import TimeStampModel
-from parts.models.managers.update_view import AbstractUpdateViewManager
+from parts.core.managers import AbstractUpdateViewManager
 
 
 class ServiceAdvisor(AbstractUpdateViewManager, TimeStampModel):
