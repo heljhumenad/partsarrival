@@ -40,15 +40,14 @@ class PartsArrivalForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(PartsArrivalForm, self).__init__(*args, **kwargs)
         instance = getattr(self, "instance", None)
-        if instance and instance.id:
-            self.fields["ro_number"].widget.attrs["readonly"] = True
-            self.fields["customer_name"].widget.attrs["readonly"] = True
-            self.fields["qty"].widget.attrs["readonly"] = True
-            self.fields["partnumber"].widget.attrs["readonly"] = True
-            self.fields["advisor"].widget.attrs["readonly"] = True
-            self.fields["item_class"].widget.attrs["readonly"] = True
-           # self.fields["date_arrival"].widget.attrs["disabled"] = True
+        fields = ["ro_number", "customer_name",
+                  "qty", "partnumber", "advisor",
+                  "advisor","item_class"]
 
+        if instance and instance.id:
+            for field in fields:
+               self.fields[field].widget.attrs["readonly"] = True
+           
     def clean_qty(self):
         cleaned_data = super().clean()
         qty = cleaned_data.get("qty")

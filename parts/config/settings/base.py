@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     "parts.app.views",
     "parts.app.mixins",
     "parts.app.forms",
-    "parts.models",
     "parts.app.dashboard",
     # Testing app module
     "parts.app.tests",
