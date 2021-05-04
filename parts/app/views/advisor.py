@@ -5,7 +5,7 @@ from rest_framework import renderers
 from rest_framework import generics
 
 from parts.app.advisor.models import ServiceAdvisor
-from parts.app.forms.advisor_forms import AdvisorForm
+from parts.core.forms import AdvisorForm
 from parts.app.mixins.common_mixins import ServiceAdvisorMixins
 
 

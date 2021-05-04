@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from parts.app.arrival.models import PartsArrival
-from parts.app.forms.arrival_form import PartsArrivalForm
+from parts.core.forms import PartsArrivalForm
 from parts.app.mixins.common_mixins import PartsArrivalMixins
 
 

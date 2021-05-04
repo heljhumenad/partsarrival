@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import ugettext_lazy as _
 
 from parts.app.partsnumber.models import PartNumberClass
-from parts.app.forms import item_class_form
+from parts.core.forms import PartNumberClassForm
 
 
 class PartnumberClassTemplateView(generic.ListView):
@@ -17,7 +17,7 @@ class PartnumberClassTemplateView(generic.ListView):
 
 class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "item_class/add_class_partnumber.html"
-    form_class = item_class_form.PartNumberClassForm
+    form_class = PartNumberClassForm
     success_url = reverse_lazy("partsnumber:parts_show_class")
 
     def get_context_data(self, **kwargs):
@@ -29,7 +29,7 @@ class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
 
 class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "item_class/add_class_partnumber.html"
-    form_class = item_class_form.PartNumberClassForm
+    form_class = PartNumberClassForm
     model = PartNumberClass
     success_url = reverse_lazy("partsnumber:parts_show_class")
     context_object_name = 'item_class'

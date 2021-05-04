@@ -6,8 +6,11 @@ from django.db.models import Q
 
 from parts.app.mixins.common_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
-from parts.app.forms import partsnumber_form
-
+from parts.core.forms import (
+        PartsNumberForm,
+        UnitofMeasureForm,
+        PartNumberClassForm
+)
 
 class PartNumberTemplateView(generic.ListView):
     template_name = "partsnumber/index.html"
@@ -19,7 +22,7 @@ class PartNumberTemplateView(generic.ListView):
 class PartNumberCreateView(PartsNumberMixin, generic.CreateView):
     template_name = "partsnumber/add_partnumber.html"
     model = PartsNumber
-    form_class = partsnumber_form.PartsNumberForm
+    form_class = PartsNumberForm
     messages = "added"
     success_url = reverse_lazy("partsnumber:parts_number_create_view")
 
@@ -40,7 +43,7 @@ class PartsNumberDetailView(LoginRequiredMixin, generic.DetailView):
 
 class PartNumberUpdateView(PartsNumberMixin, generic.UpdateView):
     template_name = "partsnumber/add_partnumber.html"
-    form_class = partsnumber_form.PartsNumberForm
+    form_class = PartsNumberForm
     success_url = reverse_lazy("partsnumber:parts_number_index_view")
     model = PartsNumber
     messages = "updated"
@@ -75,5 +78,5 @@ class SearchView(LoginRequiredMixin, generic.ListView):
 class UnitofMeasureCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "partsnumber/unit_of_measure.html"
     model = UnitMeasure
-    form_class = partsnumber_form.UnitofMeasureForm
+    form_class = UnitofMeasureForm
     success_url = reverse_lazy("partsnumber:parts_um_create_view")

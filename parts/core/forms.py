@@ -2,12 +2,13 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from parts.core.validators
+from parts.core import validators
 from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.partsnumber.models import (
         PartsNumber,
-        UnitMeasure
+        UnitMeasure,
+        PartNumberClass
 )
 
 class FormsForm(forms.ModelForm):
@@ -18,8 +19,8 @@ class PartsNumberForm(FormsForm):
     class Meta:
         verbose_name = _("Parts Number")
         verbose_name_plural = _("Parts Numbers")
-        model PartsNumber
-        fields = ["partsnumber",
+        model = PartsNumber
+        fields = ["partnumber",
                   "source_code",
                   "bar_code",
                   "description",
@@ -41,6 +42,29 @@ class PartsNumberForm(FormsForm):
                     params = {"partnumber": partnumber},
             )
         return partnumber
+
+
+class UnitofMeasureForm(forms.ModelForm):
+    class Meta:
+        verbose_name = _("Unit of Measure")
+        verbose_name_plural = _("Unit of Measures")
+        model = UnitMeasure
+        fields = ["um", "description"]
+        ordering = ["-id"]
+
+
+class PartNumberClassForm(FormsForm):
+    class Meta:
+        verbose_name = _("Part Number Class")
+        verbose_name_plural = _("Part Number Classes")
+        model = PartNumberClass
+        fields = ["charge_type", "class_name"]
+
+    def __init__(self, *args, **kwargs):
+        super(PartNumberClassForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, "instance", None)
+        if instance and instance.id:
+            self.fields["charge_type"].widget.attrs["readonly"] = True
 
 
 class AdvisorForm(FormsForm):
@@ -66,7 +90,7 @@ class PartsArrivalForm(FormsForm):
     reason = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
 
     class Meta:
-        verbose_name - _("Parts Arrival Form")
+        verbose_name = _("Parts Arrival Form")
         verbose_name_plural = _("Parts Arrival Form")
         model = PartsArrival
         fields = ["customer_name",
@@ -80,6 +104,34 @@ class PartsArrivalForm(FormsForm):
                   "date_arrival",
         ]
 
-    def field_readonly(self, *args):
-        for field in args:
-            self.args[field].widget.attrs["readonly"] = True
+    def __init__(self, *args, **kwargs):
+        super(PartsArrivalForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, "instance", None)
+        fields = ["ro_number", "customer_name",
+                  "qty", "partnumber", "advisor",
+                  "advisor","item_class"]
+
+        if instance and instance.id:
+            for field in fields:
+               self.fields[field].widget.attrs["readonly"] = True
+           
+    def clean_qty(self):
+        cleaned_data = super().clean()
+        qty = cleaned_data.get("qty")
+
+        if qty < validators.DEFAULT_QTY:
+            raise forms.ValidationError(
+                _("Error %(qty)s quantity"), params={"qty": qty}
+            )
+        return qty
+
+    def clean_ro_number(self):
+        cleaned_data = super().clean()
+        ro_number = cleaned_data.get("ro_number")
+
+        if validators.DEFAULT_RO_RE_FORMAT not in ro_number:
+            raise forms.ValidationError(
+                _("Error %(ro_number)s not a valid format"),
+                params={"ro_number": ro_number},
+            )
+        return ro_number
