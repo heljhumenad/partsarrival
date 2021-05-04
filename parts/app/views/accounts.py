@@ -3,7 +3,7 @@ from django.contrib.auth import views
 from django.urls import reverse_lazy
 from django.contrib.auth import views 
 
-from parts.app.forms import auth_forms
+from parts.app.accounts import forms
 from parts.app.accounts.models import CustomUser
 from parts.app.mixins.common_mixins import AccountsMessageMixins
 
@@ -27,7 +27,7 @@ class AccountEditView(AccountsMessageMixins, generic.UpdateView):
     success_url = reverse_lazy("dashboard:dashboard_view_index")
     context_object_name = "user"
     messages = 'updated'
-    form_class = auth_forms.CustomUserChangeForm
+    form_class = forms.CustomUserChangeForm
 
     def get_object(self, query_pk_and_slug=None):
         user = CustomUser.objects.filter(id=self.kwargs["pk"]).first()
@@ -38,4 +38,4 @@ class AccountEditView(AccountsMessageMixins, generic.UpdateView):
 class AccountChangePasswordView(views.PasswordChangeView):
     template_name = "accounts/password_change.html"
     success_url = reverse_lazy("accounts:edit_user")
-    form_class = auth_forms.AccountPasswordChangeForm
+    form_class = forms.AccountPasswordChangeForm
