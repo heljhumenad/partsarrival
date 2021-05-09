@@ -27,7 +27,8 @@ tox = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 django-select2 = "*"
-
+xhtml2pdf = "*"
+xlsxwriter = "*"
 
 [pipenv]
 allow_prereleases = false

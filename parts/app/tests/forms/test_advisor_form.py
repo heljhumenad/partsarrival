@@ -1,5 +1,5 @@
 from parts.app.tests.base import TestCase
-from parts.app.forms.advisor_forms import AdvisorForm
+from parts.core.forms import AdvisorForm
 from parts.app.tests.factories import ServiceAdvisorFactory
 
 class TestAdvisorForm(TestCase):

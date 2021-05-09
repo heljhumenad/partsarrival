@@ -1,6 +1,6 @@
 from django import forms
 from parts.app.tests.base import TestCase
-from parts.app.forms.partsnumber_form import PartsNumberForm
+from parts.core.forms import PartsNumberForm
 from parts.app.tests.factories import PartNumberFactory
 from parts.core import validators
 

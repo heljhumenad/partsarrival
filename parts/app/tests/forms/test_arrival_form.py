@@ -1,6 +1,6 @@
 from datetime import datetime, date
 from parts.app.tests.base import TestCase
-from parts.app.forms.arrival_form import PartsArrivalForm
+from parts.core.forms import PartsArrivalForm
 from parts.app.tests.factories import PartsArrivalFactory
 from parts.core import validators
 

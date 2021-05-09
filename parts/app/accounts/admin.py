@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 
 # Register model
 from parts.app.accounts.models import CustomUser, ProfileUser
-from parts.app.forms import auth_forms
+from parts.app.accounts import forms
 # change this to avoid direct calling from main config
 
 # Config settings for Look and feel
@@ -21,8 +21,8 @@ admin.site.index_title = ADMIN_INDEX_TITLE
 @admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
     model = get_user_model
-    add_form = auth_forms.CustomUserCreationForm
-    form = auth_forms.CustomUserChangeForm
+    add_form = forms.CustomUserCreationForm
+    form = forms.CustomUserChangeForm
     list_display = [
         'first_name', 'last_name',
         'email', 'username',
