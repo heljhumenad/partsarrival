@@ -4,6 +4,7 @@ $(document).ready(function() {
     showDropdowns:"true",
     timePicker: true,
     drops: "up",
+    minDate: moment().startOf('day'),
     locale: {
       format: "M/D/YYYY hh:mm A",
       cancelLabel: "Cancel"
