@@ -29,6 +29,7 @@ django-cors-headers = "*"
 django-select2 = "*"
 xhtml2pdf = "*"
 xlsxwriter = "*"
+python-decouple = "*"
 
 [pipenv]
 allow_prereleases = false

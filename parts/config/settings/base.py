@@ -1,4 +1,5 @@
 import os
+from decouple import config
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -9,7 +10,7 @@ STATIC_FILES_PATH = os.path.dirname(
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "pr^%0shk)k6e8=23pfmaezk99tvf$@tx8%24duo9wfjkul^r%m"
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

@@ -14,5 +14,6 @@ notes.txtq
 .pytest_cache/
 .tox/
 htmlcov/
+.env
 
 node_modules
