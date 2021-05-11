@@ -62,7 +62,7 @@
                         <td>
                             {% remark_status arrival.remarks %}
                         </td>
-                        <td>{{ arrival.date_arrival}}</td>
+                        <td>{{ arrival.date_arrival|date:"SHORT_DATE_FORMAT"}}</td>
                      {% if arrival.remarks != 'COMPLETED' %}
                         <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
                         class="btn btn-primary btn-xs edit-users">

@@ -6,7 +6,7 @@ $(document).ready(function() {
     drops: "up",
     minDate: moment().startOf('day'),
     locale: {
-      format: "YYYY-MM-DD",
+      format: "MM/DD/YYYY",
       cancelLabel: "Cancel"
     }
   });
