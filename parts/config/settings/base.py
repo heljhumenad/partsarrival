@@ -126,9 +126,9 @@ TIME_ZONE = "Asia/Manila"
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = False  # Using aware timezones
+USE_TZ = True  # Using aware timezones
 
 DATE_INPUT_FORMATS = ['%m/%d/%Y']
 
