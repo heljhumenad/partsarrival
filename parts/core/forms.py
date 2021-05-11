@@ -88,6 +88,8 @@ class PartsArrivalForm(FormsForm):
     )
 
     reason = forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
+    
+    date_arrival = forms.DateField(widget=forms.DateInput())
 
     class Meta:
         verbose_name = _("Parts Arrival Form")

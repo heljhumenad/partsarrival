@@ -42,7 +42,7 @@ class PartsArrival(TimeStampModel):
 
     reason = models.CharField(max_length=200, verbose_name=_("Reasons"))
 
-    date_arrival = models.CharField(verbose_name=_("Date Arrival"), max_length=20)
+    date_arrival = models.DateField(verbose_name=_("Date Arrival"))
 
     def __str__(self):
         return self.date_arrival
