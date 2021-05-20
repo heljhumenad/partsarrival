@@ -30,6 +30,8 @@ django-select2 = "*"
 xhtml2pdf = "*"
 xlsxwriter = "*"
 python-decouple = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [pipenv]
 allow_prereleases = false
