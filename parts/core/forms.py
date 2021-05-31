@@ -29,29 +29,6 @@ class PartsNumberForm(FormsForm):
         ]
         ordering = ["-id"]
 
-    def clean_partnumber_sourcode(self):
-        """
-          Clean and validate input for source code and partnumber uniqueness in
-          the database
-          
-          Input           Output                                Process
-          Source Code     Validation Error when                 Get the source code and partnumber
-          Partnumber      Source code and Partnumber not unique Process the validation for uniqueness
-                                                                Return data from validation
-
-        """
-        cleaned_data  = super().clean()
-        source_code = cleaned_data.get("source_code")
-        partnumber = cleaned_data.get("partnumber")
-        queryset = PartsNumber.object.filter(partnumber=partnumber, source_code=source_code)
-        if queryset:
-            raise form.ValidationError(
-                    _("Partnumber and Source code %(partnumber)s %(source_code)s is not valid"),
-                    params = {"partnumber": partnumber,
-                              "source_code": source_code},
-            )
-        return queryset
-
 
     def clean_partnumber(self):
         cleaned_data = super().clean()
