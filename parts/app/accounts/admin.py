@@ -31,5 +31,5 @@ class CustomUserAdmin(UserAdmin):
 @admin.register(ProfileUser)
 class ProfileUserAdmin(admin.ModelAdmin):
     model = ProfileUser
-    list_display = ["user", "user_level"]
+    list_display = ["user", "role"]
 
