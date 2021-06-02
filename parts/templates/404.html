@@ -1,3 +1,14 @@
 {% extends 'common/base.html' %}
 {% load bootstrap4, humanize i18n%}
 {% block title %}{{% trans "Not Found" %}{% endblock title %}
+
+
+{% block error_pages %}
+		<h1 class="text-primary">
+				 {% trans 'Opssss.. ' %}
+          </h1>
+		<h2 class="text-primary">{% trans '404 Not Found' %} </h2>
+		<p class="text-danger"> {% trans 'Try logging it in here' %} <span> <button class="btn btn-error" href="{% url 'login' %}"> {% trans 'Login' %} </button>
+
+{% endblock error_pages %}
+
