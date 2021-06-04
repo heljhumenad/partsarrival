@@ -35,6 +35,7 @@ gunicorn = "*"
 whitenoise = "*"
 python-decouple = "*"
 isort = "*"
+flake8 = "*"
 
 [pipenv]
 allow_prereleases = false
