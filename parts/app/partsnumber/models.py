@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 from parts.core.managers import AbstractUpdateViewManager
 from parts.core.models import TimeStampModel
@@ -7,19 +8,19 @@ from parts.core.models import TimeStampModel
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
-    SOURCE_CODE = [
+    SOURCE_CODE = (
         ("01", "Nissan Japan-01"),
         ("02", "Nissan Taiwan-02"),
         ("05", "Nissan Thailand-05"),
         ("08", "Nissan Indonesia-08"),
-    ]
+    )
 
-    PARTNUMBER_STATUS = [
+    PARTNUMBER_STATUS = (
         ("Active", "Active"),
         ("Depcreated", "Depcreated"),
         ("Obsolete", "Obsolete"),
         ("Deactivated", "Deactivated"),
-    ]
+    )
 
     partnumber = models.CharField(
         max_length=200,
@@ -58,6 +59,9 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
     def __str__(self):
         return self.partnumber
+
+    def get_absolute_url(self):
+        return reverse('parts_number_read_view', args=[str(self.id)])
 
     # !Find way to handle this feat in template
     @property
@@ -102,3 +106,6 @@ class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
 
     def __str__(self):
         return self.class_name.upper()
+
+    def get_absolute_url(self):
+        return reverse('item_class_read', args=[str(self.id)])

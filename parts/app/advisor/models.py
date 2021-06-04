@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
 
 from parts.core.managers import AbstractUpdateViewManager
 from parts.core.models import TimeStampModel
@@ -7,10 +8,10 @@ from parts.core.models import TimeStampModel
 
 class ServiceAdvisor(AbstractUpdateViewManager, TimeStampModel):
 
-    DESIGNATION = [
+    DESIGNATION = (
         ("SVC", "Service Advisor"),
         ("BRPSVC", "Service Advisor BRP")
-    ]
+    )
 
     first_name = models.CharField(
         max_length=200,
@@ -38,3 +39,6 @@ class ServiceAdvisor(AbstractUpdateViewManager, TimeStampModel):
 
     def __str__(self):
         return "{0} {1}".format(self.first_name, self.last_name)
+
+    def get_absolute_url(self):
+        return reverse('advisor_read_view', args=[str(self.id)])

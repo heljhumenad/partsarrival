@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
 
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.partsnumber.models import PartNumberClass
@@ -8,11 +9,11 @@ from parts.core.models import TimeStampModel
 
 class PartsArrival(TimeStampModel):
 
-    REMARKS = [
+    REMARKS = (
         ("COMPLETED", "COMPLETED"),
         ("NOT COMPLETED", "NOT COMPLETED"),
         ("LACKING", "LACKING"),
-    ]
+    )
 
     customer_name = models.CharField(
         verbose_name=_("Customer Name"),
@@ -60,6 +61,9 @@ class PartsArrival(TimeStampModel):
 
     def __str__(self):
         return self.date_arrival
+
+    def get_absolute_url(self):
+        return reverse('arrival-read', args=[str(self.id)])
 
     @property
     def convert_date_string(self):
