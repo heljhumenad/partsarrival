@@ -7,18 +7,27 @@ from parts.core.models import TimeStampModel
 
 class ServiceAdvisor(AbstractUpdateViewManager, TimeStampModel):
 
-    DESIGNATION = [("SVC", "Service Advisor"), ("BRPSVC", "Service Advisor BRP")]
+    DESIGNATION = [
+        ("SVC", "Service Advisor"),
+        ("BRPSVC", "Service Advisor BRP")
+    ]
 
     first_name = models.CharField(
-        max_length=200, verbose_name=_("First Name"), blank=False, unique=True
+        max_length=200,
+        verbose_name=_("First Name"),
+        blank=False, unique=True
     )
 
     last_name = models.CharField(
-        max_length=200, verbose_name=_("Last Name"), blank=False
+        max_length=200,
+        verbose_name=_("Last Name"),
+        blank=False
     )
 
     designation = models.CharField(
-        max_length=200, verbose_name=_("Designation"), choices=DESIGNATION
+        max_length=200,
+        verbose_name=_("Designation"),
+        choices=DESIGNATION
     )
 
     class Meta:

@@ -20,6 +20,7 @@ class CustomUser(AbstractUser):
     def get_user_email(self):
         return self.email
 
+
 class ProfileUser(TimeStampModel, models.Model):
 
     USER_LEVEL_ROLE = (
@@ -29,8 +30,14 @@ class ProfileUser(TimeStampModel, models.Model):
         (4, "Supervisor"),
         (5, "Administrator"),
     )
-    role = models.PositiveSmallIntegerField(verbose_name=_("User Role Level"), choices=USER_LEVEL_ROLE)
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    role = models.PositiveSmallIntegerField(
+        verbose_name=_("User Role Level"),
+        choices=USER_LEVEL_ROLE
+    )
+    user = models.OneToOneField(
+        CustomUser,
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return "{0} {1}".format(self.user, self.role)

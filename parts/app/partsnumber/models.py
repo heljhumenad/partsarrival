@@ -9,7 +9,7 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
     SOURCE_CODE = [
         ("01", "Nissan Japan-01"),
-       ("02", "Nissan Taiwan-02"),
+        ("02", "Nissan Taiwan-02"),
         ("05", "Nissan Thailand-05"),
         ("08", "Nissan Indonesia-08"),
     ]
@@ -22,20 +22,32 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
     ]
 
     partnumber = models.CharField(
-        max_length=200, verbose_name=_("Parts Number")
+        max_length=200,
+        verbose_name=_("Parts Number")
     )
     source_code = models.CharField(
-        max_length=200, verbose_name=_("Source Code"), choices=SOURCE_CODE
+        max_length=200,
+        verbose_name=_("Source Code"),
+        choices=SOURCE_CODE
     )
-    bar_code = models.CharField(max_length=200, verbose_name=_("Barcode No."))
+    bar_code = models.CharField(
+        max_length=200,
+        verbose_name=_("Barcode No.")
+    )
 
-    selling_price = models.IntegerField(verbose_name=_("Selling Price"))
+    selling_price = models.IntegerField(
+        verbose_name=_("Selling Price")
+    )
 
     status = models.CharField(
-        max_length=200, verbose_name=_("Status"), choices=PARTNUMBER_STATUS
+        max_length=200,
+        verbose_name=_("Status"),
+        choices=PARTNUMBER_STATUS
     )
     unit_measure = models.ForeignKey(
-        "UnitMeasure", verbose_name=_("Stock/UM"), on_delete=models.CASCADE
+        "UnitMeasure",
+        verbose_name=_("Stock/UM"),
+        on_delete=models.CASCADE
     )
 
     class Meta:
@@ -55,7 +67,10 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
 class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 
-    um = models.CharField(max_length=20, verbose_name=_("Unit of Measure"))
+    um = models.CharField(
+        max_length=20,
+        verbose_name=_("Unit of Measure")
+    )
 
     class Meta:
         db_table = _("um")
@@ -69,9 +84,15 @@ class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 
 class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
 
-    class_name = models.CharField(max_length=20, verbose_name=_("Class name"))
+    class_name = models.CharField(
+        max_length=20,
+        verbose_name=_("Class name")
+    )
 
-    charge_type = models.CharField(max_length=20, verbose_name=_("Charge Type"))
+    charge_type = models.CharField(
+        max_length=20,
+        verbose_name=_("Charge Type")
+    )
 
     class Meta:
         db_table = _("partnumber_class")
