@@ -1,16 +1,14 @@
-from django.views import generic
-from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
 from django.db.models import Q
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from django.views import generic
 
 from parts.app.mixins.common_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
-from parts.core.forms import (
-        PartsNumberForm,
-        UnitofMeasureForm,
-        PartNumberClassForm
-)
+from parts.core.forms import (PartNumberClassForm, PartsNumberForm,
+                              UnitofMeasureForm)
+
 
 class PartNumberTemplateView(generic.ListView):
     template_name = "partsnumber/index.html"

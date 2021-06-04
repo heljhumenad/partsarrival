@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from parts.core.mixins import MessageMixin
 
+
 # Refactor this into one messages framework where you just 
 # choose message and object name into MessageMixins
 class CustomerMessageMixin(MessageMixin):

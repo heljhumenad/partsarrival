@@ -1,9 +1,6 @@
-from parts.app.tests.base import TestCase
 from parts.app.accounts.models import CustomUser
-from parts.core.util import (
-    max_length_field,
-    null_value_field
-)
+from parts.app.tests.base import TestCase
+from parts.core.util import max_length_field, null_value_field
 
 
 class TestsAccounts(TestCase):

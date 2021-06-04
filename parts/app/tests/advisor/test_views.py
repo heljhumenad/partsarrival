@@ -1,5 +1,5 @@
-from parts.app.views import advisor
 from parts.app.tests.base import TestCase
+from parts.app.views import advisor
 
 
 class TestAdvisor(TestCase):

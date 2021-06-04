@@ -1,12 +1,11 @@
-from django.views import generic
-from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from rest_framework import renderers
-from rest_framework import generics
+from django.urls import reverse_lazy
+from django.views import generic
+from rest_framework import generics, renderers
 
 from parts.app.advisor.models import ServiceAdvisor
-from parts.core.forms import AdvisorForm
 from parts.app.mixins.common_mixins import ServiceAdvisorMixins
+from parts.core.forms import AdvisorForm
 
 
 class AdvisorTemplateView(ServiceAdvisorMixins, generic.ListView):

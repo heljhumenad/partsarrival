@@ -1,5 +1,6 @@
-from .base import *
 from django.conf import settings
+
+from .base import *
 
 # Installed Apps
 INSTALLED_APPS += [

@@ -1,7 +1,6 @@
-from django.views import generic
 from django.contrib.auth import views
 from django.urls import reverse_lazy
-from django.contrib.auth import views 
+from django.views import generic
 
 from parts.app.accounts import forms
 from parts.app.accounts.models import CustomUser

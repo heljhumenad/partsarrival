@@ -2,14 +2,12 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from parts.core import validators
-from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
-from parts.app.partsnumber.models import (
-        PartsNumber,
-        UnitMeasure,
-        PartNumberClass
-)
+from parts.app.arrival.models import PartsArrival
+from parts.app.partsnumber.models import (PartNumberClass, PartsNumber,
+                                          UnitMeasure)
+from parts.core import validators
+
 
 class FormsForm(forms.ModelForm):
     pass

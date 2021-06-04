@@ -2,7 +2,6 @@ from django.urls import path, re_path
 
 from parts.app.views import advisor
 
-
 app_name = "advisor"
 
 urlpatterns = [

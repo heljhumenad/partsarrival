@@ -1,15 +1,11 @@
-from factory.django import DjangoModelFactory
 from factory import SubFactory
-
+from factory.django import DjangoModelFactory
 from faker import Factory
 
-from parts.app.partsnumber.models import (
-    PartsNumber,
-    PartNumberClass,
-    UnitMeasure,
-)
-from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
+from parts.app.arrival.models import PartsArrival
+from parts.app.partsnumber.models import (PartNumberClass, PartsNumber,
+                                          UnitMeasure)
 
 faker = Factory.create()
 

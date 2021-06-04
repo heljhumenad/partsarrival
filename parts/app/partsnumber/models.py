@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from parts.core.models import TimeStampModel
 from parts.core.managers import AbstractUpdateViewManager
+from parts.core.models import TimeStampModel
+
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 

@@ -1,9 +1,9 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from parts.core.models import TimeStampModel
-from parts.app.partsnumber.models import PartNumberClass, PartsNumber
 from parts.app.advisor.models import ServiceAdvisor
+from parts.app.partsnumber.models import PartNumberClass, PartsNumber
+from parts.core.models import TimeStampModel
 
 
 class PartsArrival(TimeStampModel):

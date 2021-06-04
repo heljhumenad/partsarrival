@@ -17,6 +17,7 @@ pytest-cov = "*"
 pytest-django = "*"
 livereload = "*"
 decouple = "*"
+pre-commit = "*"
 
 [packages]
 psycopg2-binary = "*"
@@ -33,6 +34,7 @@ xlsxwriter = "*"
 gunicorn = "*"
 whitenoise = "*"
 python-decouple = "*"
+isort = "*"
 
 [pipenv]
 allow_prereleases = false
