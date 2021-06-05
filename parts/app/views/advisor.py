@@ -1,21 +1,19 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
-from rest_framework import generics, renderers
-
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.mixins.common_mixins import ServiceAdvisorMixins
 from parts.core.forms import AdvisorForm
 
 
 class AdvisorTemplateView(ServiceAdvisorMixins, generic.ListView):
-   template_name = "advisor/index.html"
-   model = ServiceAdvisor
-   queryset = ServiceAdvisor.objects.all()
-   paginate_by = 2
-   #context_object_name = "advisor"
-    
-    
+    template_name = "advisor/index.html"
+    model = ServiceAdvisor
+    queryset = ServiceAdvisor.objects.all()
+    paginate_by = 2
+    # context_object_name = "advisor"
+
+
 class AdvisorCreateView(ServiceAdvisorMixins, generic.CreateView):
     template_name = "advisor/add_advisor.html"
     form_class = AdvisorForm
@@ -45,5 +43,6 @@ class AdvisorDetailView(LoginRequiredMixin, generic.DetailView):
     context_object_name = "advisor"
 
     def get_object(self, query_pk_and_slug=None):
-        advisor = ServiceAdvisor.objects.all().filter(id=self.kwargs["pk"]).first()
+        advisor = ServiceAdvisor.objects.all().filter(
+                id=self.kwargs["pk"]).first()
         return advisor
