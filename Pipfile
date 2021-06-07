@@ -16,7 +16,6 @@ pynvim = "*"
 pytest-cov = "*"
 pytest-django = "*"
 livereload = "*"
-decouple = "*"
 pre-commit = "*"
 
 [packages]
