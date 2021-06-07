@@ -1,9 +1,9 @@
-from datetime import datetime, date
+from datetime import date, datetime
+
 from parts.app.tests.base import TestCase
-from parts.core.forms import PartsArrivalForm
 from parts.app.tests.factories import PartsArrivalFactory
 from parts.core import validators
-
+from parts.core.forms import PartsArrivalForm
 
 
 class TestArrivalForm(TestCase):

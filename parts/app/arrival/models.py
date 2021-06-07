@@ -1,18 +1,57 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
 
-from parts.core.models import TimeStampModel
-from parts.app.partsnumber.models import PartNumberClass, PartsNumber
 from parts.app.advisor.models import ServiceAdvisor
+from parts.app.partsnumber.models import PartNumberClass
+from parts.core.models import TimeStampModel
 
 
 class PartsArrival(TimeStampModel):
 
-    REMARKS = [
+    REMARKS = (
         ("COMPLETED", "COMPLETED"),
         ("NOT COMPLETED", "NOT COMPLETED"),
         ("LACKING", "LACKING"),
-    ]
+    )
+
+    customer_name = models.CharField(
+        verbose_name=_("Customer Name"),
+        max_length=200
+    )
+    ro_number = models.CharField(
+        verbose_name=_("RO/RE Number"),
+        max_length=50, unique=True
+    )
+    item_class = models.ForeignKey(
+        PartNumberClass,
+        on_delete=models.CASCADE,
+        verbose_name=_("Item Class")
+    )
+    advisor = models.ForeignKey(
+        ServiceAdvisor,
+        on_delete=models.CASCADE,
+        verbose_name=_("Service Advisor")
+    )
+    partnumber = models.CharField(
+        max_length=200,
+        verbose_name=_("Partsnumber")
+    )
+    qty = models.IntegerField(
+        verbose_name=_("Quantity")
+    )
+    remarks = models.CharField(
+        max_length=200,
+        choices=REMARKS,
+        verbose_name=_("Remarks")
+    )
+    reason = models.CharField(
+        max_length=200,
+        verbose_name=_("Reasons")
+    )
+    date_arrival = models.DateField(
+        verbose_name=_("Date Arrival")
+    )
 
     class Meta:
         db_table = _("arrival")
@@ -20,32 +59,11 @@ class PartsArrival(TimeStampModel):
         verbose_name_plural = _("Parts Arrivals")
         ordering = ["id"]
 
-    customer_name = models.CharField(verbose_name=_("Customer Name"), max_length=200)
-
-    ro_number = models.CharField(verbose_name=_("RO/RE Number"), max_length=50, unique=True)
-
-    item_class = models.ForeignKey(
-        PartNumberClass, on_delete=models.CASCADE, verbose_name=_("Item Class")
-    )
-
-    advisor = models.ForeignKey(
-        ServiceAdvisor, on_delete=models.CASCADE, verbose_name=_("Service Advisor")
-    )
-
-    partnumber = models.CharField(max_length=200, verbose_name=_("Partsnumber"))
-
-    qty = models.IntegerField(verbose_name=_("Quantity"))
-
-    remarks = models.CharField(
-        max_length=200, choices=REMARKS, verbose_name=_("Remarks")
-    )
-
-    reason = models.CharField(max_length=200, verbose_name=_("Reasons"))
-
-    date_arrival = models.DateField(verbose_name=_("Date Arrival"))
-
     def __str__(self):
         return self.date_arrival
+
+    def get_absolute_url(self):
+        return reverse('arrival-read', args=[str(self.id)])
 
     @property
     def convert_date_string(self):

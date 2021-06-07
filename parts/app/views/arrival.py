@@ -1,11 +1,11 @@
-from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
 
 from parts.app.arrival.models import PartsArrival
-from parts.core.forms import PartsArrivalForm
 from parts.app.mixins.common_mixins import PartsArrivalMixins
+from parts.core.forms import PartsArrivalForm
 
 
 class PartsArrivalListView(PartsArrivalMixins, generic.ListView):

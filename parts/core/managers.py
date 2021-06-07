@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 # Basic Hierarchy of classes and methods
 # - Custom ViewManager
 # - Abstract model Class

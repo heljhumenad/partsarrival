@@ -2,9 +2,10 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
+from parts.app.accounts import forms
 # Register model
 from parts.app.accounts.models import CustomUser, ProfileUser
-from parts.app.accounts import forms
+
 # change this to avoid direct calling from main config
 
 # Config settings for Look and feel
@@ -31,5 +32,5 @@ class CustomUserAdmin(UserAdmin):
 @admin.register(ProfileUser)
 class ProfileUserAdmin(admin.ModelAdmin):
     model = ProfileUser
-    list_display = ["user", "user_level"]
+    list_display = ["user", "role"]
 

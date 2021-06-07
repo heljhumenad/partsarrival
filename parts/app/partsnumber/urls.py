@@ -1,6 +1,6 @@
-from django.urls import path, include
+from django.urls import include, path
 
-from parts.app.views import partsnumber, item_class
+from parts.app.views import item_class, partsnumber
 
 app_name = "partsnumber"
 

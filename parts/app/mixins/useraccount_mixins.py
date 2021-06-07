@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from parts.core.mixins import MessageMixin
 
+
 class CheckUserAuthorizationMixin(AccessMixin):
     # check proper authorizations for users
     # throw 404, 303, 500

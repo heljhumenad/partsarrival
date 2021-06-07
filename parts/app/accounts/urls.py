@@ -1,4 +1,5 @@
 from django.urls import path
+
 from parts.app.views import accounts
 
 app_name = "accounts"

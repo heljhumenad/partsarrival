@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from parts.app.arrival.models import PartsArrival
 
 

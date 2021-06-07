@@ -1,22 +1,15 @@
 import pytest
-
-from django.test import (
-    TestCase as BaseTestCase,
-    RequestFactory,
-    Client,
-)
-from django.utils.translation import ugettext_lazy as _
-from django.urls import reverse
-from django.contrib.sessions.middleware import SessionMiddleware
 from django.contrib.messages import get_messages
+from django.contrib.sessions.middleware import SessionMiddleware
+from django.test import Client, RequestFactory
+from django.test import TestCase as BaseTestCase
+from django.urls import reverse
+from django.utils.translation import ugettext_lazy as _
 
-from parts.app.tests.factories import (
-    PartNumberFactory,
-    PartNumberClassFactory,
-    UnitofMeasureFactory,
-    PartsArrivalFactory,
-    ServiceAdvisorFactory,
-)
+from parts.app.tests.factories import (PartNumberClassFactory,
+                                       PartNumberFactory, PartsArrivalFactory,
+                                       ServiceAdvisorFactory,
+                                       UnitofMeasureFactory)
 
 
 class TestCase(BaseTestCase):

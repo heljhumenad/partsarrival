@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 
-from parts.app.tests.base import TestCase
 from parts.app.mixins import useraccount_mixins
+from parts.app.tests.base import TestCase
 
 
 class TestUserAccountMixins(TestCase):

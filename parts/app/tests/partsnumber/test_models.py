@@ -1,5 +1,5 @@
-from parts.app.tests.base import TestCase
 from parts.app.partsnumber.models import PartsNumber
+from parts.app.tests.base import TestCase
 
 
 class TestModelPartsnumber(TestCase):

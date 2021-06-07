@@ -1,11 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin
 
-from parts.app.partsnumber.models import PartsNumber
-from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
+from parts.app.arrival.models import PartsArrival
+from parts.app.partsnumber.models import PartsNumber
 
 
 class DashboardViewsTemplate(LoginRequiredMixin, generic.TemplateView):

@@ -2,14 +2,12 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from parts.core import validators
-from parts.app.arrival.models import PartsArrival
 from parts.app.advisor.models import ServiceAdvisor
-from parts.app.partsnumber.models import (
-        PartsNumber,
-        UnitMeasure,
-        PartNumberClass
-)
+from parts.app.arrival.models import PartsArrival
+from parts.app.partsnumber.models import (PartNumberClass, PartsNumber,
+                                          UnitMeasure)
+from parts.core import validators
+
 
 class FormsForm(forms.ModelForm):
     pass
@@ -28,29 +26,6 @@ class PartsNumberForm(FormsForm):
                   "selling_price",
         ]
         ordering = ["-id"]
-
-    def clean_partnumber_sourcode(self):
-        """
-          Clean and validate input for source code and partnumber uniqueness in
-          the database
-          
-          Input           Output                                Process
-          Source Code     Validation Error when                 Get the source code and partnumber
-          Partnumber      Source code and Partnumber not unique Process the validation for uniqueness
-                                                                Return data from validation
-
-        """
-        cleaned_data  = super().clean()
-        source_code = cleaned_data.get("source_code")
-        partnumber = cleaned_data.get("partnumber")
-        queryset = PartsNumber.object.filter(partnumber=partnumber, source_code=source_code)
-        if queryset:
-            raise form.ValidationError(
-                    _("Partnumber and Source code %(partnumber)s %(source_code)s is not valid"),
-                    params = {"partnumber": partnumber,
-                              "source_code": source_code},
-            )
-        return queryset
 
 
     def clean_partnumber(self):
