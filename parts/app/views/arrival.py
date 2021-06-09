@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -45,3 +46,16 @@ class PartsArrivalDetailView(LoginRequiredMixin, generic.DetailView):
     def get_object(self, query_pk_and_slug=None):
         query = PartsArrival.objects.filter(id=self.kwargs["pk"]).first()
         return query
+
+
+class SearchArrivalROView(LoginRequiredMixin, generic.ListView):
+    template_name = "arrival/index.html"
+    model = PartsArrival
+    paginate_by = 2
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list = PartsArrival.objects.filter(
+                Q(ro_number__icontains=query)
+        )
+        return object_list

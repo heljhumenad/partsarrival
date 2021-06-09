@@ -6,12 +6,11 @@
 </div>
 	</form>{% endcomment %}
 
-<form action="" method="GET">
-	{% csrf_token %}
+	<form action="{% url 'arrival:arrival_search' %}" method="GET">
 		<div class="input-group">
 				<input type="search" class="form-control" name="q" placeholder ="{% trans "Search RO Number.." %}">
               <span class="input-group-btn">
-                <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
               </span>
             </div>
 		</form>
