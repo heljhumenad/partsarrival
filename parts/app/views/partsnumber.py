@@ -61,7 +61,7 @@ class PartnumberDeleteView(PartsNumberMixin, generic.DeleteView):
 
 
 class SearchView(LoginRequiredMixin, generic.ListView):
-    template_name = "partsnumber/search_results.html"
+    template_name = "partsnumber/index.html"
     model = PartsNumber
 
     def get_queryset(self):
