@@ -14,6 +14,7 @@
         <li class="list-group-item">{% trans "RO Number" %}: <b>{{arrival.ro_number }}</b></li>
         <li class="list-group-item">{% trans "Item Class" %}: <b>{{arrival.item_class}}</b></li>
         <li class="list-group-item">{% trans "Parts Number" %}: <b>{{arrival.partnumber}}</b></li>
+        <li class="list-group-item">{% trans "Source Code" %}: <b>{{arrival.partnumber.source_code}}</b></li>
         <li class="list-group-item">{% trans "Quantity" %}: <b>{{arrival.qty}}</b></li>
         <li class="list-group-item">{% trans "Remarks" %}: <b>{% remark_status arrival.remarks %}</b></li>
         <li class="list-group-item">{% trans "Date Arrival" %}: <b>{{arrival.date_arrival}}</b></li>

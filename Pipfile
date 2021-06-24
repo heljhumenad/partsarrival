@@ -35,6 +35,7 @@ whitenoise = "*"
 python-decouple = "*"
 isort = "*"
 flake8 = "*"
+uwsgi = "*"
 
 [pipenv]
 allow_prereleases = false
