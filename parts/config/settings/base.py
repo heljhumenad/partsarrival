@@ -72,11 +72,11 @@ TEMPLATES = [
 WSGI_APPLICATION = "parts.config.wsgi.application"
 
 # Database Configurations
-DATABASE_HOST = "localhost"
-DATABASE_PASSWORD = "keep_coding101"
-DATABASE_USER = "postgres"
-DATABASE_NAME = "partsarrival"
-DATABASE_PORT = "5432"
+DATABASE_HOST = config('DB_HOST')
+DATABASE_PASSWORD = config('DB_PASSWORD') 
+DATABASE_USER = config('DB_USERNAME') 
+DATABASE_NAME = config('DB_NAME') 
+DATABASE_PORT = config('DB_PORT') 
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
