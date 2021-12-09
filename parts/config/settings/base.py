@@ -72,11 +72,12 @@ TEMPLATES = [
 WSGI_APPLICATION = "parts.config.wsgi.application"
 
 # Database Configurations
-DATABASE_HOST = config('DATABASE_HOST')
-DATABASE_USER = config('DATABASE_USERNAME')
-DATABASE_NAME = config('DATABASE_NAME')
-DATABASE_PORT = config('DATABASE_PORT')
-DATABASE_PASSWORD = config('DATABASE_PASSWORD')
+
+DATABASE_HOST = config('DB_HOST')
+DATABASE_PASSWORD = config('DB_PASSWORD') 
+DATABASE_USER = config('DB_USERNAME') 
+DATABASE_NAME = config('DB_NAME') 
+DATABASE_PORT = config('DB_PORT') 
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
