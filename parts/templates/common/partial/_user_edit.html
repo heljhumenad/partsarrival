@@ -12,17 +12,20 @@
   </a>
 <div class="dropdown-divider"></div>
   {% comment %} <a class="dropdown-item" href="{% url 'accounts:edit_user' pk=user.id %}">{% trans 'Profile' %}</a> {% endcomment %}
-  <a class="dropdown-item" 
+    <a class="dropdown-item" 
   href="{% url 'accounts:edit_user' pk=user.id %}">
+<i class="fas fa-user mr-2"></i>
   {% trans 'Profile' %} </a>
   <div class="dropdown-divider"></div>
 
     <a class="dropdown-item" 
   href="{% url 'accounts:changepassword' pk=user.id %}">
-  {% trans 'Change Password' %} </a>
+<i class="fas fa-lock mr-2"></i>
+  {% trans 'Change Password' %} 
+	</a>
 
 <div class="dropdown-divider"></div>
-  <a class="dropdown-item">{% trans 'Activity' %}</a>
-<div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="{% url 'accounts:logout_view' %}">{% trans 'Logout' %}</a>
+  <a class="dropdown-item" href="{% url 'accounts:logout_view' %}">
+<i class="fas fa-sign-out-alt mr-2"></i>
+		  {% trans 'Logout' %}</a>
 </div>

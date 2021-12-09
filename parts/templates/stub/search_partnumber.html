@@ -1,7 +1,7 @@
 {% load i18n %}
-	<form action="{% url 'arrival:arrival_search' %}" method="GET">
+	<form action="{% url 'partsnumber:search_query' %}" method="GET">
 		<div class="input-group">
-				<input type="search" class="form-control" name="q" placeholder ="{% trans "Search RO Number.." %}">
+				<input type="search" class="form-control" name="q" placeholder ="{% trans "Search Partnumbers.." %}">
               <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
               </span>

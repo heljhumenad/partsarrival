@@ -28,8 +28,13 @@
             </div>
 </section>
     <section class="content">
+		<div class="container-fluid">
+            <div class="card card-default">
+                <div class="card-body">
+             
             <div class="row mb-2">
                 <div class="col-sm-6">
+						{% include 'stub/search_partnumber.html' %}
                 </div>
                 <div class="col-sm-6">
                 <a href="{% url 'partsnumber:parts_number_create_view' %}" class="btn btn-danger btn-sm float-sm-right">
@@ -39,10 +44,7 @@
                 </a>
                 </div>
             </div>
-            <div class="container-fluid">
-            <div class="card card-default">
-                <div class="card-body">
-                    <table class="table table-bordered xs-data-table">
+                   <table class="table table-bordered xs-data-table">
                         <thead class="thead-dark">
                             <tr>
                                 {% comment %} <th>Employee ID</th> {% endcomment %}
@@ -80,8 +82,7 @@
                     {% comment %} {% endif %} {% endcomment %}
                             </tr>
                             {% empty %}
-                                    <p class="font-weight-bold">{% trans "No partnumbers has been added try adding" %} 
-                                    <a href="{% url 'partsnumber:parts_number_create_view'%}">{% trans "here" %}</a></p>
+                                    <p class="font-weight-bold text-danger">{% trans "No resulsts can be display " %} 
                                     <p class="mb-0"></p>
                                 {% endfor %}
 

@@ -72,6 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "parts.config.wsgi.application"
 
 # Database Configurations
+
 DATABASE_HOST = config('DB_HOST')
 DATABASE_PASSWORD = config('DB_PASSWORD') 
 DATABASE_USER = config('DB_USERNAME') 

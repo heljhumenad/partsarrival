@@ -14,4 +14,7 @@ urlpatterns = [
     path(
         "show/<int:pk>", arrival.PartsArrivalDetailView.as_view(), name="arrival-read"
     ),
+    path("search", arrival.SearchArrivalROView.as_view(),
+        name="arrival_search"
+    ),
 ]

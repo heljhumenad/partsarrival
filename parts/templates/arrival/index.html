@@ -1,6 +1,7 @@
 {% extends "common/base.html" %}
 {% load humanize i18n bootstrap4 %}
 {% load arrival_tags %}
+{% block title %} {% trans "Parts Arrival" %} {% endblock title %}
 
 {% block navbar %} {% include  'common/includes/navbar.html'%}{% endblock navbar %}
 {% block sidebar%} {% include  'common/includes/sidebar.html'%}{% endblock sidebar %}
@@ -9,86 +10,89 @@
 {% block main %}
     {% include 'common/modal/_modal.html' %}
 <section class="content-header">
-    <div class="container-fluid">
-    <div class="row mb-2">
-        <div class="col-sm-6">
-             <h1 class="m-0">{% trans "Arrival Parts" %}</h1>
-        </div>
-        <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item">
-                <a href="#">{% trans "Home" %}</a>
-                </li>
-                <li class="breadcrumb-item active">
-                <a href="#">{% trans "Add Arrival" %}</a>
-                </li>
-            </ol>
-        </div>
-    </div>
-</div>
-</section>
-<section class="content">
-<div class="container-fluid">
-    <div class="card card-default">
-    
-        <div class="card-body">
-            <div class="row mb-2">
-                    <div class="col-sm-6">
-                    </div>
-                    <div class="col-sm-6">
-                    <a href="{% url 'arrival:arrival_create' %}" class="btn btn-danger btn-sm float-sm-right">
-                    {% trans "Add Part Arrival" %}
-                        <i class="fas fa-plus" aria-hidden="true"></i>
-                    </button>
-                    </a>
-                    </div>
-                </div>
-            <table class="table table-bordered xs-data-table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>{% trans "Customer Name" %}</th>
-                        <th>{% trans "RO & RE Number" %}</th>
-                        <th>{% trans "Remarks" %}</th>
-                        <th>{% trans "Date Arrival" %}</th>
-                        <th>{% trans "Actions" %}</th>
-                    </tr>
-                </thead>
-                <tbody>
+			<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					 <h1 class="m-0">{% trans "Arrival Parts" %}</h1>
+				</div>
+				<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item">
+						<a href="#">{% trans "Home" %}</a>
+						</li>
+						<li class="breadcrumb-item active">
+						<a href="#">{% trans "Add Arrival" %}</a>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		</section>
+		<!---Search Bar for Arrival-->
+		<section class="arrivalsearchbar">
+						</section>
+		<section class="content">
+		<div class="container-fluid">
+			<div class="card card-default">
+						<div class="card-body">
+					<div class="row mb-2">
+							<div class="col-sm-6">
+									{% include 'stub/search.html' %}
+							</div>
+							<div class="col-sm-6">
+							<a href="{% url 'arrival:arrival_create' %}" class="btn btn-danger btn-sm float-sm-right">
+							{% trans "Add Part Arrival" %}
+								<i class="fas fa-plus" aria-hidden="true"></i>
+							</button>
+							</a>
+							</div>
+						</div>
+					<table class="table table-bordered xs-data-table">
+						<thead class="thead-dark">
+							<tr>
+								<th>{% trans "Customer Name" %}</th>
+								<th>{% trans "RO & RE Number" %}</th>
+								<th>{% trans "Remarks" %}</th>
+								<th>{% trans "Date Arrival" %}</th>
+								<th>{% trans "Actions" %}</th>
+							</tr>
+						</thead>
+						<tbody>
 
-                         {% for arrival in page_obj.object_list  %}
-                    <tr>
-                        <td>{{ arrival.customer_name }}</a></b></td>
-                        <td>{{ arrival.ro_number }}</td>
-                        <td>
-                            {% remark_status arrival.remarks %}
-                        </td>
-                        <td>{{ arrival.date_arrival|date:"SHORT_DATE_FORMAT"}}</td>
-                     {% if arrival.remarks != 'COMPLETED' %}
-                        <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
-                        class="btn btn-primary btn-xs edit-users">
-                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                        </a>
-                    {% elif arrival.remarks == 'COMPLETED'%}
-                        <td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
-                        class="btn btn-primary btn-xs edit-users disabled">
-                            <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                        </a>
-                    {% endif %}
-                        <a data-id="{% url 'arrival:arrival-read' pk=arrival.id %}" 
-                        class="btn btn-success btn-xs read-arrival" 
-                        data-toggle="modal" data-target="#modal">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                        </a>
-                        
-                        <a data-id="{% url 'arrival:arrival-read' pk=arrival.id %}" 
-                        class="btn btn-warning btn-xs download-arrival" 
-                        data-toggle="modal" data-target="#modal">
-                            <i class="fa fa-download" aria-hidden="true"></i>
-                        </a>
-                    </tr>
-                          {% empty %}
-                            <p class="font-weight-bold">{% trans "No parts arrival has been added try adding" %} 
-                            <a href="{% url 'arrival:arrival_create' %}">{% trans "here" %}</a></p>
+								 {% for arrival in page_obj.object_list  %}
+							<tr>
+								<td>{{ arrival.customer_name }}</a></b></td>
+								<td>{{ arrival.ro_number }}</td>
+								<td>
+									{% remark_status arrival.remarks %}
+								</td>
+								<td>{{ arrival.date_arrival|date:"SHORT_DATE_FORMAT"}}</td>
+							 {% if arrival.remarks != 'COMPLETED' %}
+								<td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
+								class="btn btn-primary btn-xs edit-users">
+								<i class="fa fa-pencil-alt" aria-hidden="true"></i>
+								</a>
+							{% elif arrival.remarks == 'COMPLETED'%}
+								<td><a href="{% url 'arrival:arrival_edit' pk=arrival.id %}" 
+								class="btn btn-primary btn-xs edit-users disabled">
+									<i class="fa fa-pencil-alt" aria-hidden="true"></i>
+								</a>
+							{% endif %}
+								<a data-id="{% url 'arrival:arrival-read' pk=arrival.id %}" 
+								class="btn btn-success btn-xs read-arrival" 
+								data-toggle="modal" data-target="#modal">
+									<i class="fa fa-eye" aria-hidden="true"></i>
+								</a>
+								
+								<a data-id="{% url 'arrival:arrival-read' pk=arrival.id %}" 
+								class="btn btn-warning btn-xs download-arrival" 
+								data-toggle="modal" data-target="#modal">
+									<i class="fa fa-download" aria-hidden="true"></i>
+								</a>
+							</tr>
+								  {% empty %}
+                            <p class="font-weight-bold text-danger">{% trans "No results can be display" %} 
+                            </p>
                             <p class="mb-0"></p>
                 {% endfor %}
                 </tbody>

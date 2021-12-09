@@ -7,6 +7,7 @@
 {% block messages %} {% include "common/includes/message.html" %} {% endblock messages %}
 
 {% block main %}
+    {% include "common/modal/_modal.html" %}
 <section class="content-header">
     <div class="content-fluid">
         <div class="row mb-2">
@@ -27,7 +28,9 @@
     </div>
 </section>
 <section class="content">
-    {% include "common/modal/_modal.html" %}
+<div class="container-fluid">
+    <div class="card card-default">
+        <div class="card-body">
     <div class="row mb-2">
                     <div class="col-sm-6">
                     </div>

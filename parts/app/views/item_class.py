@@ -1,7 +1,6 @@
 #  View Class for Partnumber and its description
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from parts.app.partsnumber.models import PartNumberClass

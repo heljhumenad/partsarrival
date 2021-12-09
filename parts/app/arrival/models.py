@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.urls import reverse
 
 from parts.app.advisor.models import ServiceAdvisor
-from parts.app.partsnumber.models import PartNumberClass
+from parts.app.partsnumber.models import (PartNumberClass, PartsNumber)
 from parts.core.models import TimeStampModel
 
 
@@ -33,8 +33,9 @@ class PartsArrival(TimeStampModel):
         on_delete=models.CASCADE,
         verbose_name=_("Service Advisor")
     )
-    partnumber = models.CharField(
-        max_length=200,
+    partnumber = models.ForeignKey(
+        PartsNumber,
+        on_delete=models.CASCADE,
         verbose_name=_("Partsnumber")
     )
     qty = models.IntegerField(
