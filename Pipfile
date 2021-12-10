@@ -20,22 +20,15 @@ pre-commit = "*"
 
 [packages]
 psycopg2-binary = "*"
-werkzeug = "*"
 django-bootstrap4 = "*"
 django-bootstrap-modal-forms = "*"
 django = "==2.2"
 tox = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
-django-select2 = "*"
-xhtml2pdf = "*"
-xlsxwriter = "*"
-gunicorn = "*"
-whitenoise = "*"
 python-decouple = "*"
 isort = "*"
 flake8 = "*"
-uwsgi = "*"
 
 [pipenv]
 allow_prereleases = false
