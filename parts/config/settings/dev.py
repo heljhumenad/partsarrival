@@ -13,7 +13,7 @@ INSTALLED_APPS += [
 LOGIN_REDIRECT_URL = "dashboard:dashboard_view_index"
 AUTH_USER_MODEL = "accounts.CustomUser"
 
-#  Handle debug toolbars internal ip address that link to localhost or 127.0.0.0.1
+#  Handle debug toolbars internal ip address that link to localhost or 127.0.0.0.
 if DEBUG:
     INTERNAL_IPS = (
         "127.0.0.1",
