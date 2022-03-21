@@ -29,6 +29,9 @@ django-cors-headers = "*"
 python-decouple = "*"
 isort = "*"
 flake8 = "*"
+django-extensions = "*"
+django-debug-toolbar = "*"
+werkzeug = "*"
 
 [pipenv]
 allow_prereleases = false
