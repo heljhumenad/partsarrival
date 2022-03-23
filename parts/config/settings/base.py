@@ -10,7 +10,7 @@ STATIC_FILES_PATH = os.path.dirname(
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
-
     "parts.app.accounts",
     "parts.app.partsnumber",
     "parts.app.advisor",
@@ -37,13 +36,15 @@ INSTALLED_APPS = [
     "parts.app.tests",
     # Third partyP
     "bootstrap_modal_forms",
-    "rest_framework"
+    "rest_framework",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     # In built middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -64,20 +65,20 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ],
+            ]
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = "parts.config.wsgi.application"
 
 # Database Configurations
 
-DATABASE_HOST = config('DB_HOST')
-DATABASE_PASSWORD = config('DB_PASSWORD') 
-DATABASE_USER = config('DB_USERNAME') 
-DATABASE_NAME = config('DB_NAME') 
-DATABASE_PORT = config('DB_PORT') 
+DATABASE_HOST = config("DB_HOST")
+DATABASE_PASSWORD = config("DB_PASSWORD")
+DATABASE_USER = config("DB_USERNAME")
+DATABASE_NAME = config("DB_NAME")
+DATABASE_PORT = config("DB_PORT")
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -95,23 +96,30 @@ DATABASES = {
 
 # Database Caches
 CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-            'LOCATION': 'systemcache',
-        }
+    "default": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "systemcache",
+    }
 }
 
+# CORS Middleware
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
 
@@ -130,7 +138,7 @@ USE_L10N = False
 
 USE_TZ = False  # Using aware timezones
 
-DATE_INPUT_FORMATS = ['%m/%d/%Y']
+DATE_INPUT_FORMATS = ["%m/%d/%Y"]
 
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATICFILES_FINDERS = [
@@ -150,4 +158,3 @@ STATICFILES_DIRS = [
 
 # Do not store cookies when browser close
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
