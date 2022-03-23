@@ -29,13 +29,7 @@ django-cors-headers = "*"
 python-decouple = "*"
 isort = "*"
 flake8 = "*"
-<<<<<<< HEAD
-django-extensions = "*"
-django-debug-toolbar = "*"
-werkzeug = "*"
-=======
 django-webpack-loader = "*"
->>>>>>> dev
 
 [pipenv]
 allow_prereleases = false

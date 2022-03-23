@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< HEAD
-            "sha256": "1d9c155fbe27c0db48d6a172ee34000fa4d23783b6e8fe9bd93c09f9e4225021"
-=======
             "sha256": "fbc4f2f1234c10e15af4edefd1771accd42e08ae4b9a3f7b21b70ad1264250b8"
->>>>>>> dev
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -68,27 +64,6 @@
             "hashes": [
                 "sha256:a22be2befd4069c4fc174f11cf067351df5c061a3a5f94a01650b4e928b0372b",
                 "sha256:eb98389bf7a2afc5d374806af4a9149697e3a6955b5a2dc2bf049f7d33647456"
-<<<<<<< HEAD
-            ],
-            "index": "pypi",
-            "version": "==3.11.0"
-        },
-        "django-debug-toolbar": {
-            "hashes": [
-                "sha256:644bbd5c428d3283aa9115722471769cac1bec189edf3a0c855fd8ff870375a9",
-                "sha256:6b633b6cfee24f232d73569870f19aa86c819d750e7f3e833f2344a9eb4b4409"
-            ],
-            "index": "pypi",
-            "version": "==3.2.4"
-        },
-        "django-extensions": {
-            "hashes": [
-                "sha256:28e1e1bf49f0e00307ba574d645b0af3564c981a6dfc87209d48cb98f77d0b1a",
-                "sha256:9238b9e016bb0009d621e05cf56ea8ce5cce9b32e91ad2026996a7377ca28069"
-            ],
-            "index": "pypi",
-            "version": "==3.1.5"
-=======
             ],
             "index": "pypi",
             "version": "==3.11.0"
@@ -100,7 +75,6 @@
             ],
             "index": "pypi",
             "version": "==1.4.1"
->>>>>>> dev
         },
         "djangorestframework": {
             "hashes": [
@@ -321,17 +295,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==20.13.4"
-<<<<<<< HEAD
-        },
-        "werkzeug": {
-            "hashes": [
-                "sha256:1421ebfc7648a39a5c58c601b154165d05cf47a3cd0ccb70857cbdacf6c8f2b8",
-                "sha256:b863f8ff057c522164b6067c9e28b041161b4be5ba4d0daceeaa50a163822d3c"
-            ],
-            "index": "pypi",
-            "version": "==2.0.3"
-=======
->>>>>>> dev
         }
     },
     "develop": {
@@ -340,11 +303,7 @@
                 "sha256:2f8abc20f7248433085eda803936d98992f1343ddb022065779f37c5da0181d0",
                 "sha256:88d59c13d634dcffe0510be048210188edd79aeccb6a6c9028cdad6f31d730a9"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.7'",
-=======
             "markers": "python_full_version >= '3.7.0'",
->>>>>>> dev
             "version": "==3.5.0"
         },
         "async-generator": {
@@ -459,10 +418,7 @@
             "version": "==0.4.4"
         },
         "coverage": {
-<<<<<<< HEAD
-=======
             "extras": [],
->>>>>>> dev
             "hashes": [
                 "sha256:03e2a7826086b91ef345ff18742ee9fc47a6839ccd517061ef8fa1976e652ce9",
                 "sha256:07e6db90cd9686c767dcc593dff16c8c09f9814f5e9c51034066cad3373b914d",
@@ -663,11 +619,7 @@
                 "sha256:3f3244a559290e7d3deb9e9adc7b33594c1bc85a9dd82e0f1be519bf12a1ec17",
                 "sha256:5f06b14366bd1facb88b00540a1de05b69b310cbc2654db3c7e07fa3a4339323"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.7'",
-=======
             "markers": "python_full_version >= '3.7.0'",
->>>>>>> dev
             "version": "==2.4.12"
         },
         "idna": {
@@ -953,11 +905,7 @@
                 "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc",
                 "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.7'",
-=======
             "markers": "python_full_version >= '3.7.0'",
->>>>>>> dev
             "version": "==2.0.1"
         },
         "tornado": {
@@ -1012,11 +960,7 @@
                 "sha256:670a52d3115d0e879e1ac838a4eb999af32f858163e3a704fe4839de2a676070",
                 "sha256:fb2d48e4eab0dfb786a472cd514aaadc71e3445b203bc300bad93daa75d77c1a"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.7'",
-=======
             "markers": "python_full_version >= '3.7.0'",
->>>>>>> dev
             "version": "==0.20.0"
         },
         "trio-websocket": {
@@ -1060,11 +1004,7 @@
                 "sha256:2218cb57952d90b9fca325c0dcfb08c3bda93e8fd8070b0a17f048e2e47a521b",
                 "sha256:a2e56bfd5c7cd83c1369d83b5feccd6d37798b74872866e62616e0ecf111bda8"
             ],
-<<<<<<< HEAD
-            "markers": "python_version >= '3.7'",
-=======
             "markers": "python_full_version >= '3.7.0'",
->>>>>>> dev
             "version": "==1.1.0"
         }
     }
