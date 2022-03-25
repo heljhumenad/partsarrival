@@ -2,13 +2,16 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
+from rest_framework.generics import ListAPIView
 
+from parts.app.partsnumber.serializers import PartNumberClassSerializer
 from parts.app.partsnumber.models import PartNumberClass
 from parts.core.forms import PartNumberClassForm
 
 
 class PartnumberClassTemplateView(generic.ListView):
     template_name = "item_class/index.html"
+    serializer_class = PartNumberClassSerializer
     model = PartNumberClass
     paginate_by = 2
     queryset = PartNumberClass.objects.all()
@@ -20,8 +23,7 @@ class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("partsnumber:parts_show_class")
 
     def get_context_data(self, **kwargs):
-        context = super(PartnumberClassCreateView,
-                        self).get_context_data(**kwargs)
+        context = super(PartnumberClassCreateView, self).get_context_data(**kwargs)
         context["partnumber_class"] = PartNumberClass.objects.all()
         return context
 
@@ -31,7 +33,7 @@ class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = PartNumberClassForm
     model = PartNumberClass
     success_url = reverse_lazy("partsnumber:parts_show_class")
-    context_object_name = 'item_class'
+    context_object_name = "item_class"
 
     def get_first_object(self):
         return super(PartnumberClassUpdateView, self).get_first_object()
@@ -40,7 +42,7 @@ class PartnumberClassUpdateView(LoginRequiredMixin, generic.UpdateView):
 class PartsNumberClassDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "item_class/read_item_class.html"
     model = PartNumberClass
-    context_object_name = 'item_class'
+    context_object_name = "item_class"
 
     def get_first_object(self):
         return super(PartnumberClassUpdateView, self).get_first_object()

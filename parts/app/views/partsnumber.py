@@ -2,16 +2,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views import generic
+from rest_framework.generics import ListAPIView
 
 from parts.app.mixins.common_mixins import PartsNumberMixin
 from parts.app.partsnumber.models import PartsNumber, UnitMeasure
-from parts.core.forms import (PartsNumberForm,
-                              UnitofMeasureForm)
+from parts.app.partsnumber.serializers import PartNumberSerializer
+from parts.core.forms import PartsNumberForm, UnitofMeasureForm
 
 
-class PartNumberTemplateView(generic.ListView):
+class PartNumberTemplateView(ListAPIView):
     template_name = "partsnumber/index.html"
-    model = PartsNumber
+    serializer_class = PartNumberSerializer
+    queryset = PartsNumber.objects.all()
     paginate_by = 10
     context_object_name = "partsnumber"
 
