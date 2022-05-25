@@ -1,0 +1,18 @@
+# Django Environment Example Configurations
+# Install first django-decouple dependencies to use it as and environment variable
+
+# Secret Key
+SECRET_KEY = 'm@y_+2rh8b&_!d+l5gtaq#yom&f0a6wpiw8!3q+bithj%w&t8t'
+
+# Database Config
+DB_USERNAME = 'usjnbrvi'
+DB_PASSWORD = 'bAsgtIVCvjv8Io9sQ0lyriUeNNJET-CN'
+DB_NAME = 'usjnbrvi'
+DB_PORT = '5432'
+DB_HOST = 'john.db.elephantsql.com'
+
+# Email Config
+EMAIL_USERNAME = ''
+EMAIL_PORT = ''
+EMAIL_PASSWORD = ''
+
