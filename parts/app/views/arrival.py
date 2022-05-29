@@ -3,15 +3,19 @@ from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views import generic
 
+from rest_framework.generics import ListAPIView
+
 from parts.app.arrival.models import PartsArrival
 from parts.app.mixins.common_mixins import PartsArrivalMixins
 from parts.core.forms import PartsArrivalForm
+from parts.app.arrival.serializers import PartsArrivalSerializers
 
 
-class PartsArrivalListView(PartsArrivalMixins, generic.ListView):
+class PartsArrivalListView(PartsArrivalMixins, ListAPIView):
     template_name = "arrival/index.html"
-    model = PartsArrival
-    paginate_by = 3
+    serializer_class = PartsArrivalSerializers
+    queryset =  PartsArrival.objects.all()
+    context_object_name = "arrival"
 
 
 class PartsArrivalCreateView(PartsArrivalMixins, generic.CreateView):
