@@ -9,12 +9,12 @@ from parts.app.partsnumber.models import PartNumberClass
 from parts.core.forms import PartNumberClassForm
 
 
-class PartnumberClassTemplateView(generic.ListView):
+class PartnumberClassTemplateView(LoginRequiredMixin, ListAPIView):
     template_name = "item_class/index.html"
     serializer_class = PartNumberClassSerializer
-    model = PartNumberClass
     paginate_by = 2
     queryset = PartNumberClass.objects.all()
+    context_object_name = "itemclass"
 
 
 class PartnumberClassCreateView(LoginRequiredMixin, generic.CreateView):
