@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from rest_framework.generics import ListAPIView
+from rest_framework.permissions import IsAuthenticated # use this as token based authentication
 
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.mixins.common_mixins import ServiceAdvisorMixins
@@ -10,8 +11,9 @@ from parts.core.forms import AdvisorForm
 from parts.app.advisor.serializers import ServiceAdvisorSerializers
 
 
-class AdvisorTemplateView(ServiceAdvisorMixins, ListAPIView):
+class AdvisorTemplateView(ListAPIView):
     template_name = "advisor/index.html"
+    permission_classes = (IsAuthenticated,) # authorization class
     # model = ServiceAdvisor
     serializer_class = ServiceAdvisorSerializers
     queryset = ServiceAdvisor.objects.all()

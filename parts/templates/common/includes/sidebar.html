@@ -4,7 +4,7 @@
           <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <span class="brand-text font-weight-light">NCE Parts Arrival</span>
+      <span class="brand-text font-weight-light">Parts Arrival</span>
     </a>
 
     <!-- Sidebar -->
@@ -115,6 +115,24 @@
                 </a>
             </ul>
           </li>
+			<li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-basket"></i>
+              <p>
+                {% trans "Item Source Code" %}
+                {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+              <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'arrival:arrival_index'%}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{% trans "Add Source Code" %}</p>
+                </a>
+            </ul>
+          </li>
+
                <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
