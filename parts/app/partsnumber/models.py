@@ -8,13 +8,6 @@ from parts.core.models import TimeStampModel
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
-    SOURCE_CODE = (
-        ("01", "Nissan Japan-01"),
-        ("02", "Nissan Taiwan-02"),
-        ("05", "Nissan Thailand-05"),
-        ("08", "Nissan Indonesia-08"),
-    )
-
     PARTNUMBER_STATUS = (
         ("Active", "Active"),
         ("Depcreated", "Depcreated"),
@@ -26,10 +19,10 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
         max_length=200,
         verbose_name=_("Parts Number")
     )
-    source_code = models.CharField(
-        max_length=200,
+    source_code = models.ForeignKey(
+        "SourceCode",
         verbose_name=_("Source Code"),
-        choices=SOURCE_CODE
+        on_delete = models.CASCADE
     )
     bar_code = models.CharField(
         max_length=200,
@@ -109,3 +102,28 @@ class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
 
     def get_absolute_url(self):
         return reverse('item_class_read', args=[str(self.id)])
+
+
+class SourceCode(AbstractUpdateViewManager, TimeStampModel):
+    
+    code = models.CharField(
+        max_length=20,
+        verbose_name= _("Number Code"),
+    )
+
+    desc = models.CharField(
+        max_length=200,
+        verbose_name=_("Soure Code Description"),
+    )
+
+    class Meta:
+        db_table = _("source_code")
+        verbose_name = _("Source Code")
+        verbose_name_plural = _("Source Codes")
+        ordering = ["id"]
+
+    def __str__(self):
+        return self.code
+
+    def get_absolute_url(self):
+        pass # TODO: create index.html file for source code
