@@ -11,7 +11,7 @@ It has built-in queing time in order to track upcoming parts from manufacturing 
 
 # Backend
  - PostgreSQL
- - Django 2.2
+ - Django 4.1
  - Gunicorn
  - Pipenv
  - Django Rest Framework (DRF)
