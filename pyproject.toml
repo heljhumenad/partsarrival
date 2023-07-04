@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "parts-arrival"
+version = "0.1.0"
+description = "An arrival and scheudling system built with django and django rest framework"
+authors = ["Heljhum Enad <heljhumenad@gmail.com>"]
+license = "GPL"
+readme = "README.md"
+packages = [{include = "parts_arrival"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.2.3"
+pyscopg2 = "^66.0.2"
+django-extensions = "^3.2.3"
+django-debug-toolbar = "^4.1.0"
+pytest = "^7.4.0"
+Sphinx = "^7.0.1"
+pytest-faker = "^2.0.0"
+factory-boy = "^3.2.1"
+tox = "^4.6.3"
+django-cors-headers = "^4.1.0"
+python-decouple = "^3.8"
+djangorestframework = "^3.14.0"
+django-filter = "^23.2"
+Markdown = "^3.4.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
