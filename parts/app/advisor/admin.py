@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext as _
 
 from parts.app.advisor.models import ServiceAdvisor
 
