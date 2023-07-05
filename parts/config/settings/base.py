@@ -158,3 +158,5 @@ STATICFILES_DIRS = [
 
 # Do not store cookies when browser close
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+DEFAULT_BASE_PATH = 'parts.app.'

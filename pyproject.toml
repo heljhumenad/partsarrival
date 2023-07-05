@@ -23,6 +23,9 @@ python-decouple = "^3.8"
 djangorestframework = "^3.14.0"
 django-filter = "^23.2"
 Markdown = "^3.4.3"
+django-bootstrap-modal-forms = "^3.0.4"
+django-bootstrap4 = "^23.2"
+psycopg2 = "^2.9.6"
 
 
 [build-system]
