@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import AccessMixin
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext as _
 
 from parts.core.mixins import MessageMixin
 
