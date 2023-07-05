@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     # Third partyP
     "bootstrap_modal_forms",
     "rest_framework",
+    "rest_framework.authtoken",
     "corsheaders",
 ]
 
