@@ -21,9 +21,9 @@ It has built-in queing time in order to track upcoming parts from manufacturing 
 
 ## **Installations**
 ```
- $ pip install pipenv
- $ pipenv shell
- $ pipenv install --all
+ $ pip install poetry 
+ $ poetry install 
+ $ poetry shell 
  $ python manage.py migrate
  $ python manage.py runserver
 ```
