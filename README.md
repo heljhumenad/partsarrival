@@ -13,10 +13,10 @@ It has built-in queing time in order to track upcoming parts from manufacturing 
  - PostgreSQL
  - Django 4.1
  - Gunicorn
- - Pipenv
+ - Poetry 
  - Django Rest Framework (DRF)
 # Frontend
- - Bootstrap4
+ - React.js
  - FontAwesome (Icons and Fonts)
 
 ## **Installations**
@@ -29,10 +29,4 @@ It has built-in queing time in order to track upcoming parts from manufacturing 
 ```
 
 ```https://localhost:8000/```
-## **Architecture**
-Its an client to server architecture where you can migrate this in cloud based environment which compose of AWS (Amazon Web Services) or MS Azure (Microsoft Azure) platform  or more on premises that can be setup as an stand-alone software to be used by your end-user.
-
-## **Licensing**
-Its based on MIT Licensing which you can be allowed to distribute or sell this program and use existing code for modifacations and other stuff to address your needs or your company requirements that fit and compatible for your desired results.
-
 
