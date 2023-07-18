@@ -4,14 +4,10 @@ from django.urls import reverse
 
 from parts.core.managers import AbstractUpdateViewManager
 from parts.core.models import TimeStampModel
+from parts.config.configurations import DESIGNATION
 
 
 class ServiceAdvisor(AbstractUpdateViewManager, TimeStampModel):
-
-    DESIGNATION = (
-        ("SVC", "Service Advisor"),
-        ("BRPSVC", "Service Advisor BRP")
-    )
 
     first_name = models.CharField(
         max_length=200,

@@ -6,5 +6,5 @@ from parts.app.advisor.models import ServiceAdvisor
 class ServiceAdvisorSerializers(serializers.ModelSerializer):
     class Meta:
         model = ServiceAdvisor
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'designation']
 

@@ -1,19 +1,15 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
+from django.core.exceptions import ValidationError
 
 from parts.core.managers import AbstractUpdateViewManager
 from parts.core.models import TimeStampModel
+from parts.core.validators import MAX_VALUE_OF_PARTNUMBER
+from parts.config.configurations import PARTSNUMBER_STATUS
 
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
-
-    PARTNUMBER_STATUS = (
-        ("Active", "Active"),
-        ("Depcreated", "Depcreated"),
-        ("Obsolete", "Obsolete"),
-        ("Deactivated", "Deactivated"),
-    )
 
     partnumber = models.CharField(
         max_length=200,
@@ -60,6 +56,14 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
     @property
     def add_leading_zero(self):
         return str(self.selling_price) + ".00"
+
+    def clean(self):
+        if len(partnumber) != MAX_VALUE_OF_PARTNUMBER or 
+            len(partnumber) > MAX_VALUE_OF_PARTNUMBER:
+                raise ValidationError(
+                        _("Partsnumber %(partnumber)s size is not valid"),
+                        params = {"partnumber": partnumber},
+                )
 
 
 class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):

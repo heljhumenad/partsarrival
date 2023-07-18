@@ -5,15 +5,10 @@ from django.urls import reverse
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.partsnumber.models import (PartNumberClass, PartsNumber)
 from parts.core.models import TimeStampModel
+from parts.config.configurations import REMARKS
 
 
 class PartsArrival(TimeStampModel):
-
-    REMARKS = (
-        ("COMPLETED", "COMPLETED"),
-        ("NOT COMPLETED", "NOT COMPLETED"),
-        ("LACKING", "LACKING"),
-    )
 
     customer_name = models.CharField(
         verbose_name=_("Customer Name"),
