@@ -13,7 +13,8 @@ class FormsForm(forms.ModelForm):
     pass
 
 
-class PartsNumberForm(FormsForm): class Meta:
+class PartsNumberForm(FormsForm):
+    class Meta:
         verbose_name = _("Parts Number")
         verbose_name_plural = _("Parts Numbers")
         model = PartsNumber
