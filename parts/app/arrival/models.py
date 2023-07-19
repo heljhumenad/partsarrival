@@ -1,11 +1,16 @@
 from django.db import models
 from django.utils.translation import gettext as _
 from django.urls import reverse
+from django.core.exceptions import ValidationError
 
 from parts.app.advisor.models import ServiceAdvisor
 from parts.app.partsnumber.models import (PartNumberClass, PartsNumber)
 from parts.core.models import TimeStampModel
 from parts.config.configurations import REMARKS
+from parts.core.validators import (
+    DEFAULT_QTY,
+    DEFAULT_RO_RE_FORMAT
+)
 
 
 class PartsArrival(TimeStampModel):
@@ -68,3 +73,16 @@ class PartsArrival(TimeStampModel):
         # 9/5/2020 12:00 AM
         date_string = self.date_arrival
         return datetime.strptime(date_string, "%m/%d/%y %H:%M:%S")
+
+    def clean(self):
+        if self.qty > DEFAULT_QTY:
+            raise ValidationError(
+                    _("Error %(qty)s quantity"),
+                    params={"qty": self.qty}
+            )
+        elif DEFAULT_RO_RE_FORMAT not in self.ro_number:
+            raise ValidationError(
+                _("Error %(ro_number)s not a valid format"),
+                params = {"ro_number": self.ro_number}
+            )
+        return self

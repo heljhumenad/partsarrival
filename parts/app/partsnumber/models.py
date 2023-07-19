@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 from parts.core.managers import AbstractUpdateViewManager
 from parts.core.models import TimeStampModel
 from parts.core.validators import MAX_VALUE_OF_PARTNUMBER
-from parts.config.configurations import PARTSNUMBER_STATUS
+from parts.config.configurations import PARTNUMBER_STATUS
 
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
@@ -58,12 +58,13 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
         return str(self.selling_price) + ".00"
 
     def clean(self):
-        if len(partnumber) != MAX_VALUE_OF_PARTNUMBER or 
-            len(partnumber) > MAX_VALUE_OF_PARTNUMBER:
+        if (len(self.partnumber) != MAX_VALUE_OF_PARTNUMBER or 
+            len(self.partnumber) > MAX_VALUE_OF_PARTNUMBER):
                 raise ValidationError(
                         _("Partsnumber %(partnumber)s size is not valid"),
-                        params = {"partnumber": partnumber},
+                        params = {"partnumber": self.partnumber},
                 )
+        return self
 
 
 class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
