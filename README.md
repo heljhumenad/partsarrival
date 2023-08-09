@@ -7,18 +7,6 @@ Parts Arrival is an application built to accomodate the task and problems occur 
 
 It has built-in queing time in order to track upcoming parts from manufacturing that need to receive in the main warehouse in order to check its quality and can directly be tag to the warehouse.
 
-## **Technology Used**
-
-# Backend
- - PostgreSQL
- - Django 4.1
- - Gunicorn
- - Poetry 
- - Django Rest Framework (DRF)
-# Frontend
- - React.js
- - FontAwesome (Icons and Fonts)
-
 ## **Installations**
 ```
  $ pip install poetry 
