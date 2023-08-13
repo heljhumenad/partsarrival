@@ -42,7 +42,7 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
     )
     unit_measure = models.ForeignKey(
         "UnitMeasure",
-        verbose_name=_("Stock/UM"),
+        verbose_name=_("Stock/Unit of Measure"),
         on_delete=models.CASCADE
     )
 
@@ -140,7 +140,7 @@ class SourceCode(AbstractUpdateViewManager, TimeStampModel):
         verbose_name= _("Number Code"),
     )
 
-    desc = models.CharField(
+    description = models.CharField(
         max_length=200,
         verbose_name=_("Soure Code Description"),
     )
