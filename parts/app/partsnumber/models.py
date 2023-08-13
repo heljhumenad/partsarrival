@@ -11,6 +11,12 @@ from parts.config.configurations import PARTNUMBER_STATUS
 
 class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
+    # Partnumber will be indicator for the receiving end that this
+    # item was from the manufacturer that been delivered to the selling company
+    # all part number will be standardize in this context
+    # each company vary different approach of naming of its partnumber mostly 
+    # they will proceed the naming from its manufacturer partnumber
+
     partnumber = models.CharField(
         max_length=200,
         verbose_name=_("Parts Number")
@@ -69,7 +75,12 @@ class PartsNumber(AbstractUpdateViewManager, TimeStampModel):
 
 class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 
-    um = models.CharField(
+    # SKU - unit of the parts
+    # handles the unit of measure of the parts number
+    # ex. kg, sm, lg, tons or pcs
+    
+    # SKU - unit of measure
+    sku_um = models.CharField(
         max_length=20,
         verbose_name=_("Unit of Measure")
     )
@@ -85,6 +96,9 @@ class UnitMeasure(AbstractUpdateViewManager, TimeStampModel):
 
 
 class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
+
+    # Handles the class the part number belong
+    # ex cords, wires, tire, or other types class the part number belongs
 
     class_name = models.CharField(
         max_length=20,
@@ -110,7 +124,17 @@ class PartNumberClass(AbstractUpdateViewManager, TimeStampModel):
 
 
 class SourceCode(AbstractUpdateViewManager, TimeStampModel):
+
+    # Source code - number description of its authenticity 
+    # mostly it determine that the partnumber is authentic or a syntetically made from the manufacturing
     
+
+    # it will tell programtically base on the source code of the parts 
+    # it will put on the end of the partsnumber (ex. 122304-19023-01) 
+    # where `01` will be the indicator of its authenticity
+    # the company will be customizing this base on the need of its own company to determine other factors
+    # of segrations of parts that is authentic and syntetically made
+
     code = models.CharField(
         max_length=20,
         verbose_name= _("Number Code"),
@@ -132,3 +156,26 @@ class SourceCode(AbstractUpdateViewManager, TimeStampModel):
 
     def get_absolute_url(self):
         pass # TODO: create index.html file for source code
+
+
+class SellingPrice(TimeStampModel):
+
+    # All parts will be handle on different scheme of selling price 
+    # it also handle discounts and base price for the product
+
+    # TODO: check another field that will be use for selling prices
+    selling_price = models.IntegerField(
+            verbose_name = _("Selling Price")
+    )
+
+    discount_percentage = models.DecimalField(
+            max_digits= 5,
+            decimal_places = 2,
+    )
+
+    class Meta:
+        db_table = _("selling_price")
+        verbose_name = _("Selling Price")
+        verbose_name_plural = _("Selling Prices")
+        ordering = ["id"]
+
